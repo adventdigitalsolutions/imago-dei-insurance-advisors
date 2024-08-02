@@ -6,6 +6,14 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --fs-xs: clamp(0.64rem, 0.04vi + 0.63rem, 0.67rem);
+  --fs-sm: clamp(0.8rem, 0.12vi + 0.77rem, 0.89rem);
+  --fs-base: clamp(1rem, 0.24vi + 0.95rem, 1.19rem);
+  --fs-md: clamp(1.25rem, 0.43vi + 1.16rem, 1.58rem);
+  --fs-lg: clamp(1.56rem, 0.7vi + 1.41rem, 2.11rem);
+  --fs-xl: clamp(1.95rem, 1.1vi + 1.71rem, 2.81rem);
+  --fs-xxl: clamp(2.44rem, 1.67vi + 2.08rem, 3.75rem);
+  --fs-xxxl: clamp(3.05rem, 2.49vi + 2.51rem, 5rem);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,12 +26,6 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -31,3 +33,177 @@ body {
     text-wrap: balance;
   }
 }
+
+button {
+	background: transparent;
+	border: 2px solid var(--button-color, #000);
+	border-radius: 0.25rem;
+}
+
+.hamburger {
+	width: 50px;
+	height: 50px;
+	position: relative;
+}
+
+.line {
+	position: absolute;
+	width: 80%;
+	height: 10%;
+	left: 10%;
+	border-radius: 5px;
+	transition-duration: 0.5s;
+}
+
+.top {
+	top: 20%;
+}
+
+.middle {
+	top: 45%;
+}
+
+.bottom {
+	top: 70%;
+}
+
+.button-two .line {
+	background-color: #000;
+}
+
+/* BUTTON TWO ANIMATION */
+
+.button-two .top {
+	animation: change-top-to-open 750ms forwards;
+}
+
+.button-two[aria-expanded="true"] .top {
+	animation: change-top-to-close 750ms forwards;
+}
+
+.button-two .middle {
+	animation: change-middle-to-open 750ms forwards;
+}
+
+.button-two[aria-expanded="true"] .middle {
+	animation: change-middle-to-close 750ms forwards;
+}
+
+.button-two .bottom {
+	animation: change-bottom-to-open 750ms forwards;
+}
+
+.button-two[aria-expanded="true"] .bottom {
+	animation: change-bottom-to-close 750ms forwards;
+}
+
+@keyframes change-top-to-close {
+	0% {
+		width: 80%;
+		top: 20%;
+		rotate: 0deg;
+	}
+	50% {
+		width: 0;
+		top: 45%;
+		left: 45%;
+		rotate: 0deg;
+	}
+	100% {
+		top: 45%;
+		left: 10%;
+		rotate: -45deg;
+		width: 80%;
+	}
+}
+
+@keyframes change-middle-to-close {
+	0% {
+		width: 80%;
+		top: 45%;
+	}
+	50% {
+		width: 0;
+		left: 50%;
+	}
+	100% {
+		width: 0;
+		left: 50%;
+	}
+}
+
+@keyframes change-bottom-to-close {
+	0% {
+		width: 80%;
+		top: 70%;
+		rotate: 0deg;
+	}
+	50% {
+		width: 0;
+		top: 45%;
+		left: 45%;
+		rotate: 0deg;
+	}
+	100% {
+		top: 45%;
+		left: 10%;
+		rotate: 45deg;
+		width: 80%;
+	}
+}
+
+@keyframes change-top-to-open {
+	0% {
+		top: 45%;
+		left: 10%;
+		rotate: -45deg;
+		width: 80%;
+	}
+	50% {
+		width: 0;
+		top: 45%;
+		left: 45%;
+		rotate: 0deg;
+	}
+	100% {
+		width: 80%;
+		top: 20%;
+		rotate: 0deg;
+	}
+}
+
+@keyframes change-middle-to-open {
+	0% {
+		width: 0;
+		left: 50%;
+	}
+	50% {
+		width: 0;
+		left: 50%;
+	}
+	100% {
+		width: 80%;
+		top: 45%;
+	}
+}
+
+@keyframes change-bottom-to-open {
+	0% {
+		top: 45%;
+		left: 10%;
+		rotate: 45deg;
+		width: 80%;
+	}
+	50% {
+		width: 0;
+		top: 45%;
+		left: 45%;
+		rotate: 0deg;
+	}
+	100% {
+		width: 80%;
+		top: 70%;
+		rotate: 0deg;
+	}
+}
+
