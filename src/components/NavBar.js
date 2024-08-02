@@ -8,8 +8,8 @@ export default function NavBar () {
         <div className="flex items-center justify-between">
           <div className="shrink-0">
             <a href="/" title="" className="">
-              {/* <img className="w-auto h-8" src="https://landingfoliocom.imgix.net/store/collection/saasui/images/logo.svg" alt="" /> */}
-              <span>Imago Dei Logo</span>
+              <img className="w-auto h-32" src="/images/imago-dei-logo.png" alt="" />
+              {/* <span>Imago Dei Logo</span> */}
             </a>
           </div>
 
