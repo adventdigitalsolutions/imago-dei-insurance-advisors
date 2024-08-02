@@ -3,7 +3,7 @@ import MenuBurger from "./MenuBurger"
 export default function NavBar () {
 
   return (
-    <header className="py-4 bg-white sm:py-5 w-full max-w-[1200px]" x-data="{expanded: false}">
+    <header className="py-4 bg-white sm:py-5 w-full" x-data="{expanded: false}">
       <div className="px-4 mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="shrink-0">

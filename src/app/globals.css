@@ -2,30 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --fs-xs: clamp(0.64rem, 0.04vi + 0.63rem, 0.67rem);
-  --fs-sm: clamp(0.8rem, 0.12vi + 0.77rem, 0.89rem);
-  --fs-base: clamp(1rem, 0.24vi + 0.95rem, 1.19rem);
-  --fs-md: clamp(1.25rem, 0.43vi + 1.16rem, 1.58rem);
-  --fs-lg: clamp(1.56rem, 0.7vi + 1.41rem, 2.11rem);
-  --fs-xl: clamp(1.95rem, 1.1vi + 1.71rem, 2.81rem);
-  --fs-xxl: clamp(2.44rem, 1.67vi + 2.08rem, 3.75rem);
-  --fs-xxxl: clamp(3.05rem, 2.49vi + 2.51rem, 5rem);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
+  width: 100%;
+  padding: 0;
+  min-height: 100vh;
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: 1800px;
 }
 
 @layer utilities {
@@ -36,7 +19,7 @@ body {
 
 button {
 	background: transparent;
-	border: 2px solid var(--button-color, #000);
+	border: 2px solid #000;
 	border-radius: 0.25rem;
 }
 
@@ -206,4 +189,3 @@ button {
 		rotate: 0deg;
 	}
 }
-
