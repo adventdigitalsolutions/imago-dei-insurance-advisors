@@ -15,6 +15,87 @@ body {
   max-width: 1800px;
 }
 
+/* For browsers that support clamp  */
+@supports (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+		--fs-xs: clamp(0.64rem, 0.16vi + 0.61rem, 0.84rem);
+		--fs-sm: clamp(0.8rem, 0.25vi + 0.74rem, 1.13rem);
+		--fs-base: clamp(1rem, 0.39vi + 0.91rem, 1.5rem);
+		--fs-md: clamp(1.25rem, 0.58vi + 1.12rem, 2rem);
+		--fs-lg: clamp(1.56rem, 0.86vi + 1.37rem, 2.67rem);
+		--fs-xl: clamp(1.95rem, 1.25vi + 1.68rem, 3.55rem);
+		--fs-2xl: clamp(2.44rem, 1.79vi + 2.05rem, 4.74rem);
+		--fs-3xl: clamp(3.05rem, 2.55vi + 2.49rem, 6.31rem);
+  }
+}
+/* For browsers that don't support clamp */
+@supports not (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+		--fs-xs: 0.64rem;
+		--fs-sm: 0.8rem;
+		--fs-base: 1rem;
+		--fs-md: 1.25rem;
+		--fs-lg: 1.56rem;
+		--fs-xl: 1.95rem;
+		--fs-2xl: 2.44rem;
+		--fs-3xl: 3.05rem;
+  }
+  @media screen and (min-width: 2400px) {
+    :root {
+			--fs-xs: 0.84rem;
+			--fs-sm: 1.13rem;
+			--fs-base: 1.5rem;
+			--fs-md: 2rem;
+			--fs-lg: 2.67rem;
+			--fs-xl: 3.55rem;
+			--fs-2xl: 4.74rem;
+			--fs-3xl: 6.31rem;
+    }
+  }
+}
+
+ h1,  h2,  h3,  h4,  h5,  h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Instrument Sans", sans-serif;
+  line-height: 1.2em;
+}
+
+h1, .h1 {
+  font-size: var(--fs-3xl);
+}
+
+h2, .h2 {
+  font-size: var(--fs-2xl, 33px);
+}
+
+h3, .h3 {
+  font-size: var(--fs-xl, 28px);
+}
+
+h4, .h4 {
+  font-size: var(--fs-lg, 24px);
+}
+
+h5, .h5 {
+  font-size: var(--fs-md, 21px);
+}
+
+p, .p {
+  font-size: var(--fs-base, 16px);
+}
+
+.md {
+  font-size: var(--fs-md);
+}
+
+.sm {
+  font-size: var(--fs-sm);
+}
+
+.xs {
+  font-size: var(--fs-xs);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -192,4 +273,32 @@ button {
 		top: 70%;
 		rotate: 0deg;
 	}
+}
+
+.detail-card-tall {
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  width: 18rem;
+  height: 32rem;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #FFFFFF;
+}
+
+.row {
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.row:nth-child(1) {
+  border-top-right-radius: 0.75rem;
+  border-top-left-radius: 0.75rem;
+  display: flex;
+}
+
+.row:nth-child(3) {
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
 }
