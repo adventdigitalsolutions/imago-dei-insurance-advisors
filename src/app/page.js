@@ -15,6 +15,7 @@ export default function DesignSystem() {
         <div className="sm">Lorem ipsum dolor sit</div>
         <div className="xs">Lorem ipsum dolor sit</div>
       </div>
+      <h4>Primary Colors</h4>
       <div className="flex flex-wrap">
         <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-royal-blue-950"></div>
         <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-royal-blue-900"></div>
@@ -28,11 +29,33 @@ export default function DesignSystem() {
         <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-royal-blue-100"></div>
         <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-royal-blue-50"></div>
       </div>
+      <h4>Accent Colors</h4>
+      <div className="flex flex-wrap">
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-green-600"></div>
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-green-700"></div>
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-green-800"></div>
+      </div>
+      <div className="flex flex-wrap">
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-teal-600"></div>
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-teal-700"></div>
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-teal-800"></div>
+      </div>
+      <div className="flex flex-wrap">
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-rose-500"></div>
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-rose-600"></div>
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-rose-700"></div>
+      </div>
+      <div className="flex flex-wrap">
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-orange-400"></div>
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-orange-500"></div>
+        <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-orange-600"></div>
+      </div>
       <div className="flex flex-wrap">
         <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-yellow-300"></div>
         <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-amber-200"></div>
         <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-yellow-200"></div>
       </div>
+      <h4>Grays</h4>
       <div className="flex flex-wrap">
         <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-gray-700"></div>
         <div className="h-32 w-32 min-w-[8rem] flex justify-center items-center bg-gray-500"></div>
