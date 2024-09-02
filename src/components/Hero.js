@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import NavBar from "./NavBar"
-
 function Hero() {
   return (
     <div className="relative bg-gray-50 w-full">
@@ -28,7 +26,7 @@ function Hero() {
             </div>
           </div>
         </div>
-        <div className="hidden xl:block relative h-64 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full xl:w-1/3">
+        <div className="hidden xl:block relative h-64 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-4 lg:h-full xl:w-1/3">
           <img className="absolute inset-0 h-full w-full object-cover object-bottom" src="/images/family_01.jpg" alt=""/>
         </div>
       </main>
