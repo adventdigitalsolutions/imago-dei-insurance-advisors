@@ -39,7 +39,7 @@ const Section2 = () => {
         <div className="rb-12 mb-12 grid auto-cols-fr grid-cols-1 items-start gap-x-5 gap-y-5 md:mb-18 md:grid-cols-2 md:gap-x-12 lg:mb-20 lg:gap-x-20 lg:gap-y-20">
           <div className="flex h-full flex-col">
             <p className="mb-3 font-semibold md:mb-4">Tagline</p>
-            <h1 className="font-normal text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl">Short Header</h1>
+            <h1 className="text-5xl font-normal md:text-7xl lg:text-8xl">Short Header</h1>
           </div>
           <div className="mx-[7.5%] flex flex-col justify-end md:mt-40">
             <p className="md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
@@ -64,7 +64,7 @@ const Section2 = () => {
                   className="aspect-[3/2] w-full object-cover"
                 />
               </div>
-              <h2 className="mb-3 text-2xl md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
+              <h2 className="mb-3 text-2xl font-semibold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
                 {feature.heading}
               </h2>
               <p>{feature.description}</p>

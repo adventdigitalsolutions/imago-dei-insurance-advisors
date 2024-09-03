@@ -11,7 +11,7 @@ const Content2 = () => {
             </div>
           </div>
           <div>
-            <h2 className="rb-5 mb-5 font-normal md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl">
+            <h2 className="rb-5 mb-5 text-5xl font-normal md:mb-6 md:text-7xl lg:text-8xl">
               Short Heading Goes Here
             </h2>
             <div className="prose">

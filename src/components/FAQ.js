@@ -32,7 +32,7 @@ const Faq7 = () => {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container mx-auto w-full max-w-5xl">
         <div className="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
-          <h2 className="rb-5 mb-5 text-3xl sm:text-5xl font-bold md:mb-6">
+          <h2 className="rb-5 mb-5 text-5xl font-normal md:mb-6 md:text-7xl lg:text-8xl">
             FAQ&apos;s
           </h2>
           <p className="md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
@@ -42,7 +42,7 @@ const Faq7 = () => {
             <div key={index}>
               <details>
                 <summary className="font-semibold text-md">
-                  <span className="details--span">{question.title}</span>
+                  <span className="details--span mb-3 text-lg font-semibold md:mb-4 md:text-xl">{question.title}</span>
                 </summary>
               </details>
               <div className="content">
