@@ -44,7 +44,7 @@ const Section2 = () => {
           <div className="mx-[7.5%] flex flex-col justify-end md:mt-40">
             <p className="md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
             <div className="mt-10 sm:flex sm:justify-center xl:justify-end z-20 rounded-full">
-              <a href="#" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-royal-blue-700 md:px-10 md:py-4 md:text-lg">Get a Free Consultation</a>
+              <a href="https://calendly.com/david-sog0/30min" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-royal-blue-700 md:px-10 md:py-4 md:text-lg">Get a Free Consultation</a>
             </div>
           </div>
         </div>

@@ -3,16 +3,13 @@ const Content2 = () => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-royal-blue-700 bg-opacity-5">
       <div className="">
-        <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
+        <div className="grid grid-cols-1 items-center gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           <div>
-            <img src={"/images/family_in_crosswalk.jpg"} className="w-full object-cover" alt={'family in crosswalk'} />
-            <div className="hidden mt-10 md:flex justify-center z-20 rounded-full">
-              <a href="#" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-royal-blue-700 md:px-10 md:py-4 lg:text-lg">Get a Free Consultation</a>
-            </div>
+            <img src={"/images/headshot.png"} className="h-full w-auto object-cover" alt={'family in crosswalk'} />
           </div>
           <div>
-            <h2 className="rb-5 mb-5 text-5xl font-normal md:mb-6 md:text-7xl lg:text-8xl">
-              Short Heading Goes Here
+            <h2 className="rb-5 mb-5 text-4xl font-normal md:mb-6 md:text-6xl lg:text-7xl">
+              Hi, I&apos;m David Hemm
             </h2>
             <div className="prose">
               <p>
@@ -32,8 +29,8 @@ const Content2 = () => {
                 adipiscing erat a erat. Condimentum lorem posuere gravida enim posuere cursus diam.
               </p>
             </div>
-            <div className="mt-10 flex justify-center md:hidden z-20 rounded-full">
-              <a href="#" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-royal-blue-700 md:px-10 md:py-4 md:text-lg">Get a Free Consultation</a>
+            <div className="mt-10 flex justify-center z-20 rounded-full">
+              <a href="https://calendly.com/david-sog0/30min" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-royal-blue-700 md:px-10 md:py-4 md:text-lg">Get a Free Consultation</a>
             </div>
           </div>
         </div>
