@@ -64,7 +64,7 @@ const Section2 = () => {
                   className="aspect-[3/2] w-full object-cover"
                 />
               </div>
-              <h2 className="mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
+              <h2 className="mb-3 text-2xl md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
                 {feature.heading}
               </h2>
               <p>{feature.description}</p>
