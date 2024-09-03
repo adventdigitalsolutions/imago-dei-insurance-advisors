@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 const Content2 = () => {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-gray-50">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-royal-blue-700 bg-opacity-5">
       <div className="">
         <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           <div>
