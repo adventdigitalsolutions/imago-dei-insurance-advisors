@@ -1,7 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@relume_io/relume-ui";
 import clsx from "clsx";
-import { RxChevronRight } from "react-icons/rx";
 
 const features = [
   {

@@ -1,12 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { FaXTwitter } from "react-icons/fa6";
-import {
-  BiLogoFacebookCircle,
-  BiLogoInstagram,
-  BiLogoLinkedinSquare,
-  BiLogoYoutube,
-} from "react-icons/bi";
-
 export const Footer4 = (props) => {
   const { logo, footerText, columnLinks, footerLinks, socialMediaLinks } = {
     ...Footer4Defaults,
@@ -34,7 +26,7 @@ export const Footer4 = (props) => {
           <div className="flex items-start justify-start justify-items-center gap-x-3 lg:justify-self-end">
             {socialMediaLinks.map((link, index) => (
               <a key={index} href={link.url}>
-                {link.icon}
+                <img src={link.icon} alt="" />
               </a>
             ))}
           </div>
@@ -45,7 +37,7 @@ export const Footer4 = (props) => {
           <ul className="grid grid-flow-row grid-cols-[max-content] items-center justify-center justify-items-center gap-x-0 gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
             {footerLinks.map((link, index) => (
               <li key={index} className="underline decoration-black underline-offset-1 ">
-                <a href={link.url}>{link.title}</a>
+                <a href={link.url} className="h-12">{link.title}</a>
               </li>
             ))}
           </ul>
@@ -73,11 +65,11 @@ export const Footer4Defaults = {
     },
   ],
   socialMediaLinks: [
-    { url: "#", icon: <BiLogoFacebookCircle className="size-6 text-royal-blue-700" /> },
-    { url: "#", icon: <BiLogoInstagram className="size-6 text-royal-blue-700" /> },
-    { url: "#", icon: <FaXTwitter className="size-6 p-0.5 text-royal-blue-700" /> },
-    { url: "#", icon: <BiLogoLinkedinSquare className="size-6 text-royal-blue-700" /> },
-    { url: "#", icon: <BiLogoYoutube className="size-6 text-royal-blue-700" /> },
+    { url: "#", icon: '/images/facebook.png' },
+    { url: "#", icon: 'images/instagram.png' },
+    { url: "#", icon: '/images/twitter.png' },
+    { url: "#", icon: '/images/linkedin.png' },
+    { url: "#", icon: '/images/youtube.png' },
   ],
   footerText: "© 2024 Relume. All rights reserved.",
   footerLinks: [

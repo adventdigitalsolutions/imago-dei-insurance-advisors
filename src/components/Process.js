@@ -40,7 +40,7 @@ export const Layout486 = (props) => {
 
   return (
     <section ref={ref} className="px-[5%] py-16 md:py-24 lg:py-28">
-      <Heading className='h3'>Our Process</Heading>
+      <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">Our Process</h3>
       <div className="container relative grid auto-cols-fr grid-cols-1 items-start gap-x-8 gap-y-12 md:grid-cols-[0.75fr_1fr] md:gap-y-16 lg:grid-cols-[max-content_1fr] lg:gap-x-20">
         <div className="static top-[20%] hidden h-56 overflow-hidden md:sticky md:flex md:items-start">
           <h1 className="text-[6rem] font-semibold leading-[1] md:text-[14rem]">0</h1>

@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { Heading } from "@relume_io/relume-ui";
-
 const Hero2 = () => {
 
   return (
@@ -8,8 +6,8 @@ const Hero2 = () => {
       <div className="container">
         <div className="grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 py-6 lg:grid-cols-2 lg:items-center">
           <div>
-            <Heading headingSize="h2">Imago Dei</Heading>
-            <Heading headingSize="h3">Insurance Advisors</Heading>
+            <h2 className=">mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">Imago Dei</h2>
+            <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">Insurance Advisors</h3>
             <p className="mt-3 max-w-md text-xl text-gray-600 sm:text-3xl md:mt-5 md:max-w-3xl">Bringing a <span className="underline italic font-semibold"> Christian Worldview </span> to Health Benefits</p>
             <div className="flex flex-col gap-2">
               <p className="mt-3 max-w-md text-md text-gray-600 sm:text-2xl md:max-w-5xl">As a business owner, you are called to <span className="underline">love your people</span> and <span className="underline">steward your assets</span>.</p>
