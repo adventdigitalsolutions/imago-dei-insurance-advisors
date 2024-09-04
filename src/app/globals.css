@@ -60,9 +60,9 @@ body {
   line-height: 1.2em;
 }
 
-h1, .h1 {
+/* h1, .h1 {
   font-size: var(--fs-3xl);
-}
+} */
 
 h2, .h2 {
   font-size: var(--fs-2xl, 33px);

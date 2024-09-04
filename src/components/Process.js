@@ -87,7 +87,7 @@ const FeatureCard = ({ ...feature }) => {
       <div className="mt-6 flex items-center gap-x-4 md:mt-8">
       <div className="mt-10 sm:flex sm:justify-center xl:justify-start z-20">
         <div className="rounded-full shadow">
-          <a href="https://calendly.com/david-sog0/30min" className="flex w-full items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-royal-blue-700 md:px-10 md:py-4 md:text-lg">Get a Free Consultation</a>
+          <a href="https://calendly.com/david-sog0/30min" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-4 py-2.5 text-base font-medium text-white hover:bg-royal-blue-700 hover:border-[1px] hover:border-yellow-300 ">Book An Appointment</a>
         </div>
       </div>
       </div>

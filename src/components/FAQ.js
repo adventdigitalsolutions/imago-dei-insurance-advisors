@@ -58,7 +58,7 @@ const Faq7 = () => {
           <p className="md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <div className="mt-10 flex justify-center">
             <div className="rounded-full">
-              <a href="https://calendly.com/david-sog0/30min" className="flex w-fit items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-royal-blue-700 md:px-10 md:py-4 md:text-lg">Get a Free Consultation</a>
+              <a href="https://calendly.com/david-sog0/30min" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-4 py-2.5 text-base font-medium text-white hover:bg-royal-blue-700 hover:border-[1px] hover:border-yellow-300 ">Book An Appointment</a>
             </div>
           </div>
         </div>
