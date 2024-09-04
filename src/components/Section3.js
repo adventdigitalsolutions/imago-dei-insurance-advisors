@@ -11,26 +11,19 @@ const Content2 = () => {
             <h2 className="rb-5 mb-5 text-4xl font-normal md:mb-6 md:text-6xl lg:text-7xl">
               Hi, I&apos;m David Hemm
             </h2>
-            <div className="prose">
+            <div className="prose space-y-6">
               <p>
-                Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est
-                ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. Quisque tristique
-                consequat quam sed. Nisl at scelerisque amet nulla purus habitasse.
+                I am an expert in small business benefits. I understand the unique challenges that small business owners face to provide quality benefits at a price they can afford. I understand the complexities of the health insurance industry and know how to create solutions that meet the needs of each company I work with.
               </p>
               <p>
-                Nunc sed faucibus bibendum feugiat sed interdum. Ipsum egestas condimentum mi massa. In
-                tincidunt pharetra consectetur sed duis facilisis metus. Etiam egestas in nec sed et. Quis
-                lobortis at sit dictum eget nibh tortor commodo cursus.
+                A question I always ask is: What would it look like if we injected “integrity” into the healthcare system? Would it change anything? What would function differently? Is it possible to build plans and designs around that premise? These questions have been guiding my direction in how I pursue innovation.
               </p>
               <p>
-                Odio felis sagittis, morbi feugiat tortor vitae feugiat fusce aliquet. Nam elementum urna
-                nisi aliquet erat dolor enim. Ornare id morbi eget ipsum. Aliquam senectus neque ut id eget
-                consectetur dictum. Donec posuere pharetra odio consequat scelerisque et, nunc tortor. Nulla
-                adipiscing erat a erat. Condimentum lorem posuere gravida enim posuere cursus diam.
+                If we truly want to love our neighbor, then we should want what is best for them and their wellbeing. It also means we need to work hard to find solutions to our current problems. We won’t be able to help everyone, but we will help some, and that is something worth doing.
               </p>
             </div>
             <div className="mt-10 flex justify-center z-20 rounded-full">
-              <a href="https://calendly.com/david-sog0/30min" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-4 py-2.5 text-base font-medium text-white hover:bg-royal-blue-700 hover:border-[1px] hover:border-yellow-300 ">Book An Appointment</a>
+              <a href="https://calendly.com/david-sog0/30min" target="_blank" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-4 py-2.5 text-base font-medium text-white hover:bg-royal-blue-700 hover:border-[1px] hover:border-yellow-300 ">Book An Appointment</a>
             </div>
           </div>
         </div>

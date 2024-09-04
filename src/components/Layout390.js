@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@relume_io/relume-ui";
 import { RxChevronRight } from "react-icons/rx";
+import LinkButton from "./LinkButton";
+import Dialog from "./Dialog";
 
 export const Layout390 = (props) => {
   const { tagline, heading, description, cards } = {
@@ -21,36 +22,7 @@ export const Layout390 = (props) => {
           ))}
         </div>
       </div>
-      <dialog id="relume" class="px-[5%] py-16 md:py-24 lg:py-28">
-        <div class="container">
-          <div class="mx-auto w-full max-w-lg">
-            <h2 class="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              Short heading goes here
-            </h2>
-            <div class="prose">
-              <div>
-                <p>
-                  Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est
-                  ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. Quisque tristique
-                  consequat quam sed. Nisl at scelerisque amet nulla purus habitasse.
-                </p>
-                <p>
-                  Nunc sed faucibus bibendum feugiat sed interdum. Ipsum egestas condimentum mi massa. In
-                  tincidunt pharetra consectetur sed duis facilisis metus. Etiam egestas in nec sed et.
-                  Quis lobortis at sit dictum eget nibh tortor commodo cursus.
-                </p>
-                <p>
-                  Odio felis sagittis, morbi feugiat tortor vitae feugiat fusce aliquet. Nam elementum
-                  urna nisi aliquet erat dolor enim. Ornare id morbi eget ipsum. Aliquam senectus neque ut
-                  id eget consectetur dictum. Donec posuere pharetra odio consequat scelerisque et, nunc
-                  tortor. Nulla adipiscing erat a erat. Condimentum lorem posuere gravida enim posuere
-                  cursus diam.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </dialog>
+      <Dialog/>
     </section>
   );
 };
@@ -67,7 +39,9 @@ const Card = (card) => {
           <p>{card.description}</p>
         </div>
         <div className="mt-5 md:mt-6">
-          <Button {...card.button}>{card.button.title}</Button>
+          <LinkButton
+            buttonText={'Learn more'}
+          />
         </div>
       </div>
       <div className="flex size-full flex-col items-center justify-center self-start lg:h-auto">

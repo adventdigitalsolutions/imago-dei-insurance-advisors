@@ -30,19 +30,19 @@ const features = [
   },
 ]
 
-const Section2 = () => {
+const Features1 = () => {
   return (
-    <section id="relume" className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="features1" className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
       <div className="">
         <div className="rb-12 mb-12 grid auto-cols-fr grid-cols-1 items-start gap-x-5 gap-y-5 md:mb-18 md:grid-cols-2 md:gap-x-12 lg:mb-20 lg:gap-x-20 lg:gap-y-20">
           <div className="flex h-full flex-col">
-            <p className="mb-3 font-semibold md:mb-4">Tagline</p>
+            <p className="mb-3 font-semibold md:mb-4">Your Benefits Partner</p>
             <h1 className="text-5xl font-normal md:text-7xl lg:text-8xl">Imago Dei Works <span className="italic">With</span> You</h1>
           </div>
           <div className="mx-[7.5%] flex flex-col justify-end md:mt-40">
             <p className="md:text-md">We work with small businesses who are seeking to make an impact through their company mission. We are looking for business owners who are ready to align their values to their employee benefits package. We want to find employers who are ready to save money, implement superior healthcare options, and find their employees as ones they are called to steward well.</p>
             <div className="mt-10 sm:flex sm:justify-center xl:justify-end z-20 rounded-full">
-              <a href="https://calendly.com/david-sog0/30min" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-4 py-2.5 text-base font-medium text-white hover:bg-royal-blue-700 hover:border-[1px] hover:border-yellow-300 ">Book An Appointment</a>
+              <a href="https://calendly.com/david-sog0/30min" target="_blank" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-4 py-2.5 text-base font-medium text-white hover:bg-royal-blue-700 hover:border-[1px] hover:border-yellow-300 ">Book An Appointment</a>
             </div>
           </div>
         </div>
@@ -74,4 +74,4 @@ const Section2 = () => {
   );
 };
 
-export default Section2
+export default Features1

@@ -64,9 +64,9 @@ body {
   font-size: var(--fs-3xl);
 } */
 
-h2, .h2 {
+/* h2, .h2 {
   font-size: var(--fs-2xl, 33px);
-}
+} */
 
 h3, .h3 {
   font-size: var(--fs-xl, 28px);

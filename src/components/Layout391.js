@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@relume_io/relume-ui";
+import LinkButton from "./LinkButton";
 import { RxChevronRight } from "react-icons/rx";
+import Dialog from "./Dialog";
 
 export const Layout391 = (props) => {
   const { tagline, heading, description, cards } = {
@@ -21,6 +22,7 @@ export const Layout391 = (props) => {
           ))}
         </div>
       </div>
+      <Dialog/>
     </section>
   );
 };
@@ -40,7 +42,9 @@ const Card = (card) => {
           <p>{card.description}</p>
         </div>
         <div className="mt-5 md:mt-6">
-          <Button {...card.button}>{card.button.title}</Button>
+          <LinkButton
+            buttonText={'Learn more'}
+          />
         </div>
       </div>
     </div>
