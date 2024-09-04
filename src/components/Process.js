@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Heading, useMediaQuery } from "@relume_io/relume-ui";
+// import { useMediaQuery } from "@relume_io/relume-ui";
 import { useRef } from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
@@ -12,7 +12,7 @@ export const Layout486 = (props) => {
   };
 
   const ref = useRef(null);
-  const isTablet = useMediaQuery("(max-width: 991px)");
+  // const isTablet = useMediaQuery("(max-width: 991px)");
 
   const { scrollYProgress } = useScroll({
     target: ref,
