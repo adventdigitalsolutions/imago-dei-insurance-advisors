@@ -1,6 +1,5 @@
 "use client";
 
-// import { useMediaQuery } from "@relume_io/relume-ui";
 import { useRef } from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
@@ -12,7 +11,6 @@ export const Layout486 = (props) => {
   };
 
   const ref = useRef(null);
-  // const isTablet = useMediaQuery("(max-width: 991px)");
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -21,22 +19,12 @@ export const Layout486 = (props) => {
 
   const featureCount = features.length;
   const numbers = Array.from({ length: featureCount }, (_, index) => index + 1);
-  // const y = isTablet
-  //   ? useTransform(
-  //       scrollYProgress,
-  //       [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
-  //       ["0%", "-25%", "-25%", "-50%", "-50%", "-50%", "-75%"],
-  //     )
-  //   : useTransform(
-  //       scrollYProgress,
-  //       [0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
-  //       ["0%", "-25%", "-25%", "-50%", "-50%", "-75%"],
-  //     );
+
   const y = useTransform(
-        scrollYProgress,
-        [0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
-        ["0%", "-25%", "-25%", "-50%", "-50%", "-75%"],
-      );
+    scrollYProgress,
+    [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+    ["0%", "-20%", "-20%", "-40%", "-40%", "-60%", "-60%", "-80%"],
+  );
 
   return (
     <section ref={ref} className="px-[5%] py-16 md:py-24 lg:py-28">
@@ -80,7 +68,7 @@ const FeatureCard = ({ ...feature }) => {
         <motion.div className="h-0.5 w-8 bg-neutral-black" style={{ width }} />
       </div>
       <p className="mb-3 font-semibold md:mb-4">{feature.tagline}</p>
-      <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+      <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl">
         {feature.heading}
       </h2>
       <p className="md:text-md">{feature.description}</p>
@@ -99,10 +87,10 @@ export const Layout486Defaults = {
   features: [
     {
       number: "01",
-      tagline: "Tagline",
-      heading: "Book An Appointment",
+      tagline: "Learn",
+      heading: "Get To Know Your Business",
       description:
-        "We will get to know you, your company mission, your company goals, and how to align a benefits strategy to your mission.",
+        "We will get to know you, your company mission, and your company goals. We will look at your overall circumstances, including the number of employees, demographics, type of business, and budget, and then determine how to align a benefits strategy to your needs.",
       buttons: [
         { title: "Button", variant: "secondary" },
         {
@@ -115,10 +103,10 @@ export const Layout486Defaults = {
     },
     {
       number: "02",
-      tagline: "Tagline",
-      heading: "Benefits Design",
+      tagline: "Evaluate",
+      heading: "Assess Your Current Plan and Review Options",
       description:
-        "We will work to craft a benefits strategy that is purposeful, and better stewards your financial contributions for yourself and your employees.",
+        "We will review your current insurance plan, learn what you like about it, and what you want to change based on your employee's preferences and needs. We will then identify what the ideal plan looks like, including necessary, important, and desired features.",
       buttons: [
         { title: "Button", variant: "secondary" },
         {
@@ -131,10 +119,10 @@ export const Layout486Defaults = {
     },
     {
       number: "03",
-      tagline: "Tagline",
-      heading: "Design Rollout",
+      tagline: "Develop",
+      heading: "Develop Your Customized Plan",
       description:
-        "We will work together to educate your employees, enroll each emplyee in their new benefits, and explain their benefits for maximum utilization",
+        "Imago Dei is independent, we can shop across multiple carriers and insurance styles. We will craft a unique and custom plan tailored to achieve your goals within your budget, and provide the desired benefits for employees.",
       buttons: [
         { title: "Button", variant: "secondary" },
         {
@@ -147,10 +135,26 @@ export const Layout486Defaults = {
     },
     {
       number: "04",
-      tagline: "Tagline",
-      heading: "Ongoing Support",
+      tagline: "Implement",
+      heading: "Implementation & Compliance",
       description:
-        "Our agency will work side by side with you from start to finish. We will continue to monitor the plan design throughout the year. Yes, Semper Reformanda applies here, too",
+        "We will make sure all compliance requirements are met, and assist you in completing the applications. We will set up the enrollment portal and provide training for you and your employees. We will incorporate your existing technology for seamless integration.",
+      buttons: [
+        { title: "Button", variant: "secondary" },
+        {
+          title: "Button",
+          variant: "link",
+          size: "link",
+          iconRight: <RxChevronRight />,
+        },
+      ],
+    },
+    {
+      number: "05",
+      tagline: "Support",
+      heading: "Ongoing Support and Strategy",
+      description:
+        "We will several years ahead to create long-term strategies for maintaining cost efficiency. Our continuous support includes quarterly reviews, new hire enrollments, terminations, COBRA compliance, prescription plan compliance, ACA compliance, and assistance with claims issues. We can provide HR solutions to provide support for compliance and tax filings.",
       buttons: [
         { title: "Button", variant: "secondary" },
         {
