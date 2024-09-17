@@ -154,7 +154,7 @@ export const Layout486Defaults = {
       tagline: "Support",
       heading: "Ongoing Support and Strategy",
       description:
-        "We will several years ahead to create long-term strategies for maintaining cost efficiency. Our continuous support includes quarterly reviews, new hire enrollments, terminations, COBRA compliance, prescription plan compliance, ACA compliance, and assistance with claims issues. We can provide HR solutions to provide support for compliance and tax filings.",
+        "We will look several years ahead to create long-term strategies for maintaining cost efficiency. Our continuous support includes quarterly reviews, new hire enrollments, terminations, COBRA compliance, prescription plan compliance, ACA compliance, and assistance with claims issues. We can provide HR solutions to provide support for compliance and tax filings.",
       buttons: [
         { title: "Button", variant: "secondary" },
         {
