@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-export const Layout486 = (props) => {
+export const Process = (props) => {
   const { features } = {
     ...Layout486Defaults,
     ...props,

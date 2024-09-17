@@ -26,7 +26,7 @@ const questions = [
   },
 ]
 
-const Faq7 = () => {
+const FAQ = () => {
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
@@ -67,4 +67,4 @@ const Faq7 = () => {
   );
 };
 
-export default Faq7
+export default FAQ

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-export const Logos = (props) => {
+export const Partners = (props) => {
   const { heading, logos } = {
     ...Logo3Defaults,
     ...props,
@@ -40,4 +40,4 @@ export const Logo3Defaults = {
   ],
 };
 
-export default Logos
+export default Partners

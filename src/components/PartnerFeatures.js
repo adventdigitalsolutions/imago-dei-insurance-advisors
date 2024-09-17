@@ -30,7 +30,7 @@ const features = [
   },
 ]
 
-const Features1 = () => {
+const PartnerFeatures = () => {
   return (
     <section id="features1" className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
       <div className="">
@@ -75,4 +75,4 @@ const Features1 = () => {
   );
 };
 
-export default Features1
+export default PartnerFeatures
