@@ -53,9 +53,9 @@ const Faq7 = () => {
         </div>
         <div className="mx-auto mt-12 text-center md:mt-18 lg:mt-20">
           <h4 className="mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
-            Still have questions?
+            Set Up Your Initial Appointment
           </h4>
-          <p className="md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className="md:text-md">Get ready to go! Gather your employee census data, and your current plan documents (if any)</p>
           <div className="mt-10 flex justify-center">
             <div className="rounded-full">
               <a href="https://calendly.com/david-sog0/30min" target="_blank" className="flex w-auto items-center justify-center rounded-full border border-transparent bg-royal-blue-600 px-4 py-2.5 text-base font-medium text-white hover:bg-royal-blue-700 hover:border-[1px] hover:border-yellow-300 ">Book An Appointment</a>

@@ -71,7 +71,7 @@ const FeatureCard = ({ ...feature }) => {
       <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl">
         {feature.heading}
       </h2>
-      <p className="md:text-md">{feature.description}</p>
+      <p className="md:text-3xl">{feature.description}</p>
       <div className="mt-6 flex items-center gap-x-4 md:mt-8">
       <div className="mt-10 sm:flex sm:justify-center xl:justify-start z-20">
         <div className="rounded-full shadow">
