@@ -27,9 +27,9 @@ export default function NavBar () {
               </div>
             </div>
           </div>
-          <div className="md:hidden">
+          {/* <div className="md:hidden">
             <MenuBurger/>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
