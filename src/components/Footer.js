@@ -11,7 +11,8 @@ export const Footer4 = (props) => {
           <a href={logo.url} className="lg:justify-self-start">
             <img src={'/images/imago-dei-logo.png'} alt={logo.alt} className="inline-block" />
           </a>
-          {columnLinks.map((column, index) => (
+          <div></div>
+          {/* {columnLinks.map((column, index) => (
             <ul
               key={index}
               className="grid grid-flow-row grid-cols-1 items-start justify-center justify-items-center gap-6 md:grid-flow-col md:grid-cols-[max-content] md:justify-center md:justify-items-start"
@@ -22,11 +23,11 @@ export const Footer4 = (props) => {
                 </li>
               ))}
             </ul>
-          ))}
+          ))} */}
           <div className="flex items-start justify-start justify-items-center gap-x-3 lg:justify-self-end">
             {socialMediaLinks.map((link, index) => (
-              <a key={index} href={link.url}>
-                <img src={link.icon} alt="" />
+              <a key={index} href={link.url} target="_blank">
+                <img src={link.icon} alt="" className="h-16 w-16" />
               </a>
             ))}
           </div>
@@ -34,13 +35,13 @@ export const Footer4 = (props) => {
         <div className="h-px w-full bg-black" />
         <div className="flex flex-col-reverse items-center justify-center justify-items-center pb-4 pt-6 text-sm md:flex-row md:gap-x-6 md:pb-0 md:pt-8">
           <p className="mt-8 md:mt-0">{footerText}</p>
-          <ul className="grid grid-flow-row grid-cols-[max-content] items-center justify-center justify-items-center gap-x-0 gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
+          {/* <ul className="grid grid-flow-row grid-cols-[max-content] items-center justify-center justify-items-center gap-x-0 gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
             {footerLinks.map((link, index) => (
               <li key={index} className="underline decoration-black underline-offset-1 ">
                 <a href={link.url} className="h-12">{link.title}</a>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
     </footer>
@@ -65,13 +66,11 @@ export const Footer4Defaults = {
     },
   ],
   socialMediaLinks: [
-    { url: "#", icon: '/images/facebook.png' },
-    { url: "#", icon: 'images/instagram.png' },
-    { url: "#", icon: '/images/twitter.png' },
-    { url: "#", icon: '/images/linkedin.png' },
-    { url: "#", icon: '/images/youtube.png' },
+    { url: "https://www.facebook.com/profile.php?id=61557799479420", icon: '/images/facebook.png' },
+    { url: "https://www.linkedin.com/company/imago-dei-insurance-advisors/posts/?feedView=all", icon: '/images/linkedin.png' },
+    { url: "https://www.youtube.com/@imagodeinsurance", icon: '/images/youtube.png' },
   ],
-  footerText: "© 2024 Relume. All rights reserved.",
+  footerText: "© 2024 Imago Dei Insurance Advisors. All rights reserved.",
   footerLinks: [
     { title: "Privacy Policy", url: "#" },
     { title: "Terms of Service", url: "#" },

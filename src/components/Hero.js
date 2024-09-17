@@ -2,7 +2,7 @@
 const Hero = () => {
 
   return (
-    <section id="relume" className="px-[5%] bg-royal-blue-700 bg-opacity-5">
+    <section id="relume" className="px-[5%] bg-royal-blue-700 bg-opacity-5 md:py-40">
       <div className="container">
         <div className="grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 py-6 lg:grid-cols-2 lg:items-center">
           <div>
@@ -21,7 +21,7 @@ const Hero = () => {
             </div>
           </div>
           <div>
-            <img src={'/images/family_01_short.jpg'} className="w-full object-cover rounded-sm" alt={'family'} />
+            <img src={'/images/mtg_02.jpg'} className="w-full object-cover rounded-md" alt={'meeting'} />
           </div>
         </div>
       </div>

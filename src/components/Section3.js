@@ -4,8 +4,8 @@ const Content2 = () => {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-royal-blue-700 bg-opacity-5">
       <div className="">
         <div className="grid grid-cols-1 items-center gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
-          <div>
-            <img src={"/images/headshot.png"} className="h-full w-auto object-cover" alt={'family in crosswalk'} />
+          <div className="h-3/4 flex justify-center">
+            <img src={"/images/headshot.png"} className="h-full w-auto object-cover" alt={'David Hemm'} />
           </div>
           <div>
             <h2 className="rb-5 mb-5 text-4xl font-normal md:mb-6 md:text-6xl lg:text-7xl">
