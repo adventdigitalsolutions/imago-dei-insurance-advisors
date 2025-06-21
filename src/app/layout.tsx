@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} ${lora.variable} font-montserrat antialiased`}
+        className={`${montserrat.variable} ${lora.variable} font-montserrat antialiased w-full`}
       >
         <Navbar />
-        {children}
+        <div>{children}</div>
       </body>
     </html>
   );
