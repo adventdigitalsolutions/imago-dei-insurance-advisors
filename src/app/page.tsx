@@ -1,35 +1,37 @@
 import Image from 'next/image';
+import { getCopy } from '@/getCopy';
+import { Button } from '@/components/button';
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full mt-12 relative">
+    <div className="min-h-screen w-full mt-20 relative overflow-clip">
       <div className="relative">
         <Image
           src="/people-chatting.png"
           alt="People Chatting"
           width={800}
           height={400}
-          className="w-full h-auto rounded mb-4 max-h-[700px] object-cover"
+          className="w-full h-[480px] lg:h-auto rounded mb-4 max-h-[700px] object-cover"
         />
-        <div className="absolute inset-0 rounded bg-royal-purple/70 pointer-events-none pl-32 text-white">
-          <div className="mt-20 lg:mt-52">
-            <div className="text-[100px] font-montserrat font-bold">
-              Imago Dei
+        <div className="absolute inset-0 rounded bg-royal-purple/70 pointer-events-none pl-12 lg:pl-32 text-white z-10">
+          <div className="mt-20 lg:mt-32">
+            <div className="text-[40px] lg:text-[100px] font-montserrat font-bold">
+              {getCopy('hero.title')}
             </div>
-            <div className="font-extralight text-[60px] mt-[-20px]">
-              Insurance Advisors
+            <div className="font-extralight text-[28px] lg:text-[60px] mt-[-20px]">
+              {getCopy('hero.subtitle')}
             </div>
           </div>
-          <div className="mt-10 text-3xl max-w-md font-medium">
-            <div className="underline inline">Christian values</div> in a
-            benefits plan you can trust
+          <div className="mt-10 text-2xl lg:text-3xl max-w-md font-medium">
+            <div className="underline inline">
+              {getCopy('hero.description1')}
+            </div>
+            {getCopy('hero.description2')}
           </div>
-        </div>
-      </div>
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-4">
-          <h1 className="text-3xl font-bold text-blue-500 mb-2">Imago Dei</h1>
-          <p className="text-xl text-gray-700">Insurance Advisors</p>
+          <div className="mt-10 gap-4 lg:gap-0 w-72 lg:w-auto flex flex-col lg:flex-row">
+            <Button>{getCopy('hero.button1')}</Button>
+            <Button className="lg:ml-4">{getCopy('hero.button2')}</Button>
+          </div>
         </div>
       </div>
     </div>
