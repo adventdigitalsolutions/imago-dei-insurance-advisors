@@ -41,7 +41,7 @@ export const Navbar = () => {
         </div>
         {/* -- MOBILE -- */}
         <div className="lg:hidden flex items-center space-x-2">
-          <Button variant="small">Book an Appointment</Button>
+          <Button size="small">Book an Appointment</Button>
           <button
             aria-label="Open menu"
             className="ml-2 flex flex-col justify-center items-center w-10 h-10"
@@ -71,7 +71,7 @@ export const Navbar = () => {
           menuOpen ? 'max-h-96 pt-6 pb-9' : 'max-h-0 py-0'
         }`}
       >
-        <ul className="flex flex-col pl-8 items-start space-y-4">
+        <ul className="flex flex-col pl-8 items-start space-y-7">
           {Object.entries(navbarItems).map(([key, label]) => (
             <li key={key}>
               <a

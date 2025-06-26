@@ -11,14 +11,14 @@ export default function Home() {
           alt="People Chatting"
           width={800}
           height={400}
-          className="w-full h-[480px] lg:h-auto rounded mb-4 max-h-[700px] object-cover"
+          className="w-full h-[480px] lg:h-auto mb-4 max-h-[700px] object-cover"
         />
-        <div className="absolute inset-0 rounded bg-royal-purple/70 pointer-events-none pl-12 lg:pl-32 text-white z-10">
-          <div className="mt-20 lg:mt-32">
-            <div className="text-[40px] lg:text-[100px] font-montserrat font-bold">
+        <div className="absolute inset-0 rounded bg-royal-purple/70 pointer-events-none pl-9 lg:pl-32 text-white z-10">
+          <div className="mt-16 lg:mt-32">
+            <div className="text-[44px] lg:text-[100px] font-montserrat font-bold">
               {getCopy('hero.title')}
             </div>
-            <div className="font-extralight text-[28px] lg:text-[60px] mt-[-20px]">
+            <div className="font-extralight text-[32px] lg:text-[60px] mt-[-20px]">
               {getCopy('hero.subtitle')}
             </div>
           </div>
