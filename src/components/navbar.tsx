@@ -37,11 +37,11 @@ export const Navbar = () => {
           </ul>
         </div>
         <div className="hidden lg:block">
-          <Button>Book an Appointment</Button>
+          <Button>{getCopy('navbarAppointment')}</Button>
         </div>
         {/* -- MOBILE -- */}
         <div className="lg:hidden flex items-center space-x-2">
-          <Button size="small">Book an Appointment</Button>
+          <Button size="small">{getCopy('navbarAppointment')}</Button>
           <button
             aria-label="Open menu"
             className="ml-2 flex flex-col justify-center items-center w-10 h-10"

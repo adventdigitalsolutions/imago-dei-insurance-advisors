@@ -5,6 +5,7 @@ export const allSiteCopy = {
     '3': 'About',
     '4': 'Resources',
   },
+  navbarAppointment: 'Book an Appointment',
   hero: {
     title: 'Imago Dei',
     subtitle: 'Insurance Advisors',
