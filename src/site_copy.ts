@@ -20,4 +20,17 @@ export const allSiteCopy = {
     box1Pt3: ' on your\nemployee health care plan',
     box2: 'View our\nBusiness Solutions',
   },
+  missionSection: {
+    missionPt1:
+      'Helping Christian businesses honor Christ by creating healthcare benefit solutions that provide ',
+    missionPt2: 'superior healthcare',
+    missionPt3: ' at a lower cost.',
+  },
+  partnerSection: {
+    partnerPreHeader: 'Your Benefits Partner',
+    partnerBodyPt1: 'Imago Dei\nWorks ',
+    partnerBodyPt2: 'With',
+    partnerBodyPt3: ' You',
+    partnerCta: 'Why use our services?',
+  },
 };
