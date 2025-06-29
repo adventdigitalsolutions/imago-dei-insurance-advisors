@@ -3,7 +3,7 @@ import { getCopy } from '@/getCopy';
 import { Button } from '@/components/button';
 
 export const Hero = () => (
-  <div className="min-h-screen w-full mt-20 relative overflow-clip">
+  <div className=" w-full mt-20 relative overflow-clip">
     <div className="relative">
       <Image
         src="/people-chatting.png"

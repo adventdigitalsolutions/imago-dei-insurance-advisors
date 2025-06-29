@@ -1,0 +1,20 @@
+interface RightArrowProps {
+  className?: string;
+  strokeWidth?: number;
+}
+
+export const RightArrow = ({
+  className = 'h-5 w-5',
+  strokeWidth = 2,
+}: RightArrowProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+);
