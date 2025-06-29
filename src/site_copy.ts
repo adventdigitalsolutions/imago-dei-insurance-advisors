@@ -14,4 +14,7 @@ export const allSiteCopy = {
     button1: 'Business Solutions',
     button2: 'Individual Solutions',
   },
+  businessSolutionsSection: {
+    box2: 'View our Business Solutions'
+  }
 };
