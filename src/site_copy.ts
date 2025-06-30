@@ -33,4 +33,8 @@ export const allSiteCopy = {
     partnerBodyPt3: ' You',
     partnerCta: 'Why use our services?',
   },
+  ctaCard: {
+    preHeader: 'Book a consultation appointment',
+    header: 'Get started today.',
+  },
 };
