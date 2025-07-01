@@ -36,5 +36,8 @@ export const allSiteCopy = {
   ctaCard: {
     preHeader: 'Book a consultation appointment',
     header: 'Get started today.',
+    buttonText: 'Book an Appointment',
+    phoneInfo: '(123) 456-7890',
+    emailInfo: 'david@imagodeinsurance.com',
   },
 };

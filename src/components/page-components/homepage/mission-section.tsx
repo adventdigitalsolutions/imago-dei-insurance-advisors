@@ -14,7 +14,7 @@ export const MissionSection = () => (
       className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-br from-royal-purple/90 to-royal-purple/30"
       aria-hidden="true"
     />
-    <span className="text-white leading-[80px]">
+    <span className="text-white leading-[80px] max-w-5xl">
       {getCopy('missionSection.missionPt1')}
       <span className="underline">{getCopy('missionSection.missionPt2')}</span>
       {getCopy('missionSection.missionPt3')}
