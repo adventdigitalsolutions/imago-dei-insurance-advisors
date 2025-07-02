@@ -15,20 +15,20 @@ export const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Logo Section */}
         <div className="flex flex-col">
-          <div className="mb-8">
+          <div className="mb-8 text-center">
             <Image
               src="/imago-dei-logo.png"
               alt="Imago Dei Insurance Advisors"
               width={200}
               height={80}
-              className="h-auto"
+              className="h-auto m-auto"
             />
           </div>
         </div>
 
         {/* Find us on social media */}
         <div>
-          <h3 className="text-xl font-medium text-royal-purple mb-6">
+          <h3 className="text-lg md:text-xl font-medium text-royal-purple mb-6">
             {getCopy('footer.socialMediaHeader')}
           </h3>
           <div className="flex gap-4">
@@ -65,14 +65,14 @@ export const Footer = () => (
 
         {/* Solutions */}
         <div>
-          <h3 className="text-xl font-medium text-royal-purple mb-6">
+          <h3 className="text-lg md:text-xl font-medium text-royal-purple mb-6">
             {getCopy('footer.solutionsHeader')}
           </h3>
           <ul className="space-y-3">
             <li>
               <a
                 href="/individual-solutions"
-                className="text-slate-gray hover:text-black transition-colors text-lg"
+                className="text-slate-gray hover:text-black transition-colors text-md md:text-lg"
               >
                 {getCopy('footer.individualSolutions')}
               </a>
@@ -80,7 +80,7 @@ export const Footer = () => (
             <li>
               <a
                 href="/business-solutions"
-                className="text-slate-gray hover:text-black transition-colors text-lg"
+                className="text-slate-gray hover:text-black transition-colors text-md md:text-lg"
               >
                 {getCopy('footer.businessSolutions')}
               </a>
@@ -90,14 +90,14 @@ export const Footer = () => (
 
         {/* Who we are */}
         <div>
-          <h3 className="text-xl font-medium text-royal-purple mb-6">
+          <h3 className="text-lg md:text-xl font-medium text-royal-purple mb-6">
             {getCopy('footer.whoWeAreHeader')}
           </h3>
           <ul className="space-y-3">
             <li>
               <a
                 href="/about"
-                className="text-slate-gray hover:text-black transition-colors text-lg"
+                className="text-slate-gray hover:text-black transition-colors text-md md:text-lg"
               >
                 {getCopy('footer.about')}
               </a>
@@ -105,7 +105,7 @@ export const Footer = () => (
             <li>
               <a
                 href="/team"
-                className="text-slate-gray hover:text-black transition-colors text-lg"
+                className="text-slate-gray hover:text-black transition-colors text-md md:text-lg"
               >
                 {getCopy('footer.ourTeam')}
               </a>
@@ -113,7 +113,7 @@ export const Footer = () => (
             <li>
               <a
                 href="/faq"
-                className="text-slate-gray hover:text-black transition-colors text-lg"
+                className="text-slate-gray hover:text-black transition-colors text-md md:text-lg"
               >
                 {getCopy('footer.faq')}
               </a>
@@ -125,7 +125,7 @@ export const Footer = () => (
       {/* Contact Information */}
       <div className="mt-16 pt-8 border-t border-gray-300">
         <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-          <div className="flex items-center text-slate-gray text-lg">
+          <div className="flex items-center text-slate-gray text-md md:text-lg">
             <FaEnvelope className="mr-3 text-royal-purple" />
             <a
               href={`mailto:${getCopy('footer.email')}`}
@@ -134,7 +134,7 @@ export const Footer = () => (
               {getCopy('footer.email')}
             </a>
           </div>
-          <div className="flex items-center text-slate-gray text-lg">
+          <div className="flex items-center text-slate-gray text-md md:text-lg">
             <FaPhone className="mr-3 text-royal-purple" />
             <a
               href={`tel:${getCopy('footer.phone')}`}

@@ -4,7 +4,7 @@ import { RightArrow } from '@/components/icons/right-arrow';
 
 export const BusinessSolutionsSection = () => (
   <div
-    className="relative w-full h-full bg-cover bg-center bg-no-repeat py-40"
+    className="relative w-full h-full bg-cover bg-center bg-no-repeat py-40 overflow-clip"
     style={{
       backgroundImage: 'url(/grid_bg.png)',
     }}
