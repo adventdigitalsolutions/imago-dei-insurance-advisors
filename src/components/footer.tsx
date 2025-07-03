@@ -11,7 +11,7 @@ import Image from 'next/image';
 
 export const Footer = () => (
   <footer className="bg-white text-black py-16 px-8">
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Logo Section */}
         <div className="flex flex-col">
