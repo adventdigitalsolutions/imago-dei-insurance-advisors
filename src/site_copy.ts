@@ -56,4 +56,5 @@ export const allSiteCopy = {
     linkedinUrl: 'https://linkedin.com/company/imagodeiinsurance',
     facebookUrl: 'https://facebook.com/imagodeiinsurance',
   },
+  whoWeAreSection: {},
 };

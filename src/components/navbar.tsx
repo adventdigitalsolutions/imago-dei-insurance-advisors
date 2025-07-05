@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { getCopy } from '@/getCopy';
 import Image from 'next/image';
 import { Button } from '@/components/button';
+import Link from 'next/link';
 
 export const Navbar = () => {
   const navbarItems = getCopy('navbarItems');
@@ -15,12 +16,14 @@ export const Navbar = () => {
   return (
     <nav className="w-full bg-white fixed top-0 z-50 shadow-md">
       <div className="px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
-        <Image
-          src="/imago-dei-logo.png"
-          alt="Imago Dei Logo"
-          width={80}
-          height={80}
-        />
+        <Link href="/">
+          <Image
+            src="/imago-dei-logo.png"
+            alt="Imago Dei Logo"
+            width={80}
+            height={80}
+          />
+        </Link>
         {/* -- DESKTOP -- */}
         <div className="lg:flex hidden">
           <ul className="flex space-x-10">
