@@ -56,5 +56,17 @@ export const allSiteCopy = {
     linkedinUrl: 'https://linkedin.com/company/imagodeiinsurance',
     facebookUrl: 'https://facebook.com/imagodeiinsurance',
   },
-  whoWeAreSection: {},
+  whoWeAreSection: {
+    header: 'WHO WE ARE',
+    missionTitle: 'Mission & Values-aligned',
+    missionSubtitle:
+      'Does your employee benefits program\nstand for the same things you stand for?',
+    alignmentQuestion:
+      'Do you seek to align everything you do through a Christian worldview?',
+    companyName: 'Imago Dei',
+    companyDescription: 'will help you provide a',
+    healthBenefits: 'health benefits package',
+    missionAlignment: 'that works with your\nmission, not against it.',
+    ctaButton: 'BOOK AN APPOINTMENT',
+  },
 };
