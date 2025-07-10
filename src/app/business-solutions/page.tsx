@@ -1,6 +1,7 @@
 'use client';
 
 import { FilloutButton } from '@/components/fillout-button';
+import { PageHeader } from '@/components/page-header';
 import { getCopy } from '@/getCopy';
 
 export default function BusinessSolutionsPage() {
@@ -17,15 +18,7 @@ export default function BusinessSolutionsPage() {
   return (
     <div className="mt-24">
       {/* Hero Section */}
-      <div className="w-full relative overflow-clip">
-        <div className="relative">
-          <div className="p-8 py-12 md:py-20 md:p-20 bg-gradient-to-r from-royal-purple to-royal-purple/30 sm:to-royal-purple/0 flex items-center justify-center">
-            <h1 className="text-white text-4xl lg:text-6xl font-montserrat font-bold tracking-[4px] w-full max-w-5xl uppercase">
-              {getCopy('businessSolutionsPage.hero.title')}
-            </h1>
-          </div>
-        </div>
-      </div>
+      <PageHeader title={getCopy('businessSolutionsPage.hero.title')} />
 
       {/* Main Content */}
       <div className="w-full py-16 lg:py-24 bg-gray-50">
