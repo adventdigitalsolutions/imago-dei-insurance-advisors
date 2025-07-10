@@ -4,7 +4,7 @@ import { FilloutButton } from '@/components/fillout-button';
 import { PageHeader } from '@/components/page-header';
 import { getCopy } from '@/getCopy';
 
-export default function PersonalSolutionsPage() {
+export default function individualSolutionsPage() {
   const dpcBenefits = [
     'Direct Primary Care is medicine the way it should be.',
     'DPC is a monthly subscription to a concierge primary care doctor.',
@@ -37,7 +37,7 @@ export default function PersonalSolutionsPage() {
   return (
     <div className="mt-24">
       {/* Hero Section */}
-      <PageHeader title={getCopy('personalSolutionsPage.hero.title')} />
+      <PageHeader title={getCopy('individualSolutionsPage.hero.title')} />
 
       {/* Main Content */}
       <div className="w-full py-16 lg:py-24 bg-gray-50">
@@ -45,17 +45,17 @@ export default function PersonalSolutionsPage() {
           {/* Introduction Section */}
           <section className="mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              {getCopy('personalSolutionsPage.intro.title')}
+              {getCopy('individualSolutionsPage.intro.title')}
             </h2>
             <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-              {getCopy('personalSolutionsPage.intro.description')}
+              {getCopy('individualSolutionsPage.intro.description')}
             </p>
           </section>
 
           {/* DPC Section */}
           <section className="mb-16 bg-white rounded-lg p-8">
             <h3 className="text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
-              {getCopy('personalSolutionsPage.dpc.title')}
+              {getCopy('individualSolutionsPage.dpc.title')}
             </h3>
             <ul className="space-y-3 text-gray-700 mb-8">
               {dpcBenefits.map((benefit: string, index: number) => (
@@ -70,7 +70,7 @@ export default function PersonalSolutionsPage() {
           {/* DPC + HealthShare */}
           <section className="mb-16 bg-white rounded-lg p-8">
             <h3 className="text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
-              {getCopy('personalSolutionsPage.dpcHealthShare.title')}
+              {getCopy('individualSolutionsPage.dpcHealthShare.title')}
             </h3>
             <ul className="space-y-3 text-gray-700 mb-8">
               {dpcHealthShareBenefits.map((benefit: string, index: number) => (
@@ -85,7 +85,7 @@ export default function PersonalSolutionsPage() {
                 formId="kkN17sB7YCus"
                 className="text-lg px-8 py-4"
               >
-                {getCopy('personalSolutionsPage.dpcHealthShare.buttonText')}
+                {getCopy('individualSolutionsPage.dpcHealthShare.buttonText')}
               </FilloutButton>
             </div>
           </section>
@@ -93,7 +93,7 @@ export default function PersonalSolutionsPage() {
           {/* Virtual DPC + HealthShare */}
           <section className="mb-16 bg-white rounded-lg p-8">
             <h3 className="text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
-              {getCopy('personalSolutionsPage.virtualDpcHealthShare.title')}
+              {getCopy('individualSolutionsPage.virtualDpcHealthShare.title')}
             </h3>
             <ul className="space-y-3 text-gray-700 mb-8">
               {virtualDpcHealthShareBenefits.map(
@@ -111,7 +111,7 @@ export default function PersonalSolutionsPage() {
                 className="text-lg px-8 py-4"
               >
                 {getCopy(
-                  'personalSolutionsPage.virtualDpcHealthShare.buttonText'
+                  'individualSolutionsPage.virtualDpcHealthShare.buttonText'
                 )}
               </FilloutButton>
             </div>
@@ -120,13 +120,13 @@ export default function PersonalSolutionsPage() {
           {/* Major Medical Solutions */}
           <section className="bg-white rounded-lg p-8">
             <h3 className="text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
-              {getCopy('personalSolutionsPage.majorMedical.title')}
+              {getCopy('individualSolutionsPage.majorMedical.title')}
             </h3>
             <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
-              {getCopy('personalSolutionsPage.majorMedical.description')}
+              {getCopy('individualSolutionsPage.majorMedical.description')}
             </p>
             <h4 className="text-xl lg:text-2xl font-semibold text-dark-blue mb-4">
-              {getCopy('personalSolutionsPage.majorMedical.privatePPO.title')}
+              {getCopy('individualSolutionsPage.majorMedical.privatePPO.title')}
             </h4>
             <ul className="space-y-3 text-gray-700 mb-8">
               {privatePPOBenefits.map((benefit: string, index: number) => (
@@ -142,7 +142,7 @@ export default function PersonalSolutionsPage() {
                 className="text-lg px-8 py-4"
               >
                 {getCopy(
-                  'personalSolutionsPage.majorMedical.privatePPO.buttonText'
+                  'individualSolutionsPage.majorMedical.privatePPO.buttonText'
                 )}
               </FilloutButton>
             </div>

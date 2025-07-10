@@ -1,7 +1,7 @@
 export const allSiteCopy = {
   navbarItems: {
     '1': 'Business Solutions',
-    '2': 'Personal Solutions',
+    '2': 'Individual Solutions',
     '3': 'About',
     '4': 'Resources',
   },
@@ -112,9 +112,9 @@ export const allSiteCopy = {
       buttonText: 'Request a Proposal',
     },
   },
-  personalSolutionsPage: {
+  individualSolutionsPage: {
     hero: {
-      title: 'Personal Solutions',
+      title: 'Individual Solutions',
     },
     intro: {
       title: 'Christian HealthShare Solutions',
