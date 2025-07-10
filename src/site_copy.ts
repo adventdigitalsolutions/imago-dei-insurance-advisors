@@ -69,4 +69,102 @@ export const allSiteCopy = {
     missionAlignment: 'that works with your\nmission, not against it.',
     ctaButton: 'BOOK AN APPOINTMENT',
   },
+  resourcesPage: {
+    title: 'Resources',
+  },
+  businessSolutionsPage: {
+    hero: {
+      title: 'Business Solutions',
+    },
+    intro: {
+      title: 'Transform Your Employee Benefits',
+      description:
+        'Health insurance is frustrating. Rates are too high, and employers want to offer quality health plans but lack options. At Imago Dei, we partner with employers to bring high-quality health plans that employees love. We remove waste, fraud, and greed found in traditional plans and build custom solutions employers love.',
+    },
+    flexBenefits: {
+      title: 'Imago Dei Flex Benefits Solution (2-10 Employees)',
+      benefits: [
+        'Our solution allows employers to offer choices to their employees.',
+        'No participation requirements.',
+        'No minimum employer contribution amounts.',
+        'All plans come with HR advisory & top-tier technology.',
+        'All plans come with all compliance and legal documentation for employers.',
+      ],
+      buttonText: 'Request a Proposal',
+    },
+    smallBusiness: {
+      title: 'Small Business Solutions (10-50 Employees)',
+      benefits: [
+        'We build custom solutions for your business.',
+        "We run a benefit's analysis for your company to determine the best plan design for your specific needs.",
+        'We turn one of your largest expenses into a strategic plan saving you and your employees money.',
+      ],
+      buttonText: 'Request a Proposal',
+    },
+    largeBusiness: {
+      title: 'Large Business Solutions (50+ Employees)',
+      benefits: [
+        'ALE (Applicable Large Employers) have unique compliance needs under the ACA.',
+        'We run a risk assessment showing your max exposure.',
+        'Our custom plans are built to fit the unique requirements of your organization.',
+        'We can offer plan designs built around ICHRA, Fully-Insured, Level-Funded, Self-Funded, Captives, and MEC+ Solutions.',
+      ],
+      buttonText: 'Request a Proposal',
+    },
+  },
+  personalSolutionsPage: {
+    hero: {
+      title: 'Personal Solutions',
+    },
+    intro: {
+      title: 'Christian HealthShare Solutions',
+      description:
+        'Tired of traditional insurance? Upset that cash payers pay 70% less than those with insurance? Looking for a less expensive alternative that still provides financial protection? We have the solution for you!',
+    },
+    dpc: {
+      title: 'What is Direct Primary Care (DPC)?',
+      benefits: [
+        'Direct Primary Care is medicine the way it should be.',
+        'DPC is a monthly subscription to a concierge primary care doctor.',
+        'DPC operates outside of health insurance and allows patients to receive 24/7 from a provider they can trust.',
+      ],
+    },
+    dpcHealthShare: {
+      title: 'DPC + HealthShare',
+      benefits: [
+        'In-Office and Virtual Direct Primary Care through our partners at Healthcare2U.',
+        'Patient Advocacy like through PALs & Healthcare2U.',
+        'In-office Urgent Care Visits for a $25 co-pay.',
+        'RX Membership with $0 co-pays on generic medications.',
+        'A HealthShare membership through Sedera for financial peace of mind.',
+      ],
+      buttonText: 'Enroll Now',
+    },
+    virtualDpcHealthShare: {
+      title: 'Virtual DPC + HealthShare',
+      benefits: [
+        'Virtual Direct Primary Care with $0 visits.',
+        'In-office Urgent Care Visits for a $0 co-pay.',
+        'Free labs through Quest Diagnostics.',
+        'RX Membership with $0 co-pays on generic medications.',
+        'A HealthShare membership through Sedera for financial peace of mind.',
+      ],
+      buttonText: 'Enroll Now',
+    },
+    majorMedical: {
+      title: 'Major Medical Solutions',
+      description:
+        'Interested in getting off the marketplace? Looking to get affordable rates? Looking for insurance that sits on a national PPO network? We have the solution for you!',
+      privatePPO: {
+        title: 'Private PPO Plans',
+        benefits: [
+          'Private PPO plans on national networks.',
+          'Underwritten to get the best rates possible.',
+          'Multiple deductible options to choose from.',
+          'Multiple carriers to choose from.',
+        ],
+        buttonText: 'Get a Quote',
+      },
+    },
+  },
 };

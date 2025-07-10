@@ -1,8 +1,10 @@
-import { PortableText, type SanityDocument } from 'next-sanity';
+import { PortableText } from 'next-sanity';
 import { client } from '@/sanity/client';
 import { urlFor } from '@/sanity/image';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Resource } from '@/types/resource';
+import { notFound } from 'next/navigation';
 
 const RESOURCE_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 
@@ -13,11 +15,16 @@ export default async function ResourcePage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const resource = await client.fetch<SanityDocument>(
+  const resource = await client.fetch<Resource | null>(
     RESOURCE_QUERY,
     await params,
     options
   );
+
+  if (!resource) {
+    notFound();
+  }
+
   const resourceImageUrl = resource.image
     ? urlFor(resource.image)?.width(550).height(310).url()
     : null;
@@ -41,7 +48,7 @@ export default async function ResourcePage({
         <p className="mb-6">
           Published: {new Date(resource.publishedAt).toLocaleDateString()}
         </p>
-        {Array.isArray(resource.body) && (
+        {resource.body && Array.isArray(resource.body) && (
           <PortableText
             value={resource.body}
             components={{
