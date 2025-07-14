@@ -1,11 +1,11 @@
 import { getCopy } from '@/getCopy';
 import {
-  FaTwitter,
   FaInstagram,
   FaLinkedin,
   FaFacebookF,
   FaEnvelope,
   FaPhone,
+  FaYoutube,
 } from 'react-icons/fa';
 import Image from 'next/image';
 
@@ -33,20 +33,7 @@ export const Footer = () => (
           </h3>
           <div className="flex gap-4">
             <a
-              href={getCopy('footer.twitterUrl')}
-              className="text-royal-purple hover:text-blue-600 transition-colors"
-              aria-label="Follow us on Twitter"
-            >
-              <FaTwitter size={32} />
-            </a>
-            <a
-              href={getCopy('footer.instagramUrl')}
-              className="text-royal-purple hover:text-blue-600 transition-colors"
-              aria-label="Follow us on Instagram"
-            >
-              <FaInstagram size={32} />
-            </a>
-            <a
+              target="_blank"
               href={getCopy('footer.linkedinUrl')}
               className="text-royal-purple hover:text-blue-600 transition-colors"
               aria-label="Follow us on LinkedIn"
@@ -54,6 +41,23 @@ export const Footer = () => (
               <FaLinkedin size={32} />
             </a>
             <a
+              target="_blank"
+              href={getCopy('footer.youtubeUrl')}
+              className="text-royal-purple hover:text-blue-600 transition-colors"
+              aria-label="Subscribe to our YouTube channel"
+            >
+              <FaYoutube size={32} />
+            </a>
+            <a
+              target="_blank"
+              href={getCopy('footer.instagramUrl')}
+              className="text-royal-purple hover:text-blue-600 transition-colors"
+              aria-label="Follow us on Instagram"
+            >
+              <FaInstagram size={32} />
+            </a>
+            <a
+              target="_blank"
               href={getCopy('footer.facebookUrl')}
               className="text-royal-purple hover:text-blue-600 transition-colors"
               aria-label="Follow us on Facebook"
