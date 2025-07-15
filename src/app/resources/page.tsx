@@ -9,13 +9,9 @@ const RESOURCES_QUERY = `*[
   && defined(slug.current)
 ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, image}`;
 
-const options = { next: { revalidate: 30 } };
-
 export default async function ResourcesPage() {
   const resources = await client.fetch<Resource[]>(
-    RESOURCES_QUERY,
-    {},
-    options
+    RESOURCES_QUERY
   );
 
   return (

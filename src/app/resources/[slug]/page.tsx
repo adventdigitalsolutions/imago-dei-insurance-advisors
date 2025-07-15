@@ -7,8 +7,18 @@ import { Resource } from '@/types/resource';
 import { notFound } from 'next/navigation';
 
 const RESOURCE_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
+const ALL_RESOURCES_QUERY = `*[_type == "post" && defined(slug.current)]{slug}`;
 
-const options = { next: { revalidate: 30 } };
+// Generate static params for all resources at build time
+export async function generateStaticParams() {
+  const resources = await client.fetch<{ slug: { current: string } }[]>(
+    ALL_RESOURCES_QUERY
+  );
+
+  return resources.map((resource) => ({
+    slug: resource.slug.current,
+  }));
+}
 
 export default async function ResourcePage({
   params,
@@ -17,8 +27,7 @@ export default async function ResourcePage({
 }) {
   const resource = await client.fetch<Resource | null>(
     RESOURCE_QUERY,
-    await params,
-    options
+    await params
   );
 
   if (!resource) {
