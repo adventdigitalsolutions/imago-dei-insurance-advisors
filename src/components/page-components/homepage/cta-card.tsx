@@ -1,5 +1,6 @@
 import { Button } from '@/components/button';
 import { getCopy } from '@/getCopy';
+import Link from 'next/link';
 import {
   FaArrowRight,
   FaEnvelope,
@@ -38,12 +39,17 @@ export const CtaCard = () => (
         {getCopy('ctaCard.header')}
       </div>
       <div className="flex mt-16 sm:mt-8 z-20 flex-col sm:flex-row items-center sm:gap-8">
-        <Button className="shadow-md h-fit">
-          <div className="flex items-center uppercase py-3">
-            {getCopy('ctaCard.buttonText')}
-            <FaArrowRight size={15} className="ml-2" />
-          </div>
-        </Button>
+        <Link
+          href="https://calendly.com/david-sog0/30min?month=2025-07"
+          target="_blank"
+        >
+          <Button className="shadow-md h-fit">
+            <div className="flex items-center uppercase py-3">
+              {getCopy('ctaCard.buttonText')}
+              <FaArrowRight size={15} className="ml-2" />
+            </div>
+          </Button>
+        </Link>
         <div className="h-28 rotate-90 sm:rotate-0 bg-black/45 w-[1px]" />
         <div className="font-montserrat font-thin">
           <div className="flex items-center text-black text-2xl">

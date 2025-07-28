@@ -1,6 +1,7 @@
 import { Button } from '@/components/button';
 import { getCopy } from '@/getCopy';
 import { RightArrow } from '@/components/icons/right-arrow';
+import Link from 'next/link';
 
 export const BusinessSolutionsSection = () => (
   <div
@@ -19,12 +20,14 @@ export const BusinessSolutionsSection = () => (
       </div>
       <div className="py-10 pl-14 sm:py-28 sm:px-16 w-11/12 sm:w-1/3 whitespace-pre-line bg-gray-100 text-black text-3xl sm:text-4xl rounded-l-[80px] rounded-r-none overflow-clip self-end">
         {getCopy('businessSolutionsSection.box2')}
-        <Button className="mt-6 flex items-center gap-2">
-          <div className="flex items-center gap-2 pt-[2px]">
-            <div className="mt-[-2px]">{getCopy('navbarItems.1')}</div>
-            <RightArrow />
-          </div>
-        </Button>
+        <Link href="/business-solutions">
+          <Button className="mt-6 flex items-center gap-2">
+            <div className="flex items-center gap-2 pt-[2px]">
+              <div className="mt-[-2px]">{getCopy('navbarItems.1')}</div>
+              <RightArrow />
+            </div>
+          </Button>
+        </Link>
       </div>
     </div>
   </div>

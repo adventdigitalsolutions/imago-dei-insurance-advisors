@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { getCopy } from '@/getCopy';
 import { Button } from '@/components/button';
+import Link from 'next/link';
 
 export const Hero = () => (
   <div className=" w-full mt-20 relative overflow-clip">
@@ -29,10 +30,14 @@ export const Hero = () => (
             {getCopy('hero.description2')}
           </div>
           <div className="mt-10 gap-4 lg:gap-0 w-72 lg:w-auto flex flex-col lg:flex-row">
-            <Button variant="deepBlue">{getCopy('hero.button1')}</Button>
-            <Button variant="deepBlue" className="lg:ml-4">
-              {getCopy('hero.button2')}
-            </Button>
+            <Link href="/business-solutions">
+              <Button variant="deepBlue">{getCopy('hero.button1')}</Button>
+            </Link>
+            <Link href="/individual-solutions">
+              <Button variant="deepBlue" className="lg:ml-4">
+                {getCopy('hero.button2')}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

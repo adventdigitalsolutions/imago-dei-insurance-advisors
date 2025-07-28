@@ -1,4 +1,5 @@
 import { getCopy } from '@/getCopy';
+import Link from 'next/link';
 
 export const PartnerSection = () => (
   <div
@@ -11,16 +12,19 @@ export const PartnerSection = () => (
       <div className="font-extralight text-black text-xl md:text-3xl">
         {getCopy('partnerSection.partnerPreHeader')}
       </div>
-      <div className="text-3xl sm:text-6xl whitespace-pre-line leading-[36px] md:leading-[70px] font-bold sm:mt-2 text-royal-purple">
+      <div className="text-3xl sm:text-6xl whitespace-pre-line leading-[36px] md:leading-[70px] font-bold sm:mt-2 text-royal-purple mb-3 sm:mb-5">
         {getCopy('partnerSection.partnerBodyPt1')}
         <span className="italic">
           {getCopy('partnerSection.partnerBodyPt2')}
         </span>
         {getCopy('partnerSection.partnerBodyPt3')}
       </div>
-      <div className="md:text-2xl font-extralight mt-4 sm:mt-6 cursor-pointer underline decoration-gray-400 decoration-2">
+      <Link
+        className="md:text-2xl font-extralight cursor-pointer underline decoration-gray-400 decoration-2"
+        href="/about"
+      >
         {getCopy('partnerSection.partnerCta')}
-      </div>
+      </Link>
     </div>
   </div>
 );

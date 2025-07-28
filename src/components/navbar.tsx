@@ -40,11 +40,21 @@ export const Navbar = () => {
           </ul>
         </div>
         <div className="hidden lg:block">
-          <Button>{getCopy('navbarAppointment')}</Button>
+          <Link
+            href="https://calendly.com/david-sog0/30min?month=2025-07"
+            target="_blank"
+          >
+            <Button>{getCopy('navbarAppointment')}</Button>
+          </Link>
         </div>
         {/* -- MOBILE -- */}
         <div className="lg:hidden flex items-center space-x-2">
-          <Button size="small">{getCopy('navbarAppointment')}</Button>
+          <Link
+            href="https://calendly.com/david-sog0/30min?month=2025-07"
+            target="_blank"
+          >
+            <Button size="small">{getCopy('navbarAppointment')}</Button>
+          </Link>
           <button
             aria-label="Open menu"
             className="ml-2 flex flex-col justify-center items-center w-10 h-10"
