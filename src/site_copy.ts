@@ -37,7 +37,7 @@ export const allSiteCopy = {
     preHeader: 'Book a consultation appointment',
     header: 'Get started today.',
     buttonText: 'Book an Appointment',
-    phoneInfo: '(123) 456-7890',
+    phoneInfo: '(951) 252-5106',
     emailInfo: 'david@imagodeinsurance.com',
   },
   footer: {
@@ -50,7 +50,7 @@ export const allSiteCopy = {
     ourTeam: 'Our Team',
     faq: 'FAQ',
     email: 'david@imagodeinsurance.com',
-    phone: '(123) 456-7891',
+    phone: '(951) 252-5106',
     linkedinUrl:
       'https://www.linkedin.com/company/imago-dei-insurance-advisors/',
     instagramUrl: 'https://www.instagram.com/imagodeinsuranceadvisors/',
