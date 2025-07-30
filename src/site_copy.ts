@@ -51,9 +51,11 @@ export const allSiteCopy = {
     faq: 'FAQ',
     email: 'david@imagodeinsurance.com',
     phone: '(123) 456-7891',
-    linkedinUrl: 'https://www.linkedin.com/company/imago-dei-insurance-advisors/',
+    linkedinUrl:
+      'https://www.linkedin.com/company/imago-dei-insurance-advisors/',
     instagramUrl: 'https://www.instagram.com/imagodeinsuranceadvisors/',
-    facebookUrl: 'https://www.facebook.com/people/Imago-Dei-Insurance-Advisors/61557799479420',
+    facebookUrl:
+      'https://www.facebook.com/people/Imago-Dei-Insurance-Advisors/61557799479420',
     youtubeUrl: 'https://youtube.com/@imagodeinsurance',
   },
   whoWeAreSection: {
@@ -116,10 +118,15 @@ export const allSiteCopy = {
     hero: {
       title: 'Individual Solutions',
     },
-    intro: {
+    healthShareIntro: {
       title: 'Christian HealthShare Solutions',
       description:
         'Tired of traditional insurance? Upset that cash payers pay 70% less than those with insurance? Looking for a less expensive alternative that still provides financial protection? We have the solution for you!',
+    },
+    majorMedicalIntro: {
+      title: 'Major Medical Insurance Solutions',
+      description:
+        "Looking for something other than state exchange plans? Tired of dealing with the government and afraid you'll mess up with the rules? We have independent national PPO plans built specifically for 1099s, gig workers, and soloentrepreneurs. If you are an individual looking for coverage we have you what you need.",
     },
     dpc: {
       title: 'What is Direct Primary Care (DPC)?',

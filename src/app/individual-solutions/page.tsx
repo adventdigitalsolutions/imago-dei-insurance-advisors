@@ -42,13 +42,54 @@ export default function individualSolutionsPage() {
       {/* Main Content */}
       <div className="w-full py-16 lg:py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-8 lg:px-20">
-          {/* Introduction Section */}
+          {/* Major Medical Intro Section */}
           <section className="mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              {getCopy('individualSolutionsPage.intro.title')}
+              {getCopy('individualSolutionsPage.majorMedicalIntro.title')}
             </h2>
             <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-              {getCopy('individualSolutionsPage.intro.description')}
+              {getCopy('individualSolutionsPage.majorMedicalIntro.description')}
+            </p>
+          </section>
+
+          {/* Major Medical Solutions */}
+          <section className="bg-white rounded-lg p-8 mb-16">
+            <h3 className="text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
+              {getCopy('individualSolutionsPage.majorMedical.title')}
+            </h3>
+            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
+              {getCopy('individualSolutionsPage.majorMedical.description')}
+            </p>
+            <h4 className="text-xl lg:text-2xl font-semibold text-dark-blue mb-4">
+              {getCopy('individualSolutionsPage.majorMedical.privatePPO.title')}
+            </h4>
+            <ul className="space-y-3 text-gray-700 mb-8">
+              {privatePPOBenefits.map((benefit: string, index: number) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-royal-purple mr-3 mt-1">•</span>
+                  <span className="text-lg">{benefit}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="flex justify-center">
+              <FilloutButton
+                formId="wyPpc4rFKjus"
+                className="text-lg px-8 py-4"
+              >
+                {getCopy(
+                  'individualSolutionsPage.majorMedical.privatePPO.buttonText'
+                )}
+              </FilloutButton>
+            </div>
+          </section>
+
+          {/* Health Share Intro Section */}
+          <section className="mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              {getCopy('individualSolutionsPage.healthShareIntro.title')}
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+              {getCopy('individualSolutionsPage.healthShareIntro.description')}
             </p>
           </section>
 
@@ -112,37 +153,6 @@ export default function individualSolutionsPage() {
               >
                 {getCopy(
                   'individualSolutionsPage.virtualDpcHealthShare.buttonText'
-                )}
-              </FilloutButton>
-            </div>
-          </section>
-
-          {/* Major Medical Solutions */}
-          <section className="bg-white rounded-lg p-8">
-            <h3 className="text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
-              {getCopy('individualSolutionsPage.majorMedical.title')}
-            </h3>
-            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
-              {getCopy('individualSolutionsPage.majorMedical.description')}
-            </p>
-            <h4 className="text-xl lg:text-2xl font-semibold text-dark-blue mb-4">
-              {getCopy('individualSolutionsPage.majorMedical.privatePPO.title')}
-            </h4>
-            <ul className="space-y-3 text-gray-700 mb-8">
-              {privatePPOBenefits.map((benefit: string, index: number) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-royal-purple mr-3 mt-1">•</span>
-                  <span className="text-lg">{benefit}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="flex justify-center">
-              <FilloutButton
-                formId="wyPpc4rFKjus"
-                className="text-lg px-8 py-4"
-              >
-                {getCopy(
-                  'individualSolutionsPage.majorMedical.privatePPO.buttonText'
                 )}
               </FilloutButton>
             </div>
