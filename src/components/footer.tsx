@@ -108,7 +108,7 @@ export const Footer = () => (
             </li>
             <li>
               <a
-                href="/team"
+                href="/our-team"
                 className="text-slate-gray hover:text-black transition-colors text-md md:text-lg"
               >
                 {getCopy('footer.ourTeam')}
