@@ -19,5 +19,6 @@
     "className=\\\"([^\\\"]*)\\\"",
     "className=\\{`([^`}]+)`\\}",
     "class=\\\"([^\\\"]*)\\\""
-  ]
+  ],
+  "cSpell.words": ["headshot"]
 }

@@ -38,7 +38,7 @@ export const allSiteCopy = {
     header: 'Get started today.',
     buttonText: 'Book an Appointment',
     phoneInfo: '(951) 252-5106',
-    emailInfo: 'david@imagodeinsurance.com',
+    emailInfo: 'info@imagodeinsurance.com',
   },
   footer: {
     socialMediaHeader: 'Find us on social media',
@@ -49,8 +49,8 @@ export const allSiteCopy = {
     about: 'About',
     ourTeam: 'Our Team',
     faq: 'FAQ',
-    email: 'david@imagodeinsurance.com',
-    phone: '(951) 252-5106',
+    email: 'info@imagodeinsurance.com',
+    phone: '(832) 263-3552',
     linkedinUrl:
       'https://www.linkedin.com/company/imago-dei-insurance-advisors/',
     instagramUrl: 'https://www.instagram.com/imagodeinsuranceadvisors/',
@@ -171,6 +171,21 @@ export const allSiteCopy = {
           'Multiple carriers to choose from.',
         ],
         buttonText: 'Get a Quote',
+      },
+    },
+  },
+  ourTeamPage: {
+    title: 'Our Team',
+    teamMembers: {
+      '1': {
+        name: 'David Hemm',
+        bio: 'I am an expert in small business benefits. I understand the unique challenges that small business owners face to provide quality benefits at a price they can afford. I understand the complexities of the health insurance industry and know how to create solutions that meet the needs of each company I work with.\nA question I always ask is: What would it look like if we injected “integrity” into the healthcare system? Would it change anything? What would function differently? Is it possible to build plans and designs around that premise? These questions have been guiding my direction in how I pursue innovation.\nIf we truly want to love our neighbor, then we should want what is best for them and their wellbeing. It also means we need to work hard to find solutions to our current problems. We won’t be able to help everyone, but we will help some, and that is something worth doing.',
+        headshot: '/david-hemm-headshot.png',
+      },
+      '2': {
+        name: 'Adam Cravens',
+        bio: 'With over 14 years of experience in human resources and organizational management, I’ve had the opportunity to work across industries and business sizes—from serving in leadership roles at a Fortune 100 company to acting as an executive in HR and Operations for a start-up. I also successfully owned and operated my own service business for 6 years before selling it, which gave me firsthand insight into the challenges business owners face. My MBA in Organizational Behavior and Human Resources Management, along with my PHR certification, equips me to offer strategic, faith-driven HR solutions.\nIn every role I’ve held, I’ve learned that effective leadership goes beyond processes and policies—it’s about shaping a culture that reflects integrity, accountability, and purpose. I often consider how applying biblical wisdom to these areas can create environments where both businesses and their employees thrive. How do we lead with humility and grace while still making sound, strategic decisions? This is the balance I strive to achieve in the work I do with Christian business owners.\nThrough my work, I aim to help businesses create not just successful operations, but meaningful workplaces that reflect their faith in action. It’s about fostering environments where people are valued, supported, and equipped to grow, while ensuring the company remains aligned with a biblical worldview. The journey may not always be easy, but with the right solutions and perspective, we can create a lasting impact that goes beyond the bottom line.',
+        headshot: '/adam-cravens-headshot.png',
       },
     },
   },
