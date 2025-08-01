@@ -10,4 +10,5 @@ export interface Resource extends SanityDocument {
   publishedAt: string;
   image?: SanityImageSource;
   body?: PortableTextBlock[];
+  caseStudy?: boolean;
 }
