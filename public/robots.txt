@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://imagodeinsuranceadvisors.com
+
+# Sitemaps
+Sitemap: https://imagodeinsuranceadvisors.com/sitemap.xml
