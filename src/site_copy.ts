@@ -14,6 +14,9 @@ export const allSiteCopy = {
     button1: 'Business Solutions',
     button2: 'Individual Solutions',
   },
+  accentRibbonSection: {
+    accentRibbonText: 'Proud partners of the US Christian Chamber of Commerce',
+  },
   businessSolutionsSection: {
     box1Pt1: 'Save ',
     box1Pt2: '20%-40%',
