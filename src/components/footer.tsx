@@ -114,14 +114,6 @@ export const Footer = () => (
                 {getCopy('footer.ourTeam')}
               </a>
             </li>
-            <li>
-              <a
-                href="/faq"
-                className="text-slate-gray hover:text-black transition-colors text-md md:text-lg"
-              >
-                {getCopy('footer.faq')}
-              </a>
-            </li>
           </ul>
         </div>
       </div>
