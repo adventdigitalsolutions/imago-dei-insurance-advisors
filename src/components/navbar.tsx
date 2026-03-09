@@ -16,7 +16,7 @@ export const Navbar = () => {
   return (
     <nav className="w-full bg-white fixed top-0 z-50 shadow-md">
       <div className="px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
-        <Link href="/">
+        <Link className="lg:w-1/3" href="/">
           <Image
             src="/imago-dei-logo.png"
             alt="Imago Dei Logo"
@@ -25,8 +25,8 @@ export const Navbar = () => {
           />
         </Link>
         {/* -- DESKTOP -- */}
-        <div className="lg:flex hidden">
-          <ul className="flex space-x-10">
+        <div className="lg:flex hidden lg:w-full lg:pr-10">
+          <ul className="flex space-x-10 items-right w-full justify-end">
             {Object.entries(navbarItems).map(([key, label]) => (
               <li key={key}>
                 <a
@@ -39,7 +39,7 @@ export const Navbar = () => {
             ))}
           </ul>
         </div>
-        <div className="hidden lg:block">
+        <div className="hidden lg:block lg:w-2/5">
           <Link
             href="https://calendly.com/david-sog0/30min?month=2025-07"
             target="_blank"

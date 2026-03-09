@@ -1,9 +1,8 @@
 export const allSiteCopy = {
   navbarItems: {
     '1': 'Business Solutions',
-    '2': 'Individual Solutions',
-    '3': 'About',
-    '4': 'Resources',
+    '2': 'About',
+    '3': 'Resources',
   },
   navbarAppointment: 'Book an Appointment',
   hero: {
@@ -12,7 +11,6 @@ export const allSiteCopy = {
     description1: 'Christian values',
     description2: ' in a benefits plan you can trust',
     button1: 'Business Solutions',
-    button2: 'Individual Solutions',
   },
   accentRibbonSection: {
     accentRibbonText: 'Proud partners of the US Christian Chamber of Commerce',
@@ -47,7 +45,6 @@ export const allSiteCopy = {
     socialMediaHeader: 'Find us on social media',
     solutionsHeader: 'Solutions',
     whoWeAreHeader: 'Who we are',
-    individualSolutions: 'Individual Solutions',
     businessSolutions: 'Business Solutions',
     about: 'About',
     ourTeam: 'Our Team',
@@ -115,66 +112,6 @@ export const allSiteCopy = {
         'We can offer plan designs built around ICHRA, Fully-Insured, Level-Funded, Self-Funded, Captives, and MEC+ Solutions.',
       ],
       buttonText: 'Request a Proposal',
-    },
-  },
-  individualSolutionsPage: {
-    hero: {
-      title: 'Individual Solutions',
-    },
-    healthShareIntro: {
-      title: 'Christian HealthShare Solutions',
-      description:
-        'Tired of traditional insurance? Upset that cash payers pay 70% less than those with insurance? Looking for a less expensive alternative that still provides financial protection? We have the solution for you!',
-    },
-    majorMedicalIntro: {
-      title: 'Major Medical Insurance Solutions',
-      description:
-        "Looking for something other than state exchange plans? Tired of dealing with the government and afraid you'll mess up with the rules? We have independent national PPO plans built specifically for 1099s, gig workers, and soloentrepreneurs. If you are an individual looking for coverage we have you what you need.",
-    },
-    dpc: {
-      title: 'What is Direct Primary Care (DPC)?',
-      benefits: [
-        'Direct Primary Care is medicine the way it should be.',
-        'DPC is a monthly subscription to a concierge primary care doctor.',
-        'DPC operates outside of health insurance and allows patients to receive 24/7 from a provider they can trust.',
-      ],
-    },
-    dpcHealthShare: {
-      title: 'DPC + HealthShare',
-      benefits: [
-        'In-Office and Virtual Direct Primary Care through our partners at Healthcare2U.',
-        'Patient Advocacy like through PALs & Healthcare2U.',
-        'In-office Urgent Care Visits for a $25 co-pay.',
-        'RX Membership with $0 co-pays on generic medications.',
-        'A HealthShare membership through Sedera for financial peace of mind.',
-      ],
-      buttonText: 'Enroll Now',
-    },
-    virtualDpcHealthShare: {
-      title: 'Virtual DPC + HealthShare',
-      benefits: [
-        'Virtual Direct Primary Care with $0 visits.',
-        'In-office Urgent Care Visits for a $0 co-pay.',
-        'Free labs through Quest Diagnostics.',
-        'RX Membership with $0 co-pays on generic medications.',
-        'A HealthShare membership through Sedera for financial peace of mind.',
-      ],
-      buttonText: 'Enroll Now',
-    },
-    majorMedical: {
-      title: 'Major Medical Solutions',
-      description:
-        'Interested in getting off the marketplace? Looking to get affordable rates? Looking for insurance that sits on a national PPO network? We have the solution for you!',
-      privatePPO: {
-        title: 'Private PPO Plans',
-        benefits: [
-          'Private PPO plans on national networks.',
-          'Underwritten to get the best rates possible.',
-          'Multiple deductible options to choose from.',
-          'Multiple carriers to choose from.',
-        ],
-        buttonText: 'Get a Quote',
-      },
     },
   },
   ourTeamPage: {

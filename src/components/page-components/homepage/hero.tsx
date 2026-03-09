@@ -33,11 +33,6 @@ export const Hero = () => (
             <Link href="/business-solutions">
               <Button variant="deepBlue">{getCopy('hero.button1')}</Button>
             </Link>
-            <Link href="/individual-solutions">
-              <Button variant="deepBlue" className="lg:ml-4">
-                {getCopy('hero.button2')}
-              </Button>
-            </Link>
           </div>
         </div>
       </div>
