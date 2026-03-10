@@ -34,7 +34,7 @@ export default function OurTeamPage() {
                 />
               </div>
               <div className="text-left">
-                <h3 className="text-2xl text-royal-purple font-semibold mt-8">
+                <h3 className="font-lora text-2xl text-royal-purple font-semibold mt-8">
                   {name}
                 </h3>
                 <p className="text-black/60 mb-4 mt-4">

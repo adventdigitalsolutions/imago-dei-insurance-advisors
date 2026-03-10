@@ -52,7 +52,7 @@ export default async function ResourcePage({
           height={310}
         />
       )}
-      <h1 className="text-4xl font-bold mb-8">{resource.title}</h1>
+      <h1 className="font-lora text-4xl font-bold mb-8">{resource.title}</h1>
       <div className="prose">
         <p className="mb-6">
           Published: {new Date(resource.publishedAt).toLocaleDateString()}
@@ -63,7 +63,7 @@ export default async function ResourcePage({
             components={{
               block: {
                 normal: ({ children }) => (
-                  <p className="mb-5 font-montserrat">{children}</p>
+                  <p className="mb-5">{children}</p>
                 ),
               },
             }}

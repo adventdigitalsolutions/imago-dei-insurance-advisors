@@ -8,10 +8,12 @@ module.exports = {
         'royal-purple': '#5271FF',
         'slate-gray': '#A1A5B0',
         'slate-grey': '#A1A5B0',
+        navy: '#0d2137',
+        'pale-blue': '#EEF2FF',
       },
       fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
-        lora: ['Lora', 'serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
+        lora: ['var(--font-lora)', 'serif'],
       },
       fontWeight: {
         thin: '100',

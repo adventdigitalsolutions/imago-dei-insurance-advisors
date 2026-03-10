@@ -25,7 +25,7 @@ export default function BusinessSolutionsPage() {
         <div className="max-w-6xl mx-auto px-8 lg:px-20">
           {/* Introduction Section */}
           <section className="mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="font-lora text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               {getCopy('businessSolutionsPage.intro.title')}
             </h2>
             <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
@@ -35,7 +35,7 @@ export default function BusinessSolutionsPage() {
 
           {/* Flex Benefits Solution */}
           <section className="mb-16 bg-white rounded-lg p-8">
-            <h3 className="text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
+            <h3 className="font-lora text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
               {getCopy('businessSolutionsPage.flexBenefits.title')}
             </h3>
             <ul className="space-y-3 text-gray-700 mb-8">
@@ -59,7 +59,7 @@ export default function BusinessSolutionsPage() {
 
           {/* Small Business Solutions */}
           <section className="mb-16 bg-white rounded-lg p-8">
-            <h3 className="text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
+            <h3 className="font-lora text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
               {getCopy('businessSolutionsPage.smallBusiness.title')}
             </h3>
             <ul className="space-y-3 text-gray-700 mb-8">
@@ -83,7 +83,7 @@ export default function BusinessSolutionsPage() {
 
           {/* Large Business Solutions */}
           <section className="bg-white rounded-lg p-8">
-            <h3 className="text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
+            <h3 className="font-lora text-2xl lg:text-3xl font-bold text-dark-blue mb-6">
               {getCopy('businessSolutionsPage.largeBusiness.title')}
             </h3>
             <ul className="space-y-3 text-gray-700 mb-8">

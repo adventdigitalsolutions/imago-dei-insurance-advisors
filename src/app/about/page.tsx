@@ -16,7 +16,7 @@ export default function AboutPage() {
             {/* Left Content */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 md:mb-14">
+                <h2 className="font-lora text-3xl lg:text-4xl font-bold text-gray-900 mb-6 md:mb-14">
                   {getCopy('whoWeAreSection.missionTitle')}
                 </h2>
                 <p className="text-lg lg:text-xl text-gray-700 leading-relaxed sm:whitespace-pre-line">

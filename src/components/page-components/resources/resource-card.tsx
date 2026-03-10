@@ -33,7 +33,7 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
 					)}
 				</div>
 				<div className="p-6">
-					<h2 className="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors duration-200">
+					<h2 className="font-lora text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors duration-200">
 						{resource.title}
 					</h2>
 					<p className="text-gray-600 text-sm">

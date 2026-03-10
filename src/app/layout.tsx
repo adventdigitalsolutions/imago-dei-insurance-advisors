@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { Montserrat, Lora } from 'next/font/google';
+import { Nunito, Lora } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 
-const montserrat = Montserrat({
+const nunito = Nunito({
   variable: '--font-montserrat',
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
 const lora = Lora({
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} ${lora.variable} font-montserrat antialiased w-full`}
+        className={`${nunito.variable} ${lora.variable} font-montserrat antialiased w-full`}
       >
         <Navbar />
         <div>{children}</div>

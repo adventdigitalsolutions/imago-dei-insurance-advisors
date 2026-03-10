@@ -6,6 +6,7 @@ export const allSiteCopy = {
   },
   navbarAppointment: 'Book an Appointment',
   hero: {
+    eyebrow: 'Faith-Based Healthcare Benefits',
     title: 'Imago Dei',
     subtitle: 'Insurance Advisors',
     description1: 'Christian values',
