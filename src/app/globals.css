@@ -6,13 +6,18 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #f8fbfe;
+  color: #1c2f46;
+}
+
 ::selection {
-  background-color: #5271ff;
+  background-color: #2f6fae;
   color: white;
 }
 
 *:focus-visible {
-  outline: 2px solid #5271ff;
+  outline: 2px solid #2f6fae;
   outline-offset: 2px;
   border-radius: 2px;
 }

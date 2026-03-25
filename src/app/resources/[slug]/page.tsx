@@ -39,36 +39,43 @@ export default async function ResourcePage({
     : null;
 
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4 mt-24">
-      <Link href="/resources" className="hover:underline mb-5">
-        ← Back to resources
-      </Link>
-      {resourceImageUrl && (
-        <Image
-          src={resourceImageUrl}
-          alt={resource.title}
-          className="rounded-xl object-cover"
-          width={550}
-          height={310}
-        />
-      )}
-      <h1 className="font-lora text-4xl font-bold mb-8">{resource.title}</h1>
-      <div className="prose">
-        <p className="mb-6">
-          Published: {new Date(resource.publishedAt).toLocaleDateString()}
-        </p>
-        {resource.body && Array.isArray(resource.body) && (
-          <PortableText
-            value={resource.body}
-            components={{
-              block: {
-                normal: ({ children }) => (
-                  <p className="mb-5">{children}</p>
-                ),
-              },
-            }}
-          />
-        )}
+    <main className="bg-medical-sky/45 mt-24">
+      <div className="container mx-auto min-h-screen max-w-3xl p-8 md:py-12 flex flex-col gap-4">
+        <Link
+          href="/resources"
+          className="hover:underline mb-5 text-medical-blue hover:text-medical-navy transition-colors"
+        >
+          ← Back to resources
+        </Link>
+        <article className="bg-white border border-clinical-border rounded-2xl p-6 md:p-8 shadow-sm">
+          {resourceImageUrl && (
+            <Image
+              src={resourceImageUrl}
+              alt={resource.title}
+              className="rounded-xl object-cover mb-6"
+              width={550}
+              height={310}
+            />
+          )}
+          <h1 className="font-lora text-4xl font-bold mb-8 text-ink">{resource.title}</h1>
+          <div className="prose prose-lg prose-p:text-muted-ink prose-headings:text-ink max-w-none">
+            <p className="mb-6 text-muted-ink">
+              Published: {new Date(resource.publishedAt).toLocaleDateString()}
+            </p>
+            {resource.body && Array.isArray(resource.body) && (
+              <PortableText
+                value={resource.body}
+                components={{
+                  block: {
+                    normal: ({ children }) => (
+                      <p className="mb-5 leading-relaxed">{children}</p>
+                    ),
+                  },
+                }}
+              />
+            )}
+          </div>
+        </article>
       </div>
     </main>
   );

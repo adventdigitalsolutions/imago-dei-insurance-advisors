@@ -10,7 +10,7 @@ import {
 import Image from 'next/image';
 
 export const Footer = () => (
-  <footer className="bg-dark-blue text-white py-16 px-8">
+  <footer className="bg-medical-navy text-white py-16 px-8">
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Logo Section */}
@@ -35,7 +35,7 @@ export const Footer = () => (
             <a
               target="_blank"
               href={getCopy('footer.linkedinUrl')}
-              className="text-white/60 hover:text-royal-purple transition-colors"
+              className="text-white/70 hover:text-white transition-colors"
               aria-label="Follow us on LinkedIn"
             >
               <FaLinkedin size={24} />
@@ -43,7 +43,7 @@ export const Footer = () => (
             <a
               target="_blank"
               href={getCopy('footer.youtubeUrl')}
-              className="text-white/60 hover:text-royal-purple transition-colors"
+              className="text-white/70 hover:text-white transition-colors"
               aria-label="Subscribe to our YouTube channel"
             >
               <FaYoutube size={24} />
@@ -51,7 +51,7 @@ export const Footer = () => (
             <a
               target="_blank"
               href={getCopy('footer.instagramUrl')}
-              className="text-white/60 hover:text-royal-purple transition-colors"
+              className="text-white/70 hover:text-white transition-colors"
               aria-label="Follow us on Instagram"
             >
               <FaInstagram size={24} />
@@ -59,7 +59,7 @@ export const Footer = () => (
             <a
               target="_blank"
               href={getCopy('footer.facebookUrl')}
-              className="text-white/60 hover:text-royal-purple transition-colors"
+              className="text-white/70 hover:text-white transition-colors"
               aria-label="Follow us on Facebook"
             >
               <FaFacebookF size={24} />
@@ -111,10 +111,10 @@ export const Footer = () => (
       </div>
 
       {/* Contact Information */}
-      <div className="mt-16 pt-8 border-t border-white/10">
+      <div className="mt-16 pt-8 border-t border-white/15">
         <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
           <div className="flex items-center text-white/60">
-            <FaEnvelope className="mr-3 text-royal-purple" />
+            <FaEnvelope className="mr-3 text-white/80" />
             <a
               href={`mailto:${getCopy('footer.email')}`}
               className="hover:text-white transition-colors"
@@ -123,7 +123,7 @@ export const Footer = () => (
             </a>
           </div>
           <div className="flex items-center text-white/60">
-            <FaPhone className="mr-3 text-royal-purple" />
+            <FaPhone className="mr-3 text-white/80" />
             <a
               href={`tel:${getCopy('footer.phone')}`}
               className="hover:text-white transition-colors"

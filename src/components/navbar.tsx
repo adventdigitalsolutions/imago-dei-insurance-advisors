@@ -22,7 +22,7 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`w-full bg-white/95 backdrop-blur-sm fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-md' : 'border-b border-gray-100'
+      className={`w-full bg-white/95 backdrop-blur-sm fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-sm border-b border-clinical-border' : 'border-b border-clinical-border/70'
         }`}
     >
       <div className="px-6 py-3 flex items-center justify-between max-w-6xl mx-auto">
@@ -41,7 +41,7 @@ export const Navbar = () => {
               <li key={key}>
                 <a
                   href={`${formatLink(label)}`}
-                  className="text-gray-600 font-medium text-sm tracking-wide uppercase transition-colors duration-200 hover:text-royal-purple border-b-2 border-transparent hover:border-royal-purple pb-0.5"
+                  className="text-muted-ink font-semibold text-sm tracking-wide uppercase transition-colors duration-200 hover:text-medical-navy border-b-2 border-transparent hover:border-medical-blue pb-0.5"
                 >
                   {label}
                 </a>
@@ -71,15 +71,15 @@ export const Navbar = () => {
             onClick={() => setMenuOpen((open) => !open)}
           >
             <span
-              className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''
+              className={`block w-6 h-0.5 bg-ink transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''
                 }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-gray-700 my-1 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''
+              className={`block w-6 h-0.5 bg-ink my-1 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''
                 }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''
+              className={`block w-6 h-0.5 bg-ink transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''
                 }`}
             />
           </button>
@@ -87,7 +87,7 @@ export const Navbar = () => {
       </div>
       {/* Mobile menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 bg-white border-t border-gray-100 ${menuOpen ? 'max-h-96 pt-6 pb-9' : 'max-h-0 py-0'
+        className={`lg:hidden overflow-hidden transition-all duration-300 bg-white border-t border-clinical-border ${menuOpen ? 'max-h-96 pt-6 pb-9' : 'max-h-0 py-0'
           }`}
       >
         <ul className="flex flex-col pl-8 items-start space-y-6">
@@ -95,7 +95,7 @@ export const Navbar = () => {
             <li key={key}>
               <a
                 href={`${formatLink(label)}`}
-                className="text-gray-700 font-medium uppercase tracking-wide text-xl transition-colors hover:text-royal-purple"
+                className="text-ink font-medium uppercase tracking-wide text-xl transition-colors hover:text-medical-blue"
                 onClick={() => setMenuOpen(false)}
               >
                 {label}

@@ -10,16 +10,16 @@ export default function AboutPage() {
       <PageHeader title={getCopy('whoWeAreSection.header')} />
 
       {/* Mission & Values Section */}
-      <div className="w-full py-16 lg:py-24 bg-gray-50">
+      <div className="w-full py-16 lg:py-24 bg-medical-sky/45">
         <div className="max-w-6xl mx-auto px-8 lg:px-20">
           <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="space-y-8">
               <div>
-                <h2 className="font-lora text-3xl lg:text-4xl font-bold text-gray-900 mb-6 md:mb-14">
+                <h2 className="font-lora text-3xl lg:text-4xl font-bold text-ink mb-6 md:mb-14">
                   {getCopy('whoWeAreSection.missionTitle')}
                 </h2>
-                <p className="text-lg lg:text-xl text-gray-700 leading-relaxed sm:whitespace-pre-line">
+                <p className="text-lg lg:text-xl text-muted-ink leading-relaxed sm:whitespace-pre-line">
                   {getCopy('whoWeAreSection.missionSubtitle')}
                 </p>
               </div>
@@ -29,11 +29,11 @@ export default function AboutPage() {
             <div className="flex justify-end lg:justify-end">
               <div className="relative w-full max-w-md">
                 <Image
-                  src="/open-bible.jpg"
-                  alt="Open Bible"
+                  src="/people-chatting.png"
+                  alt="Healthcare advisors in discussion"
                   width={400}
                   height={300}
-                  className="w-full h-auto rounded-lg object-cover"
+                  className="w-full h-[320px] rounded-2xl object-cover border border-clinical-border shadow-sm"
                 />
               </div>
             </div>
@@ -47,17 +47,17 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <p className="text-xl lg:text-2xl text-gray-700 leading-loose">
+              <p className="text-xl lg:text-2xl text-muted-ink leading-loose">
                 {getCopy('whoWeAreSection.alignmentQuestion')}
               </p>
 
               <div className="space-y-4">
-                <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                  <span className="text-royal-purple font-semibold">
+                <p className="text-lg lg:text-xl text-muted-ink leading-relaxed">
+                  <span className="text-medical-blue font-semibold">
                     {getCopy('whoWeAreSection.companyName')}
                   </span>{' '}
                   {getCopy('whoWeAreSection.companyDescription')}{' '}
-                  <span className="font-semibold text-gray-900">
+                  <span className="font-semibold text-ink">
                     {getCopy('whoWeAreSection.healthBenefits')}
                   </span>{' '}
                   <span className="sm:whitespace-pre-line">
@@ -69,7 +69,7 @@ export default function AboutPage() {
 
             {/* Right CTA */}
             <div className="flex justify-center lg:justify-end">
-              <div className="text-center">
+              <div className="text-center bg-medical-sky/45 border border-clinical-border rounded-2xl px-8 py-10 w-full max-w-sm">
                 <Button variant="deepBlue" className="text-lg px-8 py-4">
                   {getCopy('whoWeAreSection.ctaButton')}
                 </Button>

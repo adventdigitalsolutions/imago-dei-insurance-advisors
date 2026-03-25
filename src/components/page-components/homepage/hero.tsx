@@ -11,20 +11,20 @@ export const Hero = () => (
         alt="People Chatting"
         width={800}
         height={400}
-        className="w-full h-[560px] z-0 lg:h-auto mb-4 max-h-[720px] object-cover object-top"
+        className="w-full h-[560px] z-0 lg:h-auto max-h-[720px] object-cover object-top"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-dark-blue/80 via-royal-purple/55 to-transparent pl-9 lg:pl-20 z-10 flex items-center">
+      <div className="absolute inset-0 bg-gradient-to-r from-medical-navy/85 via-medical-navy/60 to-medical-blue/15 pl-9 lg:pl-20 z-10 flex items-center">
         <div className="max-w-6xl w-full">
-          <p className="text-md font-semibold tracking-widest uppercase text-white/70 mb-5">
+          <p className="text-md font-semibold tracking-widest uppercase text-medical-sky/80 mb-5">
             {getCopy('hero.eyebrow')}
           </p>
-          <div className="text-[42px] lg:text-[82px] font-lora font-bold leading-none text-white">
+          <div className="text-[42px] lg:text-[82px] font-lora font-bold leading-none text-white drop-shadow-sm">
             {getCopy('hero.title')}
           </div>
-          <div className="font-light text-[24px] lg:text-[44px] text-white/80">
+          <div className="font-light text-[24px] lg:text-[44px] text-medical-sky/90">
             {getCopy('hero.subtitle')}
           </div>
-          <div className="mt-7 text-base lg:text-xl max-w-sm font-normal text-white/80 pr-6 sm:pr-0 leading-relaxed">
+          <div className="mt-7 text-base lg:text-xl max-w-sm font-normal text-medical-sky/90 pr-6 sm:pr-0 leading-relaxed">
             <span className="font-semibold text-white">
               {getCopy('hero.description1')}
             </span>
