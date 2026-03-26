@@ -5,6 +5,7 @@ import { getCopy } from '@/getCopy';
 import Image from 'next/image';
 import { Button } from '@/components/button';
 import Link from 'next/link';
+import { FiBriefcase, FiUser, FiBookOpen } from 'react-icons/fi';
 
 export const Navbar = () => {
   const navbarItems = getCopy('navbarItems');
@@ -20,18 +21,33 @@ export const Navbar = () => {
   const formatLink = (label: string) =>
     label.toLowerCase().replace(/\s+/g, '-');
 
+  const getMobileNavIcon = (label: string) => {
+    const normalizedLabel = label.toLowerCase();
+
+    if (normalizedLabel.includes('business')) {
+      return <FiBriefcase size={22} strokeWidth={2.15} aria-hidden="true" />;
+    }
+
+    if (normalizedLabel.includes('about')) {
+      return <FiUser size={22} strokeWidth={2.15} aria-hidden="true" />;
+    }
+
+    return <FiBookOpen size={22} strokeWidth={2.15} aria-hidden="true" />;
+  };
+
   return (
     <nav
       className={`w-full bg-white/90 backdrop-blur-md fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-sm border-b border-clinical-border' : 'border-b border-clinical-border/70'
         }`}
     >
-      <div className="px-6 py-3 flex items-center justify-between max-w-6xl mx-auto">
-        <Link className="lg:w-1/3" href="/">
+      <div className="px-4 sm:px-6 py-3 flex items-center justify-between max-w-6xl mx-auto gap-2 sm:gap-4">
+        <Link className="shrink-0 lg:w-1/3" href="/">
           <Image
             src="/imago-dei-logo.png"
             alt="Imago Dei Logo"
-            width={70}
-            height={70}
+            width={58}
+            height={58}
+            className="sm:w-[70px] sm:h-[70px]"
           />
         </Link>
         {/* -- DESKTOP -- */}
@@ -41,7 +57,7 @@ export const Navbar = () => {
               <li key={key}>
                 <a
                   href={`${formatLink(label)}`}
-                  className="text-muted-ink font-semibold text-[0.88rem] tracking-[0.08em] uppercase transition-colors duration-200 hover:text-medical-navy border-b-2 border-transparent hover:border-medical-blue pb-0.5"
+                  className="text-ink font-normal tracking-[0.02em] text-[1.72rem] sm:text-[1.9rem] transition-colors hover:text-medical-blue inline-flex items-center gap-3.5"
                 >
                   {label}
                 </a>
@@ -58,16 +74,21 @@ export const Navbar = () => {
           </Link>
         </div>
         {/* -- MOBILE -- */}
-        <div className="lg:hidden flex items-center space-x-2">
+        <div className="lg:hidden flex items-center justify-end space-x-1.5 sm:space-x-2 min-w-0 flex-1">
           <Link
             href="https://calendly.com/david-sog0/30min?month=2025-07"
             target="_blank"
           >
-            <Button size="small" className="!text-[0.8rem]">{getCopy('navbarAppointment')}</Button>
+            <Button
+              size="small"
+              className="!px-4 !py-2 !text-[0.78rem] sm:!text-[0.86rem] !tracking-[0.07em] whitespace-nowrap"
+            >
+              {getCopy('navbarAppointment')}
+            </Button>
           </Link>
           <button
             aria-label="Open menu"
-            className="ml-2 flex flex-col justify-center items-center w-10 h-10"
+            className="ml-1 sm:ml-2 flex flex-col justify-center items-center w-9 h-9 sm:w-10 sm:h-10 shrink-0"
             onClick={() => setMenuOpen((open) => !open)}
           >
             <span
@@ -90,14 +111,15 @@ export const Navbar = () => {
         className={`lg:hidden overflow-hidden transition-all duration-300 bg-white border-t border-clinical-border ${menuOpen ? 'max-h-96 pt-6 pb-9' : 'max-h-0 py-0'
           }`}
       >
-        <ul className="flex flex-col pl-8 items-start space-y-6">
+        <ul className="flex flex-col pl-8 items-start space-y-5">
           {Object.entries(navbarItems).map(([key, label]) => (
             <li key={key}>
               <a
                 href={`${formatLink(label)}`}
-                className="text-ink font-medium uppercase tracking-[0.08em] text-2xl transition-colors hover:text-medical-blue"
+                className="text-ink font-normal tracking-[0.02em] text-[1.72rem] sm:text-[1.9rem] transition-colors hover:text-medical-blue inline-flex items-center gap-3.5"
                 onClick={() => setMenuOpen(false)}
               >
+                <span className="text-medical-blue/85 -translate-y-[1px]">{getMobileNavIcon(label)}</span>
                 {label}
               </a>
             </li>
