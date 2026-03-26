@@ -33,10 +33,11 @@ export default function ResourceTabs({
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
             className={`
-              whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm transition-colors duration-200
-              ${activeTab === tab.id
-                ? 'border-medical-blue text-medical-blue'
-                : 'border-transparent text-muted-ink hover:text-ink hover:border-clinical-border'
+              whitespace-nowrap py-3 px-1 border-b-2 font-medium text-[1.2rem] transition-colors duration-200
+              ${
+                activeTab === tab.id
+                  ? 'border-medical-blue text-medical-blue'
+                  : 'border-transparent text-muted-ink hover:text-ink hover:border-clinical-border'
               }
             `}
             aria-current={activeTab === tab.id ? 'page' : undefined}
@@ -45,11 +46,12 @@ export default function ResourceTabs({
             {tab.count > 0 && (
               <span
                 className={`
-                ml-2 py-0.5 px-2 rounded-full text-xs font-medium
-                ${activeTab === tab.id
+                ml-2 py-0.5 px-2 rounded-full text-[0.82rem] font-medium
+                ${
+                  activeTab === tab.id
                     ? 'bg-medical-sky text-medical-navy'
                     : 'bg-white border border-clinical-border text-muted-ink'
-                  }
+                }
               `}
               >
                 {tab.count}

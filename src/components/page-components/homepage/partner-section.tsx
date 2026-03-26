@@ -10,10 +10,10 @@ export const PartnerSection = () => (
         <span className="h-px flex-1 bg-medical-blue/25" />
       </div>
       <div className="md:max-w-2xl mt-32">
-        <p className="text-sm font-semibold tracking-[0.18em] text-medical-blue uppercase mb-6">
+        <p className="text-sm font-semibold tracking-[0.22em] text-medical-blue uppercase mb-6">
           {getCopy('partnerSection.partnerPreHeader')}
         </p>
-        <h2 className="font-lora text-5xl sm:text-7xl font-bold text-ink leading-[0.95] mb-10 whitespace-pre-line">
+        <h2 className="font-lora text-5xl sm:text-7xl font-bold tracking-[-0.05em] text-ink leading-[0.95] mb-10 whitespace-pre-line">
           {getCopy('partnerSection.partnerBodyPt1')}
           <span className="italic text-medical-blue">
             {getCopy('partnerSection.partnerBodyPt2')}

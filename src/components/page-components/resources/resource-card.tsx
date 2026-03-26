@@ -28,15 +28,15 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
 							<svg className="w-12 h-12 mb-2" fill="currentColor" viewBox="0 0 20 20">
 								<path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
 							</svg>
-							<span className="text-sm font-medium">No Image</span>
+							<span className="text-[1rem] font-medium">No Image</span>
 						</div>
 					)}
 				</div>
 				<div className="p-6">
-					<h2 className="font-lora text-xl font-semibold text-ink mb-2 hover:text-medical-blue transition-colors duration-200">
+					<h2 className="font-lora text-[1.55rem] font-semibold text-ink mb-2 hover:text-medical-blue transition-colors duration-200">
 						{resource.title}
 					</h2>
-					<p className="text-muted-ink text-sm">
+					<p className="text-muted-ink text-[0.98rem]">
 						{new Date(resource.publishedAt).toLocaleDateString('en-US', {
 							year: 'numeric',
 							month: 'long',

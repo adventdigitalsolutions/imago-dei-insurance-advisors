@@ -23,7 +23,7 @@ export default async function ResourcesPage() {
   }
 
   return (
-    <main className="mt-24">
+    <main className="mt-20">
       {/* Hero Section */}
       <PageHeader title={getCopy('resourcesPage.title')} />
       <div className="bg-medical-sky/45">

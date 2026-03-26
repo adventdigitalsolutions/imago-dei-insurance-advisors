@@ -57,7 +57,7 @@ export default function ResourceGrid({ resources }: ResourceGridProps) {
       </div>
       {filteredResources.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-muted-ink text-lg">
+          <p className="text-muted-ink text-xl">
             No{' '}
             {activeTab === 'case-studies'
               ? 'case studies'

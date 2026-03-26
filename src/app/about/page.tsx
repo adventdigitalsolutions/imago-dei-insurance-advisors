@@ -5,7 +5,7 @@ import { PageHeader } from '@/components/page-header';
 
 export default function AboutPage() {
   return (
-    <div className="mt-24">
+    <div className="mt-20">
       {/* Hero Section */}
       <PageHeader title={getCopy('whoWeAreSection.header')} />
 
@@ -16,10 +16,10 @@ export default function AboutPage() {
             {/* Left Content */}
             <div className="space-y-8">
               <div>
-                <h2 className="font-lora text-3xl lg:text-4xl font-bold text-ink mb-6 md:mb-14">
+                <h2 className="font-lora text-4xl lg:text-5xl font-bold text-ink mb-6 md:mb-14">
                   {getCopy('whoWeAreSection.missionTitle')}
                 </h2>
-                <p className="text-lg lg:text-xl text-muted-ink leading-relaxed sm:whitespace-pre-line">
+                <p className="text-xl lg:text-[1.45rem] text-muted-ink leading-relaxed sm:whitespace-pre-line">
                   {getCopy('whoWeAreSection.missionSubtitle')}
                 </p>
               </div>
@@ -47,12 +47,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <p className="text-xl lg:text-2xl text-muted-ink leading-loose">
+              <p className="text-[1.4rem] lg:text-[1.75rem] text-muted-ink leading-loose">
                 {getCopy('whoWeAreSection.alignmentQuestion')}
               </p>
 
               <div className="space-y-4">
-                <p className="text-lg lg:text-xl text-muted-ink leading-relaxed">
+                <p className="text-xl lg:text-[1.35rem] text-muted-ink leading-relaxed">
                   <span className="text-medical-blue font-semibold">
                     {getCopy('whoWeAreSection.companyName')}
                   </span>{' '}

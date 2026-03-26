@@ -22,7 +22,7 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`w-full bg-white/95 backdrop-blur-sm fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-sm border-b border-clinical-border' : 'border-b border-clinical-border/70'
+      className={`w-full bg-white/90 backdrop-blur-md fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-sm border-b border-clinical-border' : 'border-b border-clinical-border/70'
         }`}
     >
       <div className="px-6 py-3 flex items-center justify-between max-w-6xl mx-auto">
@@ -41,7 +41,7 @@ export const Navbar = () => {
               <li key={key}>
                 <a
                   href={`${formatLink(label)}`}
-                  className="text-muted-ink font-semibold text-sm tracking-wide uppercase transition-colors duration-200 hover:text-medical-navy border-b-2 border-transparent hover:border-medical-blue pb-0.5"
+                  className="text-muted-ink font-semibold text-[0.88rem] tracking-[0.08em] uppercase transition-colors duration-200 hover:text-medical-navy border-b-2 border-transparent hover:border-medical-blue pb-0.5"
                 >
                   {label}
                 </a>
@@ -54,7 +54,7 @@ export const Navbar = () => {
             href="https://calendly.com/david-sog0/30min?month=2025-07"
             target="_blank"
           >
-            <Button>{getCopy('navbarAppointment')}</Button>
+            <Button className="!text-[0.88rem]">{getCopy('navbarAppointment')}</Button>
           </Link>
         </div>
         {/* -- MOBILE -- */}
@@ -63,7 +63,7 @@ export const Navbar = () => {
             href="https://calendly.com/david-sog0/30min?month=2025-07"
             target="_blank"
           >
-            <Button size="small">{getCopy('navbarAppointment')}</Button>
+            <Button size="small" className="!text-[0.8rem]">{getCopy('navbarAppointment')}</Button>
           </Link>
           <button
             aria-label="Open menu"
@@ -95,7 +95,7 @@ export const Navbar = () => {
             <li key={key}>
               <a
                 href={`${formatLink(label)}`}
-                className="text-ink font-medium uppercase tracking-wide text-xl transition-colors hover:text-medical-blue"
+                className="text-ink font-medium uppercase tracking-[0.08em] text-2xl transition-colors hover:text-medical-blue"
                 onClick={() => setMenuOpen(false)}
               >
                 {label}

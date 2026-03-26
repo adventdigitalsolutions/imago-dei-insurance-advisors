@@ -1,19 +1,13 @@
 import type { Metadata } from 'next';
-import { Nunito, Lora } from 'next/font/google';
+import { League_Spartan } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 
-const nunito = Nunito({
-  variable: '--font-montserrat',
+const leagueSpartan = League_Spartan({
+  variable: '--font-brand',
   subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
-});
-
-const lora = Lora({
-  variable: '--font-lora',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunito.variable} ${lora.variable} font-montserrat antialiased w-full`}
+        className={`${leagueSpartan.variable} font-montserrat antialiased w-full`}
       >
         <Navbar />
         <div>{children}</div>

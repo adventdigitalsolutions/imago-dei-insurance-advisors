@@ -6,10 +6,10 @@ import { FaArrowRight, FaEnvelope, FaPhone } from 'react-icons/fa';
 export const CtaCard = () => (
   <div className="bg-white py-24 sm:py-32 px-6 border-t border-clinical-border/70">
     <div className="max-w-4xl mx-auto text-center">
-      <p className="text-xs font-semibold tracking-widest text-medical-blue uppercase mb-5">
+      <p className="text-sm font-semibold tracking-[0.2em] text-medical-blue uppercase mb-5">
         {getCopy('ctaCard.preHeader')}
       </p>
-      <h2 className="font-lora text-4xl sm:text-6xl font-bold text-ink mb-12">
+      <h2 className="font-lora text-5xl sm:text-7xl font-bold tracking-[-0.05em] text-ink mb-12">
         {getCopy('ctaCard.header')}
       </h2>
       <div className="flex flex-col sm:flex-row justify-center items-center gap-8 bg-medical-sky/45 border border-clinical-border rounded-2xl p-8 sm:p-10">
@@ -31,14 +31,14 @@ export const CtaCard = () => (
             className="flex items-center gap-2.5 text-muted-ink hover:text-medical-navy transition-colors"
           >
             <FaPhone className="text-medical-blue" size={13} />
-            <span className="text-lg font-medium">{getCopy('ctaCard.phoneInfo')}</span>
+            <span className="text-[1.05rem] sm:text-[1.12rem] font-medium">{getCopy('ctaCard.phoneInfo')}</span>
           </a>
           <a
             href={`mailto:${getCopy('ctaCard.emailInfo')}`}
             className="flex items-center gap-2.5 text-muted-ink hover:text-medical-navy transition-colors"
           >
             <FaEnvelope className="text-medical-blue" size={13} />
-            <span className="text-lg font-medium">{getCopy('ctaCard.emailInfo')}</span>
+            <span className="text-[1.05rem] sm:text-[1.12rem] font-medium">{getCopy('ctaCard.emailInfo')}</span>
           </a>
         </div>
       </div>

@@ -6,7 +6,7 @@ export default function OurTeamPage() {
   const teamMembers = getCopy('ourTeamPage.teamMembers');
 
   return (
-    <div className="mt-24">
+    <div className="mt-20">
       {/* Hero Section */}
       <PageHeader title={getCopy('ourTeamPage.title')} />
 
@@ -35,10 +35,10 @@ export default function OurTeamPage() {
                   />
                 </div>
                 <div className="text-left">
-                  <h3 className="font-lora text-2xl text-medical-navy font-semibold mt-8">
+                  <h3 className="font-lora text-3xl text-medical-navy font-semibold mt-8">
                     {name}
                   </h3>
-                  <p className="text-muted-ink mb-4 mt-4 leading-relaxed">
+                  <p className="text-muted-ink text-[1.08rem] mb-4 mt-4 leading-relaxed">
                     {bio.split('\n').map((line, i) => (
                       <span key={i}>
                         {line}

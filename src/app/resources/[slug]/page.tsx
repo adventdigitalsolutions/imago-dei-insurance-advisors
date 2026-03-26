@@ -11,9 +11,8 @@ const ALL_RESOURCES_QUERY = `*[_type == "post" && defined(slug.current)]{slug}`;
 
 // Generate static params for all resources at build time
 export async function generateStaticParams() {
-  const resources = await client.fetch<{ slug: { current: string } }[]>(
-    ALL_RESOURCES_QUERY
-  );
+  const resources =
+    await client.fetch<{ slug: { current: string } }[]>(ALL_RESOURCES_QUERY);
 
   return resources.map((resource) => ({
     slug: resource.slug.current,
@@ -39,27 +38,29 @@ export default async function ResourcePage({
     : null;
 
   return (
-    <main className="bg-medical-sky/45 mt-24">
-      <div className="container mx-auto min-h-screen max-w-3xl p-8 md:py-12 flex flex-col gap-4">
+    <main className="bg-medical-sky/45 mt-20">
+      <div className="container mx-auto min-h-screen max-w-6xl p-8 md:py-12 flex flex-col gap-4">
         <Link
           href="/resources"
-          className="hover:underline mb-5 text-medical-blue hover:text-medical-navy transition-colors"
+          className="hover:underline mb-5 text-[1.25rem] text-medical-blue hover:text-medical-navy transition-colors"
         >
           ← Back to resources
         </Link>
-        <article className="bg-white border border-clinical-border rounded-2xl p-6 md:p-8 shadow-sm">
+        <article className="bg-white border border-clinical-border rounded-2xl p-6 md:p-20 shadow-sm">
           {resourceImageUrl && (
             <Image
               src={resourceImageUrl}
               alt={resource.title}
-              className="rounded-xl object-cover mb-6"
-              width={550}
-              height={310}
+              className="rounded-xl object-cover mb-12 mx-auto"
+              width={650}
+              height={410}
             />
           )}
-          <h1 className="font-lora text-4xl font-bold mb-8 text-ink">{resource.title}</h1>
-          <div className="prose prose-lg prose-p:text-muted-ink prose-headings:text-ink max-w-none">
-            <p className="mb-6 text-muted-ink">
+          <h1 className="font-lora text-5xl font-bold mb-8 text-ink">
+            {resource.title}
+          </h1>
+          <div className="prose prose-lg max-w-none prose-p:text-muted-ink prose-p:text-[1.2rem] prose-headings:text-ink prose-li:text-[1.2rem]">
+            <p className="mb-6 text-[1.2rem] text-muted-ink">
               Published: {new Date(resource.publishedAt).toLocaleDateString()}
             </p>
             {resource.body && Array.isArray(resource.body) && (
@@ -68,7 +69,27 @@ export default async function ResourcePage({
                 components={{
                   block: {
                     normal: ({ children }) => (
-                      <p className="mb-5 leading-relaxed">{children}</p>
+                      <p className="mb-5 text-[1.2rem] leading-6">{children}</p>
+                    ),
+                    h1: ({ children }) => (
+                      <h2 className="mb-3 text-[1.4rem] font-semibold leading-7 tracking-[0.01em] text-ink">
+                        {children}
+                      </h2>
+                    ),
+                    h2: ({ children }) => (
+                      <h2 className="mb-3 text-[1.4rem] font-semibold leading-7 tracking-[0.01em] text-ink">
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 className="mb-3 text-[1.4rem] font-semibold leading-7 tracking-[0.01em] text-ink">
+                        {children}
+                      </h3>
+                    ),
+                    h4: ({ children }) => (
+                      <h4 className="mb-3 text-[1.4rem] font-semibold leading-7 tracking-[0.01em] text-ink">
+                        {children}
+                      </h4>
                     ),
                   },
                 }}

@@ -10,7 +10,7 @@ import {
 import Image from 'next/image';
 
 export const Footer = () => (
-  <footer className="bg-medical-navy text-white py-16 px-8">
+  <footer className="bg-gradient-to-br from-navy via-medical-navy to-dark-blue text-white py-16 px-8">
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Logo Section */}
@@ -28,7 +28,7 @@ export const Footer = () => (
 
         {/* Find us on social media */}
         <div>
-          <h3 className="text-sm font-semibold tracking-widest text-white/50 uppercase mb-6">
+          <h3 className="text-[0.82rem] font-semibold tracking-[0.18em] text-white/55 uppercase mb-6">
             {getCopy('footer.socialMediaHeader')}
           </h3>
           <div className="flex gap-4">
@@ -69,14 +69,14 @@ export const Footer = () => (
 
         {/* Solutions */}
         <div>
-          <h3 className="text-sm font-semibold tracking-widest text-white/50 uppercase mb-6">
+          <h3 className="text-[0.82rem] font-semibold tracking-[0.18em] text-white/55 uppercase mb-6">
             {getCopy('footer.solutionsHeader')}
           </h3>
           <ul className="space-y-3">
             <li>
               <a
                 href="/business-solutions"
-                className="text-white/60 hover:text-white transition-colors"
+                className="text-white/72 text-[1rem] hover:text-white transition-colors"
               >
                 {getCopy('footer.businessSolutions')}
               </a>
@@ -86,14 +86,14 @@ export const Footer = () => (
 
         {/* Who we are */}
         <div>
-          <h3 className="text-sm font-semibold tracking-widest text-white/50 uppercase mb-6">
+          <h3 className="text-[0.82rem] font-semibold tracking-[0.18em] text-white/55 uppercase mb-6">
             {getCopy('footer.whoWeAreHeader')}
           </h3>
           <ul className="space-y-3">
             <li>
               <a
                 href="/about"
-                className="text-white/60 hover:text-white transition-colors"
+                className="text-white/72 text-[1rem] hover:text-white transition-colors"
               >
                 {getCopy('footer.about')}
               </a>
@@ -101,7 +101,7 @@ export const Footer = () => (
             <li>
               <a
                 href="/our-team"
-                className="text-white/60 hover:text-white transition-colors"
+                className="text-white/72 text-[1rem] hover:text-white transition-colors"
               >
                 {getCopy('footer.ourTeam')}
               </a>
@@ -113,7 +113,7 @@ export const Footer = () => (
       {/* Contact Information */}
       <div className="mt-16 pt-8 border-t border-white/15">
         <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-          <div className="flex items-center text-white/60">
+          <div className="flex items-center text-white/72 text-[1rem]">
             <FaEnvelope className="mr-3 text-white/80" />
             <a
               href={`mailto:${getCopy('footer.email')}`}
@@ -122,7 +122,7 @@ export const Footer = () => (
               {getCopy('footer.email')}
             </a>
           </div>
-          <div className="flex items-center text-white/60">
+          <div className="flex items-center text-white/72 text-[1rem]">
             <FaPhone className="mr-3 text-white/80" />
             <a
               href={`tel:${getCopy('footer.phone')}`}
