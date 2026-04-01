@@ -11,39 +11,51 @@ export const Hero = () => (
         alt="People Chatting"
         width={800}
         height={400}
-        className="w-full h-[620px] sm:h-[560px] z-0 lg:h-auto max-h-[720px] object-cover object-top"
+        className="w-full h-[840px] sm:h-[780px] z-0 lg:h-auto max-h-[900px] object-cover object-top"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-medical-navy/84 to-royal-purple/38 z-10 flex items-center">
+      <div className="absolute inset-0 z-10">
+        <div className="absolute inset-0 bg-navy/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/75 to-navy/10" />
+      </div>
+      <div className="absolute inset-0 z-20 flex items-center">
         <div className="max-w-6xl w-full mx-auto px-6 sm:px-8 lg:px-6">
-          <div className="max-w-[35rem] py-9 sm:py-10 lg:py-16">
-            <p className="text-[0.82rem] sm:text-[0.95rem] lg:text-[1rem] font-semibold tracking-[0.19em] sm:tracking-[0.22em] uppercase text-pale-blue drop-shadow-sm mb-5 lg:mb-8">
-              {getCopy('hero.eyebrow')}
+          <div className="max-w-[38rem] py-12 sm:py-14 lg:py-20">
+            <h1 className="font-lora font-bold text-[clamp(1.9rem,5.5vw,3.2rem)] tracking-[-0.03em] leading-[1.1] text-white mb-5">
+              {getCopy('hero.headline')}
+            </h1>
+            <p className="text-white/85 text-[clamp(1rem,2vw,1.15rem)] leading-snug mb-7">
+              {getCopy('hero.subheadline')}
             </p>
-            <div className="text-[clamp(2.25rem,11vw,3.5rem)] lg:text-[90px] font-lora font-bold tracking-[-0.04em] lg:tracking-[-0.05em] leading-[0.92] lg:leading-[0.88] text-white drop-shadow-sm mb-4 lg:mb-5">
-              {getCopy('hero.title')}
-            </div>
-            <div className="font-medium text-[clamp(1.9rem,8vw,2.7rem)] lg:text-[52px] text-white tracking-[-0.02em] lg:tracking-[-0.03em] leading-[0.98] lg:leading-[0.96] drop-shadow-sm mb-6 sm:mb-8 lg:mb-10">
-              {getCopy('hero.subtitle')}
-            </div>
-            <div className="text-[1.02rem] sm:text-[1.12rem] lg:text-[1.42rem] max-w-lg font-normal text-white/90 pr-2 sm:pr-0 leading-relaxed lg:leading-[1.65]">
-              <span className="font-semibold text-white">
-                {getCopy('hero.description1')}
-              </span>
-              {getCopy('hero.description2')}
-            </div>
-            <div className="mt-8 sm:mt-10 lg:mt-12">
-              <Link href="/business-solutions">
-                <Button
-                  variant="deepBlue"
-                  className="min-h-14 px-8 lg:px-10 w-full sm:w-auto justify-center"
-                >
-                  {getCopy('hero.button1')}
-                </Button>
-              </Link>
-            </div>
+            <ul className="space-y-2 mb-8">
+              {(['check1', 'check2', 'check3'] as const).map((key) => (
+                <li key={key} className="flex items-center gap-2.5 text-white/90 text-[0.97rem]">
+                  <span className="text-blue-300 text-lg leading-none">✓</span>
+                  {getCopy(`hero.${key}`)}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="https://calendly.com/david-sog0/30min?month=2025-07"
+              target="_blank"
+            >
+              <Button
+                variant="deepBlue"
+                className="min-h-14 px-8 lg:px-10 w-full sm:w-auto justify-center text-[1.05rem] lg:text-[1.12rem]"
+              >
+                {getCopy('hero.buttonText')}
+              </Button>
+            </Link>
+            <p className="mt-3 text-white/60 text-sm">{getCopy('hero.subNote')}</p>
+            <Link
+              href="/resources"
+              className="mt-3 block text-white/70 text-sm underline underline-offset-2 hover:text-white transition-colors"
+            >
+              {getCopy('hero.secondaryText')}
+            </Link>
           </div>
         </div>
       </div>
     </div>
   </div>
 );
+

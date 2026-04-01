@@ -6,39 +6,98 @@ export const allSiteCopy = {
   },
   navbarAppointment: 'Book an Appointment',
   hero: {
-    eyebrow: 'Faith-Based Healthcare Benefits',
-    title: 'Imago Dei',
-    subtitle: 'Insurance Advisors',
-    description1: 'Christian values',
-    description2: ' in a benefits plan you can trust',
-    button1: 'Business Solutions',
+    headline: 'Care for Your Team with Affordable, Flexible Health Benefits',
+    subheadline:
+      'Flexible, affordable group health insurance for Christian-led businesses, churches, and nonprofits—reflecting wise stewardship and genuine care for your people.',
+    description:
+      'Many organizations want to care well for their teams—but traditional insurance creates unnecessary barriers. We help you find a better way forward.',
+    check1: 'Flexible options tailored to your organization',
+    check2: 'No minimum enrollment requirements',
+    check3: 'No required employer contributions',
+    callToAction:
+      "When your team is cared for, they can better serve the mission you've been called to lead.",
+    buttonText: 'Book Your Free Benefits Consultation',
+    subNote: 'No cost. No pressure. Just thoughtful guidance.',
+    secondaryText: 'Prefer to start with numbers? Request a quote.',
   },
   accentRibbonSection: {
     accentRibbonText: 'Proud partners of the US Christian Chamber of Commerce',
   },
+  credibilitySection: {
+    header: 'Trusted by Organizations Like Yours',
+    testimonialsHeader: 'What Our Clients Say',
+  },
   businessSolutionsSection: {
-    box1Pt1: 'Save',
-    box1Pt2: '20%-40%',
-    box1Pt3: ' on your\nemployee health care plan',
-    box2: 'View our\nBusiness Solutions',
+    header: 'A Better Way to Care for Your Team',
+    subtext:
+      'We help Christian businesses, churches, and nonprofits provide affordable, flexible group health insurance without the traditional barriers—tailored to your size, budget, and goals.',
+    tagline:
+      'Our approach is simple, flexible, and proven for long-term sustainability so you can focus on your calling',
+    howWeHelpHeader: 'How we Help',
+    feature1Title: 'Flexible Plans',
+    feature1Body:
+      'Health insurance options designed for organizations of all sizes—from small businesses to growing nonprofits.',
+    feature2Title: 'Lower Barriers',
+    feature2Body:
+      'No minimum participation or required employer contributions.',
+    feature3Title: 'Guided Support',
+    feature3Body:
+      'Hands-on support, plus complimentary HR advisory for organizations with 5+ enrolled employees.',
+    resultText:
+      'The result is the ability to care for your people with confidence—while stewarding your resources wisely and activating the purpose God has given you.',
+    buttonText: 'Book Your Free Benefits Consultation',
+    secondaryText: 'Or explore solutions first',
   },
   missionSection: {
-    missionPt1:
-      'Helping Christian businesses honor Christ by creating healthcare benefit solutions that provide ',
-    missionPt2: 'superior healthcare',
-    missionPt3: ' at a lower cost.',
+    header: 'The Challenge Many Face',
+    body1:
+      'You feel called to care for your employees as a reflection of compassion and responsibility — yet traditional health insurance often stands in the way.',
+    body2:
+      'Rising costs create strain. Rigid requirements feel burdensome. Confusing options make it hard to move forward with confidence.',
+    body3:
+      "This decision matters. The way you care for your team impacts their families, and the mission you've been entrusted to lead.",
+  },
+  whoWeServeSection: {
+    header: 'Who We Serve',
+    item1: 'Christian business owners and leadership teams',
+    item2: 'Churches and ministry organizations',
+    item3: 'Nonprofits and faith-based organizations',
+    body: 'Whether you are offering benefits for the first time or seeking a more sustainable approach to group health insurance, we help you find a path that fits your organization and your values. Most of our clients are small to mid-sized organizations across the U.S. seeking flexible health benefits.',
   },
   partnerSection: {
-    partnerPreHeader: 'Your Benefits Partner',
-    partnerBodyPt1: 'Imago Dei\nWorks ',
-    partnerBodyPt2: 'With',
-    partnerBodyPt3: ' You',
-    partnerCta: 'Why use our services?',
+    header: 'More Than a Provider — A Partner in Faithful Stewardship',
+    feature1Title: 'Shared Values',
+    feature1Body:
+      'We believe caring for employees should reflect compassion, integrity, and wise leadership.',
+    feature2Title: 'Long-Term Partnership',
+    feature2Body:
+      'We stay alongside you as your organization grows—not just at setup.',
+    feature3Title: 'HR Guidance Included',
+    feature3Body:
+      'Organizations with 5+ employees enrolled in medical coverage receive complimentary HR advisory support.',
+    feature4Title: 'Built for Sustainability',
+    feature4Body:
+      'Provide meaningful employee benefits while managing resources wisely—so you can stay focused on your mission and purpose.',
+  },
+  leadMagnetSection: {
+    eyebrow: 'Free Guide for Leaders',
+    header: 'A Practical Framework for Stewardship, Cost Control, and Care',
+    body: 'A simple framework to provide meaningful benefits while stewarding your resources wisely. Learn how to reduce costs, improve flexibility, and care for your team with confidence.',
+    buttonText: 'Download the Free Guide',
+    subNote: 'Instant download. No spam.',
   },
   ctaCard: {
-    preHeader: 'Book a consultation appointment',
-    header: 'Get started today.',
-    buttonText: 'Book an Appointment',
+    header: 'Ready to Care for Your Team in a Better Way?',
+    body: "If you've been thinking about offering benefits—or finding a more sustainable approach—this is the right time to take the next step.",
+    subNote:
+      "No cost. No pressure. Just a thoughtful conversation to explore what's possible.",
+    step1: 'We listen and learn about your organization and goals',
+    step2: 'We explore options tailored to your unique situation',
+    step3: 'You receive clear, caring guidance with no obligation',
+    calloutText:
+      'A 20–30 minute conversation could give you the clarity you’ve been looking for.',
+    buttonText: 'Book Your Free Benefits Consultation',
+    secondaryText: 'Prefer to start with numbers? Request a quote.',
     phoneInfo: '(832) 263-3552',
     emailInfo: 'info@imagodeinsurance.com',
   },

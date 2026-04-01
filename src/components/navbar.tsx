@@ -45,9 +45,9 @@ export const Navbar = () => {
           <Image
             src="/imago-dei-logo.png"
             alt="Imago Dei Logo"
-            width={58}
-            height={58}
-            className="sm:w-[70px] sm:h-[70px]"
+            width={357}
+            height={313}
+            className="h-[58px] w-auto sm:h-[70px]"
           />
         </Link>
         {/* -- DESKTOP -- */}
@@ -57,7 +57,7 @@ export const Navbar = () => {
               <li key={key}>
                 <a
                   href={`${formatLink(label)}`}
-                  className="text-ink font-normal tracking-[0.02em] text-[1.72rem] sm:text-[1.9rem] transition-colors hover:text-medical-blue inline-flex items-center gap-3.5"
+                  className="text-ink font-normal tracking-[0.02em] text-[1.08rem] sm:text-[1.18rem] transition-colors hover:text-medical-blue inline-flex items-center gap-2.5"
                 >
                   {label}
                 </a>
@@ -70,7 +70,7 @@ export const Navbar = () => {
             href="https://calendly.com/david-sog0/30min?month=2025-07"
             target="_blank"
           >
-            <Button className="!text-[0.88rem]">{getCopy('navbarAppointment')}</Button>
+            <Button className="!text-[0.86rem] sm:!text-[0.9rem] !whitespace-nowrap">{getCopy('navbarAppointment')}</Button>
           </Link>
         </div>
         {/* -- MOBILE -- */}
@@ -116,7 +116,7 @@ export const Navbar = () => {
             <li key={key}>
               <a
                 href={`${formatLink(label)}`}
-                className="text-ink font-normal tracking-[0.02em] text-[1.72rem] sm:text-[1.9rem] transition-colors hover:text-medical-blue inline-flex items-center gap-3.5"
+                className="text-ink font-normal tracking-[0.02em] text-[1.14rem] sm:text-[1.22rem] transition-colors hover:text-medical-blue inline-flex items-center gap-2.5"
                 onClick={() => setMenuOpen(false)}
               >
                 <span className="text-medical-blue/85 -translate-y-[1px]">{getMobileNavIcon(label)}</span>
