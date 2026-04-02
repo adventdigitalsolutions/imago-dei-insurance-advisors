@@ -1,30 +1,46 @@
 import { getCopy } from '@/getCopy';
-import Link from 'next/link';
+
+const DIFFERENTIATION_FEATURES = [
+  {
+    titleKey: 'partnerSection.feature1Title',
+    bodyKey: 'partnerSection.feature1Body',
+  },
+  {
+    titleKey: 'partnerSection.feature2Title',
+    bodyKey: 'partnerSection.feature2Body',
+  },
+  {
+    titleKey: 'partnerSection.feature3Title',
+    bodyKey: 'partnerSection.feature3Body',
+  },
+  {
+    titleKey: 'partnerSection.feature4Title',
+    bodyKey: 'partnerSection.feature4Body',
+  },
+] as const;
 
 export const PartnerSection = () => (
-  <div
-    className="relative w-full h-full bg-cover bg-center bg-no-repeat py-20 sm:py-48 justify-end flex overflow-clip"
-    style={{
-      backgroundImage: 'url(/grid_bg.png)',
-    }}
-  >
-    <div className="overflow-clip py-10 pl-16 md:py-28 md:px-24 w-11/12 sm:w-3/5 whitespace-pre-line bg-gray-100 rounded-l-[170px] rounded-r-none ">
-      <div className="font-extralight text-black text-xl md:text-3xl">
-        {getCopy('partnerSection.partnerPreHeader')}
+  <div className="bg-medical-sky/70 px-6 py-20 sm:py-28">
+    <div className="max-w-6xl mx-auto">
+      <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-14 max-w-2xl">
+        {getCopy('partnerSection.header')}
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {DIFFERENTIATION_FEATURES.map((feature) => (
+          <div
+            key={feature.titleKey}
+            className="bg-white rounded-2xl p-8 border border-clinical-border shadow-sm"
+          >
+            <h3 className="font-semibold text-medical-navy text-[1.15rem] mb-3">
+              {getCopy(feature.titleKey)}
+            </h3>
+            <p className="text-muted-ink text-[1rem] leading-relaxed">
+              {getCopy(feature.bodyKey)}
+            </p>
+          </div>
+        ))}
       </div>
-      <div className="text-3xl sm:text-6xl whitespace-pre-line leading-[36px] md:leading-[70px] font-bold sm:mt-2 text-royal-purple mb-3 sm:mb-5">
-        {getCopy('partnerSection.partnerBodyPt1')}
-        <span className="italic">
-          {getCopy('partnerSection.partnerBodyPt2')}
-        </span>
-        {getCopy('partnerSection.partnerBodyPt3')}
-      </div>
-      <Link
-        className="md:text-2xl font-extralight cursor-pointer underline decoration-gray-400 decoration-2"
-        href="/about"
-      >
-        {getCopy('partnerSection.partnerCta')}
-      </Link>
     </div>
   </div>
 );
+

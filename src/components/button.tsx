@@ -15,11 +15,11 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const baseClasses =
-    'bg-royal-purple w-fit text-white rounded-[30px] cursor-pointer text-lg hover:bg-gray-400 transition-all duration-300 hover:shadow-lg shadow-none';
-  const sizeClasses = size === 'small' ? 'px-4 py-3 text-sm' : 'px-6 py-3';
+    'bg-medical-blue w-fit text-white rounded-full cursor-pointer font-semibold uppercase tracking-[0.08em] hover:bg-dark-blue transition-all duration-200 hover:shadow-md shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-medical-blue/40 focus-visible:ring-offset-2';
+  const sizeClasses = size === 'small' ? 'px-5 py-2.5 text-[0.9rem]' : 'px-7 py-3.5 text-[1rem]';
   const deepBlueClasses =
     variant === 'deepBlue'
-      ? 'bg-[#2B4C9D] hover:bg-[#2B4C9D]/80 border border-white border-2 border-solid hover:shadow-lg shadow-none'
+      ? 'bg-medical-navy hover:bg-navy border border-white/70 hover:shadow-md shadow-none'
       : '';
 
   return (

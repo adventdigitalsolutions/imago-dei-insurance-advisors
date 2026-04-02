@@ -1,67 +1,70 @@
 import { Button } from '@/components/button';
 import { getCopy } from '@/getCopy';
 import Link from 'next/link';
-import {
-  FaArrowRight,
-  FaEnvelope,
-  FaPhone,
-  FaRegCalendarAlt,
-} from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
+
+const CTA_STEPS = [
+  'ctaCard.step1',
+  'ctaCard.step2',
+  'ctaCard.step3',
+] as const;
 
 export const CtaCard = () => (
-  <div className="relative w-full h-full py-20 sm:py-48 justify-center sm:justify-end flex text-center overflow-clip">
-    {/* Background image */}
-    <div
-      className="absolute inset-0 w-full h-full rotate-[15deg] opacity-70 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: 'url(/grid_bg.png)',
-      }}
-      aria-hidden="true"
-    />
-    {/* Gradient overlay */}
-    <div
-      className="absolute inset-0 w-full h-full z-10 bg-gradient-to-br from-white to-royal-purple/60 opacity-50"
-      aria-hidden="true"
-    />
-    {/* CTA Card */}
-    <div className="relative bg-white shadow-xl sm:rounded-xl overflow-clip w-full sm:w-auto sm:px-28 py-24 sm:m-auto text-left z-20">
-      <div className="absolute -top-3 right-12 rotate-[21deg] text-gray-100 pointer-events-none select-none z-0">
-        <svg className="hidden" /> {/* Prevents hydration mismatch if SSR */}
-        {/* Use react-icons for the calendar icon */}
-        <span className="w-28 h-28 block">
-          <FaRegCalendarAlt size={250} />
-        </span>
-      </div>
-      <div className="pl-5 sm:pl-0 text-2xl z-20 font-extralight text-gray-600 relative">
-        {getCopy('ctaCard.preHeader')}
-      </div>
-      <div className="pl-5 sm:pl-0 text-4xl sm:text-6xl z-20 font-bold text-royal-purple mt-4 sm:mt-2 relative">
+  <div className="bg-white py-24 sm:py-32 px-6 border-t border-clinical-border/70">
+    <div className="max-w-4xl mx-auto">
+      <h2 className="font-lora text-4xl sm:text-6xl font-bold tracking-[-0.04em] text-ink mb-6 leading-tight">
         {getCopy('ctaCard.header')}
-      </div>
-      <div className="flex mt-16 sm:mt-8 z-20 flex-col sm:flex-row items-center sm:gap-8">
-        <Link
-          href="https://calendly.com/david-sog0/30min?month=2025-07"
-          target="_blank"
-        >
-          <Button className="shadow-md h-fit">
-            <div className="flex items-center uppercase py-3">
-              {getCopy('ctaCard.buttonText')}
-              <FaArrowRight size={15} className="ml-2" />
-            </div>
-          </Button>
-        </Link>
-        <div className="h-28 rotate-90 sm:rotate-0 bg-black/45 w-[1px]" />
-        <div className="font-montserrat font-thin">
-          <div className="flex items-center text-black text-2xl">
-            <FaPhone className="inline mr-2 text-gray-400" />
-            {getCopy('ctaCard.phoneInfo')}
-          </div>
-          <div className="text-xl sm:text-2xl flex items-center text-black mt-2">
-            <FaEnvelope className="mr-2 text-gray-400" />
-            {getCopy('ctaCard.emailInfo')}
-          </div>
+      </h2>
+      <p className="text-[1.1rem] sm:text-[1.2rem] text-muted-ink leading-relaxed mb-4">
+        {getCopy('ctaCard.body')}
+      </p>
+      <p className="text-[1.05rem] text-muted-ink leading-relaxed mb-10">
+        {getCopy('ctaCard.subNote')}
+      </p>
+
+      <p className="text-sm font-semibold tracking-[0.18em] uppercase text-medical-blue mb-5">
+        Here&apos;s what to expect:
+      </p>
+      <ol className="flex flex-col gap-4 mb-10">
+        {CTA_STEPS.map((key, i) => (
+          <li key={key} className="flex items-start gap-4">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full bg-medical-blue text-white font-bold flex items-center justify-center text-[0.88rem]">
+              {i + 1}
+            </span>
+            <p className="text-[1.05rem] text-muted-ink leading-relaxed pt-1">
+              {getCopy(key)}
+            </p>
+          </li>
+        ))}
+      </ol>
+
+      <p className="text-[1.1rem] font-semibold text-medical-navy italic leading-relaxed mb-10">
+        {getCopy('ctaCard.calloutText')}
+      </p>
+
+      <div className="flex flex-col items-start gap-5">
+        <div>
+          <Link
+            href="https://calendly.com/david-sog0/30min?month=2025-07"
+            target="_blank"
+          >
+            <Button className="shadow-md min-h-14 px-8 text-[1.05rem]">
+              <span className="flex items-center gap-2 py-0.5">
+                {getCopy('ctaCard.buttonText')}
+                <FaArrowRight size={14} />
+              </span>
+            </Button>
+          </Link>
         </div>
+        <Link
+          href="https://imagodei.fillout.com/id-interest"
+          target="_blank"
+          className="text-medical-blue underline underline-offset-4 text-[0.95rem] hover:text-medical-navy transition-colors"
+        >
+          {getCopy('ctaCard.secondaryText')}
+        </Link>
       </div>
     </div>
   </div>
 );
+

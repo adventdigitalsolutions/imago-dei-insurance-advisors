@@ -26,18 +26,17 @@ export default function ResourceTabs({
   ];
 
   return (
-    <div className="border-b border-gray-200 mb-8">
-      <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+    <div className="border-b border-clinical-border mb-8 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      <nav className="-mb-px flex min-w-max gap-4 sm:gap-8 pr-2" aria-label="Tabs">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
             className={`
-              whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm transition-colors duration-200
-              ${
-                activeTab === tab.id
-                  ? 'border-blue-500 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              whitespace-nowrap py-3 px-1 border-b-2 font-medium text-[0.95rem] sm:text-[1.05rem] lg:text-[1.2rem] transition-colors duration-200
+              ${activeTab === tab.id
+                ? 'border-medical-blue text-medical-blue'
+                : 'border-transparent text-muted-ink hover:text-ink hover:border-clinical-border'
               }
             `}
             aria-current={activeTab === tab.id ? 'page' : undefined}
@@ -46,12 +45,11 @@ export default function ResourceTabs({
             {tab.count > 0 && (
               <span
                 className={`
-                ml-2 py-0.5 px-2 rounded-full text-xs font-medium
-                ${
-                  activeTab === tab.id
-                    ? 'bg-blue-100 text-blue-600'
-                    : 'bg-gray-100 text-gray-500'
-                }
+                ml-2 py-0.5 px-2 rounded-full text-[0.76rem] sm:text-[0.82rem] font-medium
+                ${activeTab === tab.id
+                    ? 'bg-medical-sky text-medical-navy'
+                    : 'bg-white border border-clinical-border text-muted-ink'
+                  }
               `}
               >
                 {tab.count}

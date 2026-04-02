@@ -4,14 +4,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'dark-blue': '#2B4C9D',
-        'royal-purple': '#5271FF',
-        'slate-gray': '#A1A5B0',
-        'slate-grey': '#A1A5B0',
+        'dark-blue': '#2f4ea4',
+        'royal-purple': '#5f72ff',
+        'slate-gray': '#8f99c2',
+        'slate-grey': '#8f99c2',
+        navy: '#16255c',
+        'pale-blue': '#edf0ff',
+        'medical-navy': '#253b8e',
+        'medical-blue': '#4f63ff',
+        'medical-sky': '#eef1ff',
+        'clinical-border': '#d9e0ff',
+        ink: '#29418f',
+        'muted-ink': '#5a68a2',
       },
       fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
-        lora: ['Lora', 'serif'],
+        montserrat: ['var(--font-brand)', 'sans-serif'],
+        lora: ['var(--font-brand)', 'sans-serif'],
       },
       fontWeight: {
         thin: '100',

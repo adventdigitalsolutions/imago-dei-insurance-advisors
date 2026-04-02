@@ -1,23 +1,23 @@
 import { getCopy } from '@/getCopy';
 
 export const MissionSection = () => (
-  <div className="relative w-full py-16 flex justify-center text-center text-2xl md:text-4xl font-light tracking-[3px] md:tracking-[3px] px-8 overflow-hidden">
-    <div
-      className="absolute inset-0 w-full h-full -z-10 bg-cover bg-center rotate-[15deg]"
-      style={{
-        backgroundImage: 'url(/grid_bg.png)',
-      }}
-      aria-hidden="true"
-    />
-    {/* Gradient overlay */}
-    <div
-      className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-br from-royal-purple/90 to-royal-purple/30"
-      aria-hidden="true"
-    />
-    <span className="text-white leading-[40px] md:leading-[80px] max-w-5xl">
-      {getCopy('missionSection.missionPt1')}
-      <span className="underline">{getCopy('missionSection.missionPt2')}</span>
-      {getCopy('missionSection.missionPt3')}
-    </span>
+  <div className="bg-medical-sky/70 py-20 sm:py-28 px-8">
+    <div className="max-w-4xl mx-auto">
+      <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-8">
+        {getCopy('missionSection.header')}
+      </h2>
+      <div className="max-w-3xl flex flex-col gap-5">
+        <p className="text-[1.1rem] sm:text-[1.2rem] text-muted-ink leading-relaxed">
+          {getCopy('missionSection.body1')}
+        </p>
+        <p className="text-[1.1rem] sm:text-[1.2rem] text-muted-ink leading-relaxed">
+          {getCopy('missionSection.body2')}
+        </p>
+        <p className="text-[1.1rem] sm:text-[1.2rem] font-semibold text-medical-navy leading-relaxed">
+          {getCopy('missionSection.body3')}
+        </p>
+      </div>
+    </div>
   </div>
 );
+

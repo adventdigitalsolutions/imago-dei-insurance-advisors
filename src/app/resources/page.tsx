@@ -1,8 +1,22 @@
+import type { Metadata } from 'next';
 import { client } from '@/sanity/client';
 import ResourceGrid from '@/components/page-components/resources/resource-grid';
 import type { Resource } from '@/types/resource';
 import { getCopy } from '@/getCopy';
 import { PageHeader } from '@/components/page-header';
+
+export const metadata: Metadata = {
+  title: 'Resources',
+  description:
+    'Browse articles, guides, and case studies from Imago Dei Insurance Advisors. Practical insights on group health insurance, employee benefits, and stewardship for faith-based organizations.',
+  alternates: { canonical: '/resources' },
+  openGraph: {
+    title: 'Resources | Imago Dei Insurance Advisors',
+    description:
+      'Browse articles, guides, and case studies on group health insurance, employee benefits, and stewardship for Christian businesses, churches, and nonprofits.',
+    url: 'https://imagodeinsuranceadvisors.com/resources',
+  },
+};
 
 const RESOURCES_QUERY = `*[
   _type == "post"
@@ -23,11 +37,13 @@ export default async function ResourcesPage() {
   }
 
   return (
-    <main className="mt-24">
+    <main className="mt-20">
       {/* Hero Section */}
       <PageHeader title={getCopy('resourcesPage.title')} />
-      <div className="container mx-auto min-h-screen max-w-6xl p-8">
-        <ResourceGrid resources={resources} />
+      <div className="bg-medical-sky/70 py-20 sm:py-28 px-6">
+        <div className="max-w-6xl mx-auto">
+          <ResourceGrid resources={resources} />
+        </div>
       </div>
     </main>
   );

@@ -57,13 +57,13 @@ export default function ResourceGrid({ resources }: ResourceGridProps) {
       </div>
       {filteredResources.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">
+          <p className="text-muted-ink text-xl">
             No{' '}
             {activeTab === 'case-studies'
               ? 'case studies'
               : activeTab === 'blog-posts'
-              ? 'blog posts'
-              : 'resources'}{' '}
+                ? 'blog posts'
+                : 'resources'}{' '}
             found.
           </p>
         </div>
