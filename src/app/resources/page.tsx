@@ -26,8 +26,8 @@ export default async function ResourcesPage() {
     <main className="mt-20">
       {/* Hero Section */}
       <PageHeader title={getCopy('resourcesPage.title')} />
-      <div className="bg-medical-sky/45">
-        <div className="container mx-auto min-h-screen max-w-6xl p-8 md:py-12">
+      <div className="bg-medical-sky/70 py-20 sm:py-28 px-6">
+        <div className="max-w-6xl mx-auto">
           <ResourceGrid resources={resources} />
         </div>
       </div>
