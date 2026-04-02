@@ -48,7 +48,8 @@ export const Hero = () => (
             </Link>
             <p className="mt-3 text-white/60 text-sm">{getCopy('hero.subNote')}</p>
             <Link
-              href="/resources"
+              href="https://imagodei.fillout.com/id-interest"
+              target="_blank"
               className="mt-3 block text-white/70 text-sm underline underline-offset-2 hover:text-white transition-colors"
             >
               {getCopy('hero.secondaryText')}
