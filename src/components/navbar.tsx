@@ -5,7 +5,7 @@ import { getCopy } from '@/getCopy';
 import Image from 'next/image';
 import { Button } from '@/components/button';
 import Link from 'next/link';
-import { FiBriefcase, FiUser, FiBookOpen, FiHelpCircle } from 'react-icons/fi';
+import { FiBriefcase, FiUser, FiBookOpen, FiHelpCircle, FiHome } from 'react-icons/fi';
 
 export const Navbar = () => {
   const navbarItems = getCopy('navbarItems');
@@ -18,11 +18,17 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const formatLink = (label: string) =>
-    label.toLowerCase().replace(/\s+/g, '-');
+  const formatLink = (label: string) => {
+    const slug = label.toLowerCase().replace(/\s+/g, '-');
+    return slug === 'home' ? '/' : slug;
+  };
 
   const getMobileNavIcon = (label: string) => {
     const normalizedLabel = label.toLowerCase();
+
+    if (normalizedLabel.includes('home')) {
+      return <FiHome size={22} strokeWidth={2.15} aria-hidden="true" />;
+    }
 
     if (normalizedLabel.includes('solutions')) {
       return <FiBriefcase size={22} strokeWidth={2.15} aria-hidden="true" />;
