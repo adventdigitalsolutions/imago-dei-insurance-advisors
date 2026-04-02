@@ -20,5 +20,15 @@
     "className=\\{`([^`}]+)`\\}",
     "class=\\\"([^\\\"]*)\\\""
   ],
-  "cSpell.words": ["headshot"]
+  "cSpell.words": ["headshot"],
+  "chat.tools.terminal.autoApprove": {
+    "/^which magick \\|\\| which convert \\|\\| which ffmpeg \\|\\| which cwebp; echo \"---\"; identify --version 2>/dev/null \\| head -2 \\|\\| echo \"imagemagick not found\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^which sharp 2>/dev/null; node -e \"require\\('sharp'\\)\" 2>/dev/null && echo \"sharp available\" \\|\\| echo \"sharp not available\"; brew list 2>/dev/null \\| grep -E \"webp\\|imagemagick\\|vips\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
 }
