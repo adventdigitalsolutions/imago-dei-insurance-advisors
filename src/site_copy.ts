@@ -3,6 +3,7 @@ export const allSiteCopy = {
     '1': 'Solutions',
     '2': 'About',
     '3': 'Resources',
+    '4': 'FAQ',
   },
   navbarAppointment: 'Book an Appointment',
   hero: {

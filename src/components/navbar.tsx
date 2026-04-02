@@ -5,7 +5,7 @@ import { getCopy } from '@/getCopy';
 import Image from 'next/image';
 import { Button } from '@/components/button';
 import Link from 'next/link';
-import { FiBriefcase, FiUser, FiBookOpen } from 'react-icons/fi';
+import { FiBriefcase, FiUser, FiBookOpen, FiHelpCircle } from 'react-icons/fi';
 
 export const Navbar = () => {
   const navbarItems = getCopy('navbarItems');
@@ -30,6 +30,10 @@ export const Navbar = () => {
 
     if (normalizedLabel.includes('about')) {
       return <FiUser size={22} strokeWidth={2.15} aria-hidden="true" />;
+    }
+
+    if (normalizedLabel.includes('faq')) {
+      return <FiHelpCircle size={22} strokeWidth={2.15} aria-hidden="true" />;
     }
 
     return <FiBookOpen size={22} strokeWidth={2.15} aria-hidden="true" />;
