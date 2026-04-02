@@ -8,9 +8,10 @@ export const Hero = () => (
     <div className="relative">
       <Image
         src="/people-chatting.png"
-        alt="People Chatting"
+        alt="Team members having a benefits consultation"
         width={800}
         height={400}
+        priority
         className="w-full h-[840px] sm:h-[780px] z-0 lg:h-auto max-h-[900px] object-cover object-top"
       />
       <div className="absolute inset-0 z-10">

@@ -8,11 +8,98 @@ const leagueSpartan = League_Spartan({
   variable: '--font-brand',
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
 });
 
+const SITE_URL = 'https://imagodeinsuranceadvisors.com';
+const SITE_NAME = 'Imago Dei Insurance Advisors';
+const DEFAULT_DESCRIPTION =
+  'Flexible, affordable group health insurance for Christian-led businesses, churches, and nonprofits. No minimum enrollment or required employer contributions. Serving organizations across the U.S.';
+
 export const metadata: Metadata = {
-  title: 'Imago Dei Insurance Advisors',
-  description: 'Imago Dei Insurance Advisors',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  keywords: [
+    'group health insurance',
+    'employee benefits',
+    'Christian business insurance',
+    'nonprofit health insurance',
+    'church employee benefits',
+    'small business health insurance',
+    'flexible health benefits',
+    'insurance advisors',
+    'faith-based insurance',
+    'self-funded health plans',
+  ],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: '/people-chatting.png',
+        width: 1200,
+        height: 630,
+        alt: 'Imago Dei Insurance Advisors — Flexible Health Benefits for Faith-Based Organizations',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+    images: ['/people-chatting.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'InsuranceAgency',
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/imago-dei-logo.png`,
+  description: DEFAULT_DESCRIPTION,
+  telephone: '+18322633552',
+  email: 'info@imagodeinsurance.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'US',
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/imago-dei-insurance-advisors/',
+    'https://www.instagram.com/imagodeinsuranceadvisors/',
+    'https://www.facebook.com/people/Imago-Dei-Insurance-Advisors/61557799479420',
+    'https://youtube.com/@imagodeinsurance',
+  ],
+  priceRange: 'Free consultation',
+  areaServed: {
+    '@type': 'Country',
+    name: 'United States',
+  },
 };
 
 export default function RootLayout({
@@ -22,6 +109,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${leagueSpartan.variable} font-montserrat antialiased w-full`}
       >

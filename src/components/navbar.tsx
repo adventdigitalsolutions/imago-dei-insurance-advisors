@@ -44,9 +44,10 @@ export const Navbar = () => {
         <Link className="shrink-0 lg:w-1/3" href="/">
           <Image
             src="/imago-dei-logo.png"
-            alt="Imago Dei Logo"
+            alt="Imago Dei Insurance Advisors Logo"
             width={357}
             height={313}
+            priority
             className="h-[58px] w-auto sm:h-[70px]"
           />
         </Link>

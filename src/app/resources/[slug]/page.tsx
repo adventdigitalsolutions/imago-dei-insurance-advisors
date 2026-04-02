@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { PortableText } from 'next-sanity';
 import { client } from '@/sanity/client';
 import { urlFor } from '@/sanity/image';
@@ -8,6 +9,46 @@ import { notFound } from 'next/navigation';
 
 const RESOURCE_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 const ALL_RESOURCES_QUERY = `*[_type == "post" && defined(slug.current)]{slug}`;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const resource = await client.fetch<Resource | null>(
+    RESOURCE_QUERY,
+    await params
+  );
+
+  if (!resource) return {};
+
+  const imageUrl = resource.image
+    ? urlFor(resource.image)?.width(1200).height(630).url()
+    : undefined;
+
+  return {
+    title: resource.title,
+    description: `${resource.title} — Read the full article from Imago Dei Insurance Advisors.`,
+    alternates: {
+      canonical: `/resources/${resource.slug.current}`,
+    },
+    openGraph: {
+      title: resource.title,
+      description: `${resource.title} — Read the full article from Imago Dei Insurance Advisors.`,
+      url: `https://imagodeinsuranceadvisors.com/resources/${resource.slug.current}`,
+      type: 'article',
+      publishedTime: resource.publishedAt,
+      ...(imageUrl && {
+        images: [{ url: imageUrl, width: 1200, height: 630, alt: resource.title }],
+      }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: resource.title,
+      ...(imageUrl && { images: [imageUrl] }),
+    },
+  };
+}
 
 // Generate static params for all resources at build time
 export async function generateStaticParams() {

@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/page-header';
 import { getCopy } from '@/getCopy';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Our Team',
+  description:
+    'Meet the advisors behind Imago Dei Insurance Advisors — David Hemm and Adam Cravens. Experienced leaders committed to helping faith-based organizations provide meaningful employee benefits.',
+  alternates: { canonical: '/our-team' },
+  openGraph: {
+    title: 'Our Team | Imago Dei Insurance Advisors',
+    description:
+      'Meet David Hemm and Adam Cravens — experienced advisors dedicated to helping Christian businesses, churches, and nonprofits care for their teams through flexible, affordable health benefits.',
+    url: 'https://imagodeinsuranceadvisors.com/our-team',
+  },
+};
 
 export default function OurTeamPage() {
   const teamMembers = getCopy('ourTeamPage.teamMembers');

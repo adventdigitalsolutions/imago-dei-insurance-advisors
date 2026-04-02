@@ -1,7 +1,21 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/button';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description:
+    'Learn about Imago Dei Insurance Advisors — our mission, values, and commitment to faithful stewardship. We serve Christian businesses, churches, and nonprofits with flexible, affordable group health insurance.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Us | Imago Dei Insurance Advisors',
+    description:
+      'Learn about Imago Dei Insurance Advisors — our mission, values, and commitment to faithful stewardship for Christian businesses, churches, and nonprofits.',
+    url: 'https://imagodeinsuranceadvisors.com/about',
+  },
+};
 
 const VALUES = [
   {

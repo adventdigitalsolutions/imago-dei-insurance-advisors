@@ -131,6 +131,19 @@ export const Footer = () => (
               {getCopy('footer.phone')}
             </a>
           </div>
+          <div className="flex items-center text-white/72 text-[1rem]">
+            <div>
+              Powered by{' '}
+              <a
+                href="https://adventds.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                AdventDS.org
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

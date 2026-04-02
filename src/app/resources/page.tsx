@@ -1,8 +1,22 @@
+import type { Metadata } from 'next';
 import { client } from '@/sanity/client';
 import ResourceGrid from '@/components/page-components/resources/resource-grid';
 import type { Resource } from '@/types/resource';
 import { getCopy } from '@/getCopy';
 import { PageHeader } from '@/components/page-header';
+
+export const metadata: Metadata = {
+  title: 'Resources',
+  description:
+    'Browse articles, guides, and case studies from Imago Dei Insurance Advisors. Practical insights on group health insurance, employee benefits, and stewardship for faith-based organizations.',
+  alternates: { canonical: '/resources' },
+  openGraph: {
+    title: 'Resources | Imago Dei Insurance Advisors',
+    description:
+      'Browse articles, guides, and case studies on group health insurance, employee benefits, and stewardship for Christian businesses, churches, and nonprofits.',
+    url: 'https://imagodeinsuranceadvisors.com/resources',
+  },
+};
 
 const RESOURCES_QUERY = `*[
   _type == "post"

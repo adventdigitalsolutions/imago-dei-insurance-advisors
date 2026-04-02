@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { Button } from '@/components/button';
+
+export const metadata: Metadata = {
+  title: 'Solutions',
+  description:
+    'Explore flexible group health insurance solutions for businesses, churches, and nonprofits — with no minimum enrollment requirements and no required employer contributions. Built for organizations at every stage.',
+  alternates: { canonical: '/solutions' },
+  openGraph: {
+    title: 'Health Benefit Solutions | Imago Dei Insurance Advisors',
+    description:
+      'Flexible group health insurance with no minimums and no required employer contributions. Designed for Christian businesses, churches, and nonprofits of every size.',
+    url: 'https://imagodeinsuranceadvisors.com/solutions',
+  },
+};
 
 const CALENDLY_URL = 'https://calendly.com/david-sog0/30min?month=2025-07';
 const FILLOUT_URL = 'https://imagodei.fillout.com/id-interest';
