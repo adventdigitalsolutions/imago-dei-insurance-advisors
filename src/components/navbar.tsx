@@ -24,7 +24,7 @@ export const Navbar = () => {
   const getMobileNavIcon = (label: string) => {
     const normalizedLabel = label.toLowerCase();
 
-    if (normalizedLabel.includes('business')) {
+    if (normalizedLabel.includes('solutions')) {
       return <FiBriefcase size={22} strokeWidth={2.15} aria-hidden="true" />;
     }
 

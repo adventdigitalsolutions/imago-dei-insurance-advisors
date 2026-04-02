@@ -75,7 +75,7 @@ export const Footer = () => (
           <ul className="space-y-3">
             <li>
               <a
-                href="/business-solutions"
+                href="/solutions"
                 className="text-white/72 text-[1rem] hover:text-white transition-colors"
               >
                 {getCopy('footer.businessSolutions')}

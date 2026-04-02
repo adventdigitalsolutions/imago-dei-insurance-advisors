@@ -1,6 +1,6 @@
 export const allSiteCopy = {
   navbarItems: {
-    '1': 'Business Solutions',
+    '1': 'Solutions',
     '2': 'About',
     '3': 'Resources',
   },

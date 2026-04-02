@@ -73,7 +73,7 @@ export const BusinessSolutionsSection = () => (
           </Link>
         </div>
         <Link
-          href="/business-solutions"
+          href="/solutions"
           className="text-medical-blue underline underline-offset-4 text-[0.95rem] hover:text-medical-navy transition-colors"
         >
           {getCopy('businessSolutionsSection.secondaryText')}
