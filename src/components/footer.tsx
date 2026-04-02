@@ -98,14 +98,6 @@ export const Footer = () => (
                 {getCopy('footer.about')}
               </a>
             </li>
-            <li>
-              <a
-                href="/our-team"
-                className="text-white/72 text-[1rem] hover:text-white transition-colors"
-              >
-                {getCopy('footer.ourTeam')}
-              </a>
-            </li>
           </ul>
         </div>
       </div>

@@ -14,7 +14,6 @@ module.exports = {
       '/': 1.0,
       '/solutions': 0.9,
       '/about': 0.8,
-      '/our-team': 0.7,
       '/resources': 0.8,
     };
 

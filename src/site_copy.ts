@@ -109,7 +109,6 @@ export const allSiteCopy = {
     whoWeAreHeader: 'Who we are',
     businessSolutions: 'Business Solutions',
     about: 'About',
-    ourTeam: 'Our Team',
     faq: 'FAQ',
     email: 'info@imagodeinsurance.com',
     phone: '(832) 263-3552',
