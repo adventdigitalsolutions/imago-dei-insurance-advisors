@@ -30,7 +30,7 @@ export const Hero = () => (
             <ul className="space-y-2 mb-8">
               {(['check1', 'check2', 'check3'] as const).map((key) => (
                 <li key={key} className="flex items-center gap-2.5 text-white/90 text-[0.97rem]">
-                  <span className="text-blue-300 text-lg leading-none">✓</span>
+                  <span className="text-pale-blue text-lg leading-none">✓</span>
                   {getCopy(`hero.${key}`)}
                 </li>
               ))}

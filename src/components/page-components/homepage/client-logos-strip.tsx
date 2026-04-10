@@ -129,6 +129,12 @@ const LOGOS = [
     width: 367,
     height: 160,
   },
+  {
+    src: '/homepage_logos/logo-faith-driven.png',
+    alt: 'Faith Driven',
+    width: 400,
+    height: 225,
+  },
 ] as const;
 
 export const ClientLogosStrip = () => (

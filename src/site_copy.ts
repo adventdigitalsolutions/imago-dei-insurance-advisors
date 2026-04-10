@@ -86,7 +86,7 @@ export const allSiteCopy = {
     header: 'A Practical Framework for Stewardship, Cost Control, and Care',
     body: 'A simple framework to provide meaningful benefits while stewarding your resources wisely. Learn how to reduce costs, improve flexibility, and care for your team with confidence.',
     buttonText: 'Download the Free Guide',
-    subNote: 'Instant download. No spam.',
+    subNote: 'Enter your name and email to get instant access. No spam.',
   },
   ctaCard: {
     header: 'Ready to Care for Your Team in a Better Way?',

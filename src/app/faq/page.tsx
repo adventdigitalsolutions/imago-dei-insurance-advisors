@@ -6,7 +6,7 @@ import { PageHeader } from '@/components/page-header';
 import { FAQSection } from '@/components/page-components/faq/faq-accordion';
 
 export const metadata: Metadata = {
-  title: 'FAQ',
+  title: 'Frequently Asked Questions',
   description:
     'Clear answers to common questions about group health insurance, eligibility, plan options, and working with Imago Dei Insurance Advisors.',
   alternates: { canonical: '/faq' },
@@ -218,64 +218,82 @@ const FAQ_SECTIONS = [
     ],
   },
 ];
-
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_SECTIONS.flatMap((section) =>
+    section.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    }))
+  ),
+};
 export default function FAQPage() {
   return (
-    <div className="mt-20">
-      <PageHeader
-        eyebrow="FAQ"
-        title="Frequently Asked Questions"
-        subtitle="Clear answers to help you evaluate your options with confidence."
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <div className="mt-20">
+        <PageHeader
+          title="Frequently Asked Questions"
+          subtitle="Clear answers to help you evaluate your options with confidence."
+        />
 
-      {/* FAQ Sections */}
-      <div className="bg-white py-20 sm:py-28 px-6">
-        <div className="max-w-4xl mx-auto flex flex-col gap-6">
-          {FAQ_SECTIONS.map((section) => (
-            <FAQSection
-              key={section.title}
-              title={section.title}
-              items={section.items}
-            />
-          ))}
+        {/* FAQ Sections */}
+        <div className="bg-white py-20 sm:py-28 px-6">
+          <div className="max-w-4xl mx-auto flex flex-col gap-6">
+            {FAQ_SECTIONS.map((section) => (
+              <FAQSection
+                key={section.title}
+                title={section.title}
+                items={section.items}
+              />
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Still Have Questions CTA */}
-      <div className="bg-medical-sky/70 py-20 sm:py-28 px-6 border-t border-clinical-border/60">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-medical-blue mb-4">
-            Still Have Questions?
-          </p>
-          <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-6 max-w-xl">
-            Every organization is unique.
-          </h2>
-          <p className="text-[1.1rem] sm:text-[1.15rem] text-muted-ink leading-relaxed mb-10 max-w-2xl">
-            The best way to get clear answers for your situation is through a
-            short, thoughtful conversation.
-          </p>
-          <div className="flex flex-col items-start gap-5">
-            <Link href={CALENDLY_URL} target="_blank">
-              <Button className="shadow-md min-h-14 px-8 text-[1.05rem]">
-                <span className="flex items-center gap-2 py-0.5">
-                  Book Your Free Benefits Consultation
-                  <FaArrowRight size={14} />
-                </span>
-              </Button>
-            </Link>
-            <p className="text-[1rem] text-muted-ink">
-              Prefer to start with numbers?{' '}
-              <Link
-                href={FILLOUT_URL}
-                target="_blank"
-                className="text-medical-blue font-semibold hover:text-dark-blue underline underline-offset-2 transition-colors duration-150"
-              >
-                Request a quote.
-              </Link>
+        {/* Still Have Questions CTA */}
+        <div className="bg-medical-sky/70 py-20 sm:py-28 px-6 border-t border-clinical-border/60">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-sm font-semibold tracking-[0.18em] uppercase text-medical-blue mb-4">
+              Still Have Questions?
             </p>
+            <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-6 max-w-xl">
+              Every organization is unique.
+            </h2>
+            <p className="text-[1.1rem] sm:text-[1.15rem] text-muted-ink leading-relaxed mb-10 max-w-2xl">
+              The best way to get clear answers for your situation is through a
+              short, thoughtful conversation.
+            </p>
+            <div className="flex flex-col items-start gap-5">
+              <Link href={CALENDLY_URL} target="_blank">
+                <Button className="shadow-md min-h-14 px-8 text-[1.05rem]">
+                  <span className="flex items-center gap-2 py-0.5">
+                    Book Your Free Benefits Consultation
+                    <FaArrowRight size={14} />
+                  </span>
+                </Button>
+              </Link>
+              <p className="text-[1rem] text-muted-ink">
+                Prefer to start with numbers?{' '}
+                <Link
+                  href={FILLOUT_URL}
+                  target="_blank"
+                  className="text-medical-blue font-semibold hover:text-dark-blue underline underline-offset-2 transition-colors duration-150"
+                >
+                  Request a quote.
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -4,7 +4,7 @@ import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { Button } from '@/components/button';
 
 export const metadata: Metadata = {
-  title: 'Solutions',
+  title: 'Health Benefit Solutions',
   description:
     'Explore flexible group health insurance solutions for businesses, churches, and nonprofits — with no minimum enrollment requirements and no required employer contributions. Built for organizations at every stage.',
   alternates: { canonical: '/solutions' },
@@ -113,146 +113,132 @@ export default function SolutionsPage() {
       {/* Solutions by Organization Size */}
       <div className="bg-medical-sky/70 py-20 sm:py-28 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-medical-blue mb-4">
-            Organization Size
-          </p>
           <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-4 max-w-2xl">
             Solutions by Organization Size
           </h2>
           <p className="text-[1.15rem] sm:text-[1.2rem] font-semibold text-medical-navy mb-3">
             Designed Around Your Organization&apos;s Needs
           </p>
-          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed max-w-2xl">
+          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed max-w-2xl mb-12">
             Different organizations face different challenges. Our approach
             adapts to where you are today—and where you&apos;re going.
           </p>
-        </div>
-      </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Solopreneurs */}
+            <div className="bg-white rounded-2xl p-8 border border-clinical-border shadow-sm flex flex-col">
+              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-medical-blue mb-3">
+                Solopreneurs &amp; Business Owners
+              </p>
+              <h3 className="font-lora text-2xl font-bold tracking-[-0.03em] text-medical-navy leading-tight mb-5">
+                Group Health Coverage for Faith-Minded Business Owners
+              </h3>
+              <div className="flex flex-col gap-3 mb-5 flex-1">
+                <p className="text-[0.97rem] text-muted-ink leading-relaxed">
+                  Many solopreneurs are limited to high-cost individual marketplace
+                  plans. If you have an EIN, we can often provide access to group
+                  major medical coverage on national provider networks.
+                </p>
+                <ul className="flex flex-col gap-2 mt-1">
+                  {[
+                    'Access group health coverage as a business owner',
+                    'Avoid marketplace limitations',
+                    'Choose plans aligned with your needs and values',
+                    'Build a strong benefits foundation as you grow',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <FaCheckCircle className="text-medical-blue flex-shrink-0 mt-0.5" size={14} />
+                      <span className="text-muted-ink text-[0.9rem]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href={QUOTE_URL} target="_blank">
+                <Button className="shadow-md min-h-12 px-6 text-[0.97rem] w-full justify-center">
+                  <span className="flex items-center gap-2 py-0.5">
+                    Get a Quote for Your Business
+                    <FaArrowRight size={13} />
+                  </span>
+                </Button>
+              </Link>
+            </div>
 
-      {/* Solopreneurs */}
-      <div className="bg-white py-20 sm:py-28 px-6 border-t border-clinical-border/60">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-medical-blue mb-4">
-            Solopreneurs &amp; Business Owners
-          </p>
-          <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-8 max-w-2xl">
-            Group Health Coverage for Faith-Minded Business Owners
-          </h2>
-          <div className="flex flex-col gap-5 max-w-3xl mb-6">
-            <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed">
-              Many solopreneurs are limited to high-cost individual marketplace
-              plans with few options.
-            </p>
-            <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed">
-              If you have an EIN, we can often provide access to group major
-              medical coverage on national provider networks.
-            </p>
-            <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink">
-              This allows you to:
-            </p>
+            {/* Small Businesses */}
+            <div className="bg-white rounded-2xl p-8 border border-clinical-border shadow-sm flex flex-col">
+              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-medical-blue mb-3">
+                Small Businesses (2–9 Employees)
+              </p>
+              <h3 className="font-lora text-2xl font-bold tracking-[-0.03em] text-medical-navy leading-tight mb-5">
+                Flexible Health and Employee Benefits for Small Teams
+              </h3>
+              <div className="flex flex-col gap-3 mb-5 flex-1">
+                <p className="text-[0.97rem] text-muted-ink leading-relaxed">
+                  Many small organizations want to offer benefits but run into
+                  participation requirements, contribution rules, and rising costs.
+                  We remove those barriers.
+                </p>
+                <ul className="flex flex-col gap-2 mt-1">
+                  {[
+                    'Group health insurance with no minimum enrollment requirements',
+                    'Avoid rigid contribution rules',
+                    'Meaningful coverage even with a small team',
+                    'Alternative plan options to manage costs',
+                    'Proactive guidance instead of just renewal notices',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <FaCheckCircle className="text-medical-blue flex-shrink-0 mt-0.5" size={14} />
+                      <span className="text-muted-ink text-[0.9rem]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href={CALENDLY_URL} target="_blank">
+                <Button className="shadow-md min-h-12 px-6 text-[0.97rem] w-full justify-center">
+                  <span className="flex items-center gap-2 py-0.5">
+                    Schedule Free Consultation
+                    <FaArrowRight size={13} />
+                  </span>
+                </Button>
+              </Link>
+            </div>
+
+            {/* Mid-Size Organizations */}
+            <div className="bg-white rounded-2xl p-8 border border-clinical-border shadow-sm flex flex-col">
+              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-medical-blue mb-3">
+                Mid-Size Organizations (10–500 Employees)
+              </p>
+              <h3 className="font-lora text-2xl font-bold tracking-[-0.03em] text-medical-navy leading-tight mb-5">
+                Strategic Health and Benefits Support for Growing Organizations
+              </h3>
+              <div className="flex flex-col gap-3 mb-5 flex-1">
+                <p className="text-[0.97rem] text-muted-ink leading-relaxed">
+                  Growing organizations often have benefits in place but lack
+                  strategic support. We provide expanded options and hands-on
+                  support to reduce administrative load.
+                </p>
+                <ul className="flex flex-col gap-2 mt-1">
+                  {[
+                    'Access to multiple carrier options',
+                    'Flexible PPO and HDHP plan designs',
+                    'Enrollment technology connected to payroll',
+                    'Ongoing advisory and strategy sessions',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <FaCheckCircle className="text-medical-blue flex-shrink-0 mt-0.5" size={14} />
+                      <span className="text-muted-ink text-[0.9rem]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href={CALENDLY_URL} target="_blank">
+                <Button className="shadow-md min-h-12 px-6 text-[0.97rem] w-full justify-center">
+                  <span className="flex items-center gap-2 py-0.5">
+                    Schedule Free Benefits Review
+                    <FaArrowRight size={13} />
+                  </span>
+                </Button>
+              </Link>
+            </div>
           </div>
-          <BulletList
-            items={[
-              'Access group health coverage as a business owner',
-              'Avoid marketplace limitations',
-              'Choose plans aligned with your needs and values',
-              'Build a strong benefits foundation as you grow',
-            ]}
-          />
-          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed mb-8 max-w-3xl">
-            If you&apos;re currently on an individual plan, this may open better
-            options than you realized.
-          </p>
-          <Link href={QUOTE_URL} target="_blank">
-            <Button className="shadow-md min-h-14 px-8 text-[1.05rem]">
-              <span className="flex items-center gap-2 py-0.5">
-                Get a Quote for Your Business
-                <FaArrowRight size={14} />
-              </span>
-            </Button>
-          </Link>
-        </div>
-      </div>
-
-      {/* Small Businesses */}
-      <div className="bg-medical-sky/70 py-20 sm:py-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-medical-blue mb-4">
-            Small Businesses (2–9 Employees)
-          </p>
-          <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-8 max-w-2xl">
-            Flexible Health and Employee Benefits for Small Teams
-          </h2>
-          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed mb-6 max-w-3xl">
-            Many small organizations want to offer benefits but run into
-            participation requirements, contribution rules, and rising costs.
-            Whether you&apos;re starting from scratch or improving existing
-            coverage, we remove those barriers.
-          </p>
-          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink mb-4">
-            You can:
-          </p>
-          <BulletList
-            items={[
-              'Offer group health insurance with no minimum enrollment requirements',
-              'Avoid rigid contribution rules',
-              'Provide meaningful coverage even with a small team',
-              'Explore alternative plan options to manage costs',
-              'Receive proactive guidance instead of just renewal notices',
-            ]}
-          />
-          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed mb-8 max-w-3xl">
-            You don&apos;t need to wait until you grow to offer excellent
-            benefits.
-          </p>
-          <Link href={CALENDLY_URL} target="_blank">
-            <Button className="shadow-md min-h-14 px-8 text-[1.05rem]">
-              <span className="flex items-center gap-2 py-0.5">
-                Schedule Free Consultation
-                <FaArrowRight size={14} />
-              </span>
-            </Button>
-          </Link>
-        </div>
-      </div>
-
-      {/* Mid-Size Organizations */}
-      <div className="bg-white py-20 sm:py-28 px-6 border-t border-clinical-border/60">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-medical-blue mb-4">
-            Mid-Size Organizations (10–500 Employees)
-          </p>
-          <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-8 max-w-2xl">
-            Strategic Health and Benefits Support for Growing Organizations
-          </h2>
-          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed mb-4 max-w-3xl">
-            Growing organizations often have benefits in place but lack
-            strategic support. You may be facing annual rate increases, limited
-            broker engagement, and administrative burden.
-          </p>
-          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink mb-4">
-            We provide expanded options and hands-on support, including:
-          </p>
-          <BulletList
-            items={[
-              'Access to multiple carrier options',
-              'Flexible PPO and HDHP plan designs',
-              'Enrollment technology connected to payroll',
-              'Ongoing advisory and strategy sessions',
-            ]}
-          />
-          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed mb-8 max-w-3xl">
-            We reduce administrative load while strengthening your overall
-            benefits strategy.
-          </p>
-          <Link href={CALENDLY_URL} target="_blank">
-            <Button className="shadow-md min-h-14 px-8 text-[1.05rem]">
-              <span className="flex items-center gap-2 py-0.5">
-                Schedule Free Benefits Review
-                <FaArrowRight size={14} />
-              </span>
-            </Button>
-          </Link>
         </div>
       </div>
 
@@ -369,11 +355,12 @@ export default function SolutionsPage() {
             Providing benefits shouldn&apos;t create additional administrative
             work. We streamline the entire process with:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
             {implementationCards.map((card, i) => (
               <div
                 key={i}
-                className="bg-white/10 rounded-2xl border border-white/20 p-8"
+                className={`bg-white/10 rounded-2xl border border-white/20 p-8 lg:col-span-2${i === 3 ? ' lg:col-start-2' : ''
+                  }`}
               >
                 <h4 className="font-lora text-xl font-bold text-white mb-3">
                   {card.title}
@@ -457,7 +444,7 @@ export default function SolutionsPage() {
               </li>
             ))}
           </ul>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div className="flex flex-col items-start gap-5">
             <Link href={CALENDLY_URL} target="_blank">
               <Button className="shadow-md min-h-14 px-8 text-[1.05rem]">
                 <span className="flex items-center gap-2 py-0.5">

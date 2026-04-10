@@ -67,38 +67,67 @@ export const Footer = () => (
           </div>
         </div>
 
-        {/* Solutions */}
-        <div>
+        {/* Contact Form */}
+        <div className="md:col-span-2">
           <h3 className="text-[0.82rem] font-semibold tracking-[0.18em] text-white/55 uppercase mb-6">
-            {getCopy('footer.solutionsHeader')}
+            Get in Touch
           </h3>
-          <ul className="space-y-3">
-            <li>
-              <a
-                href="/solutions"
-                className="text-white/72 text-[1rem] hover:text-white transition-colors"
-              >
-                {getCopy('footer.businessSolutions')}
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Who we are */}
-        <div>
-          <h3 className="text-[0.82rem] font-semibold tracking-[0.18em] text-white/55 uppercase mb-6">
-            {getCopy('footer.whoWeAreHeader')}
-          </h3>
-          <ul className="space-y-3">
-            <li>
-              <a
-                href="/about"
-                className="text-white/72 text-[1rem] hover:text-white transition-colors"
-              >
-                {getCopy('footer.about')}
-              </a>
-            </li>
-          </ul>
+          <form
+            action="https://formspree.io/f/mnjoeqqg"
+            method="POST"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+          >
+            <input
+              type="text"
+              name="Name"
+              placeholder="Name"
+              required
+              className="bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50"
+            />
+            <input
+              type="text"
+              name="Company"
+              placeholder="Company"
+              className="bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50"
+            />
+            <input
+              type="text"
+              name="Number of Employees"
+              placeholder="Number of Employees"
+              className="bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50"
+            />
+            <input
+              type="email"
+              name="Email"
+              placeholder="Email"
+              required
+              className="bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50"
+            />
+            <input
+              type="tel"
+              name="Phone"
+              placeholder="Phone Number"
+              className="bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50"
+            />
+            <input
+              type="text"
+              name="State"
+              placeholder="State"
+              className="bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50"
+            />
+            <textarea
+              name="Comments"
+              placeholder="How can we help?"
+              rows={3}
+              className="sm:col-span-2 bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50 resize-none"
+            />
+            <button
+              type="submit"
+              className="sm:col-span-2 bg-medical-blue hover:bg-medical-blue/90 text-white font-semibold text-sm rounded-lg px-6 py-2.5 transition-colors"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
 
