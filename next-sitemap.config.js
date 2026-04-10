@@ -7,8 +7,8 @@ module.exports = {
   sitemapSize: 5000,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],
-    additionalSitemaps: ['https://imagodeinsuranceadvisors.com/sitemap.xml'],
   },
+  exclude: ['/our-team'],
   transform: async (config, path) => {
     const priorities = {
       '/': 1.0,
