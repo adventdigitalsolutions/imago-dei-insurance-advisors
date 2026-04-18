@@ -10,7 +10,7 @@ type HealthIssue = {
 const PDF_FILENAME =
   "The Small Business Owner's Guide to Employee Benefits.pdf";
 
-function isNonEmpty(value: string | undefined): boolean {
+function isNonEmpty(value: string | undefined): value is string {
   return typeof value === 'string' && value.trim().length > 0;
 }
 

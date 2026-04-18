@@ -2,7 +2,13 @@
   "name": "imago-dei-insurance-advisors",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "yarn": ">=1.22.22",
+    "npm": "please-use-yarn"
+  },
   "scripts": {
+    "preinstall": "node -e \"const ua=process.env.npm_config_user_agent||''; if(!ua.includes('yarn/')){console.error('This project is locked to Yarn. Use: yarn install'); process.exit(1)}\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
