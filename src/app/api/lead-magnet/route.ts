@@ -119,7 +119,6 @@ export async function POST(req: NextRequest) {
     process.env.SENDGRID_FROM_EMAIL ?? 'hello@imagodeinsuranceadvisors.com';
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
-  const shouldEnforceTurnstile = Boolean(turnstileSecret && turnstileSiteKey);
   const clientIp = getClientIp(req);
 
   pruneRateLimitBuckets();
@@ -187,7 +186,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  if (shouldEnforceTurnstile) {
+  if (turnstileSecret && turnstileSiteKey) {
     if (!turnstileToken || typeof turnstileToken !== 'string') {
       return NextResponse.json(
         { error: 'Security check is required.' },
