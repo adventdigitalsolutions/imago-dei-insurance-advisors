@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import sgMail from '@sendgrid/mail';
 
 const ADAM_EMAIL = 'adam@imagodeinsurance.com';
+const DAVID_EMAIL = 'david@imagodeinsurance.com';
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://imagodeinsuranceadvisors.com';
 const GUIDE_PDF_PATH =
@@ -250,9 +251,9 @@ export async function POST(req: NextRequest) {
           </div>
         `,
       },
-      // 2. Lead capture notification to Adam
+      // 2. Lead capture notification to David and Adam
       {
-        to: ADAM_EMAIL,
+        to: [ADAM_EMAIL, DAVID_EMAIL],
         from: { name: 'Imago Dei Lead Capture', email: fromEmail },
         subject: `New Lead: ${safeName} downloaded the Free Guide`,
         html: `
