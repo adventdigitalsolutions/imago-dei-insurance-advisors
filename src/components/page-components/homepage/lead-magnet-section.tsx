@@ -1,19 +1,53 @@
 'use client';
 
-import { useState } from 'react';
+import Script from 'next/script';
+import { useEffect, useState } from 'react';
 import { getCopy } from '@/getCopy';
 import { Button } from '@/components/button';
 
 type FormState = 'idle' | 'open' | 'submitting' | 'success' | 'error';
+
+const GUIDE_PDF_HREF =
+  '/The%20Small%20Business%20Owner%E2%80%99s%20Guide%20to%20Employee%20Benefits.pdf';
+
+type TurnstileWindow = Window & {
+  onLeadMagnetTurnstileSuccess?: (token: string) => void;
+  onLeadMagnetTurnstileExpired?: () => void;
+};
 
 export const LeadMagnetSection = () => {
   const [formState, setFormState] = useState<FormState>('idle');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
+
+  useEffect(() => {
+    const turnstileWindow = window as TurnstileWindow;
+    turnstileWindow.onLeadMagnetTurnstileSuccess = (token: string) => {
+      setTurnstileToken(token);
+      setErrorMsg('');
+    };
+    turnstileWindow.onLeadMagnetTurnstileExpired = () => {
+      setTurnstileToken('');
+    };
+
+    return () => {
+      delete turnstileWindow.onLeadMagnetTurnstileSuccess;
+      delete turnstileWindow.onLeadMagnetTurnstileExpired;
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (turnstileSiteKey && !turnstileToken) {
+      setErrorMsg('Please complete the security check.');
+      setFormState('open');
+      return;
+    }
+
     setFormState('submitting');
     setErrorMsg('');
 
@@ -21,7 +55,11 @@ export const LeadMagnetSection = () => {
       const res = await fetch('/api/lead-magnet', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim() }),
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          turnstileToken,
+        }),
       });
 
       const data = await res.json();
@@ -35,8 +73,8 @@ export const LeadMagnetSection = () => {
       setFormState('success');
       // Trigger auto-download
       const link = document.createElement('a');
-      link.href = '/free-guide.pdf';
-      link.download = 'Imago-Dei-Free-Guide.pdf';
+      link.href = data.downloadUrl ?? GUIDE_PDF_HREF;
+      link.download = 'Small-Business-Owners-Guide-to-Employee-Benefits.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -51,10 +89,17 @@ export const LeadMagnetSection = () => {
     setName('');
     setEmail('');
     setErrorMsg('');
+    setTurnstileToken('');
   };
 
   return (
     <>
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+      />
+
       {/* Modal overlay */}
       {(formState === 'open' ||
         formState === 'submitting' ||
@@ -85,8 +130,8 @@ export const LeadMagnetSection = () => {
                   Your guide is on its way. Your download should also start
                   automatically — if not,{' '}
                   <a
-                    href="/free-guide.pdf"
-                    download="Imago-Dei-Free-Guide.pdf"
+                    href={GUIDE_PDF_HREF}
+                    download="Small-Business-Owners-Guide-to-Employee-Benefits.pdf"
                     className="text-medical-blue underline underline-offset-2 font-semibold"
                   >
                     click here
@@ -141,6 +186,16 @@ export const LeadMagnetSection = () => {
                     />
                   </div>
 
+                  {turnstileSiteKey && (
+                    <div
+                      className="cf-turnstile"
+                      data-sitekey={turnstileSiteKey}
+                      data-callback="onLeadMagnetTurnstileSuccess"
+                      data-expired-callback="onLeadMagnetTurnstileExpired"
+                      data-error-callback="onLeadMagnetTurnstileExpired"
+                    />
+                  )}
+
                   {errorMsg && (
                     <p className="text-red-600 text-[0.875rem]">{errorMsg}</p>
                   )}
@@ -177,7 +232,10 @@ export const LeadMagnetSection = () => {
             <Button
               variant="deepBlue"
               className="min-h-14 px-8 text-[1.05rem] border border-white/50"
-              onClick={() => setFormState('open')}
+              onClick={() => {
+                setTurnstileToken('');
+                setFormState('open');
+              }}
             >
               {getCopy('leadMagnetSection.buttonText')}
             </Button>

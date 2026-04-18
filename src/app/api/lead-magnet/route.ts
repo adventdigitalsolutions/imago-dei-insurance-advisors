@@ -4,18 +4,144 @@ import sgMail from '@sendgrid/mail';
 const ADAM_EMAIL = 'adam@imagodeinsurance.com';
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://imagodeinsuranceadvisors.com';
-// PDF should be placed at public/free-guide.pdf
-const GUIDE_PDF_URL = `${SITE_URL}/free-guide.pdf`;
+const GUIDE_PDF_PATH =
+  '/The%20Small%20Business%20Owner%E2%80%99s%20Guide%20to%20Employee%20Benefits.pdf';
+const GUIDE_PDF_URL = `${SITE_URL}${GUIDE_PDF_PATH}`;
+
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const rateLimitBuckets = new Map<
+  string,
+  { count: number; windowStart: number }
+>();
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function getClientIp(req: NextRequest): string {
+  const cfIp = req.headers.get('cf-connecting-ip');
+  if (cfIp) return cfIp;
+
+  const xForwardedFor = req.headers.get('x-forwarded-for');
+  if (xForwardedFor) return xForwardedFor.split(',')[0].trim();
+
+  return 'unknown';
+}
+
+function pruneRateLimitBuckets() {
+  const now = Date.now();
+
+  if (rateLimitBuckets.size < 1000) {
+    return;
+  }
+
+  for (const [key, value] of rateLimitBuckets.entries()) {
+    if (now - value.windowStart > RATE_LIMIT_WINDOW_MS) {
+      rateLimitBuckets.delete(key);
+    }
+  }
+}
+
+function isRateLimited(clientId: string): boolean {
+  const now = Date.now();
+  const bucket = rateLimitBuckets.get(clientId);
+
+  if (!bucket || now - bucket.windowStart > RATE_LIMIT_WINDOW_MS) {
+    rateLimitBuckets.set(clientId, { count: 1, windowStart: now });
+    return false;
+  }
+
+  bucket.count += 1;
+  rateLimitBuckets.set(clientId, bucket);
+
+  return bucket.count > RATE_LIMIT_MAX_REQUESTS;
+}
+
+async function sendAlert(message: string, details?: Record<string, unknown>) {
+  const webhookUrl = process.env.ALERT_WEBHOOK_URL;
+  if (!webhookUrl) {
+    return;
+  }
+
+  const text = details
+    ? `${message}\n${JSON.stringify(details, null, 2)}`
+    : message;
+
+  try {
+    await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text }),
+    });
+  } catch (alertError) {
+    console.error('Failed to send webhook alert', alertError);
+  }
+}
+
+async function verifyTurnstileToken({
+  token,
+  secret,
+  clientIp,
+}: {
+  token: string;
+  secret: string;
+  clientIp?: string;
+}): Promise<boolean> {
+  const formData = new URLSearchParams();
+  formData.set('secret', secret);
+  formData.set('response', token);
+  if (clientIp) {
+    formData.set('remoteip', clientIp);
+  }
+
+  const verificationResponse = await fetch(
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString(),
+    }
+  );
+
+  if (!verificationResponse.ok) {
+    return false;
+  }
+
+  const verificationData = (await verificationResponse.json()) as {
+    success?: boolean;
+  };
+
+  return Boolean(verificationData.success);
+}
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.SENDGRID_API_KEY;
   const fromEmail =
     process.env.SENDGRID_FROM_EMAIL ?? 'hello@imagodeinsuranceadvisors.com';
+  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+  const clientIp = getClientIp(req);
+
+  pruneRateLimitBuckets();
+
+  if (isRateLimited(clientIp)) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again in a few minutes.' },
+      { status: 429 }
+    );
+  }
+
+  if (!turnstileSecret && process.env.NODE_ENV === 'production') {
+    const errMsg = 'TURNSTILE_SECRET_KEY is not set';
+    console.error(errMsg);
+    await sendAlert(errMsg, { clientIp });
+    return NextResponse.json(
+      { error: 'Security service not configured.' },
+      { status: 500 }
+    );
+  }
 
   if (!apiKey) {
     console.error('SENDGRID_API_KEY is not set');
+    await sendAlert('SENDGRID_API_KEY is not set', { clientIp });
     return NextResponse.json(
       { error: 'Email service not configured.' },
       { status: 500 }
@@ -37,6 +163,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { name, email } = body as Record<string, unknown>;
+  const turnstileToken = (body as Record<string, unknown>).turnstileToken;
 
   if (!name || typeof name !== 'string' || name.trim().length === 0) {
     return NextResponse.json({ error: 'Name is required.' }, { status: 400 });
@@ -46,6 +173,28 @@ export async function POST(req: NextRequest) {
       { error: 'A valid email address is required.' },
       { status: 400 }
     );
+  }
+
+  if (turnstileSecret) {
+    if (!turnstileToken || typeof turnstileToken !== 'string') {
+      return NextResponse.json(
+        { error: 'Security check is required.' },
+        { status: 400 }
+      );
+    }
+
+    const isTokenValid = await verifyTurnstileToken({
+      token: turnstileToken,
+      secret: turnstileSecret,
+      clientIp: clientIp !== 'unknown' ? clientIp : undefined,
+    });
+
+    if (!isTokenValid) {
+      return NextResponse.json(
+        { error: 'Security check failed. Please try again.' },
+        { status: 400 }
+      );
+    }
   }
 
   // Sanitize — prevent header injection
@@ -116,11 +265,18 @@ export async function POST(req: NextRequest) {
     ]);
   } catch (err) {
     console.error('SendGrid error:', err);
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    await sendAlert('Lead magnet email delivery failed', {
+      errorMessage,
+      safeEmail,
+      safeName,
+      clientIp,
+    });
     return NextResponse.json(
       { error: 'Failed to send email. Please try again.' },
       { status: 502 }
     );
   }
 
-  return NextResponse.json({ success: true });
+  return NextResponse.json({ success: true, downloadUrl: GUIDE_PDF_PATH });
 }

@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project for Imago Dei Insurance Advisors.
 
 ## Getting Started
 
@@ -16,21 +16,79 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Lead Magnet Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Set these environment variables before testing the lead magnet flow:
 
-## Learn More
+```bash
+SENDGRID_API_KEY=your-sendgrid-api-key
+SENDGRID_FROM_EMAIL=verified-sender@yourdomain.com
+NEXT_PUBLIC_SITE_URL=https://your-production-domain.com
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=your-turnstile-site-key
+TURNSTILE_SECRET_KEY=your-turnstile-secret-key
+ALERT_WEBHOOK_URL=
+```
 
-To learn more about Next.js, take a look at the following resources:
+Notes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `SENDGRID_FROM_EMAIL` must be a valid, verified sender identity in SendGrid.
+- `ALERT_WEBHOOK_URL` is optional. If set, API failures will post alerts there.
+- The PDF file must exist at `public/The Small Business Owner’s Guide to Employee Benefits.pdf`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Lead Magnet Health Check
 
-## Deploy on Vercel
+The endpoint `GET /api/health` validates lead magnet readiness without exposing secret values.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+What it checks:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Required environment variable presence/format
+- Turnstile key presence
+- PDF file existence in `public/`
+
+Response behavior:
+
+- `200` when all checks pass
+- `503` when any check fails
+
+Example:
+
+```bash
+curl -s http://localhost:3000/api/health | jq
+```
+
+Expected response shape:
+
+```json
+{
+  "ok": true,
+  "timestamp": "2026-04-18T12:34:56.000Z",
+  "service": "lead-magnet",
+  "checks": {
+    "sendgridApiKey": true,
+    "sendgridFromEmail": true,
+    "siteUrl": true,
+    "turnstileSiteKey": true,
+    "turnstileSecretKey": true,
+    "pdfPresent": true
+  },
+  "issues": []
+}
+```
+
+## Lead Magnet Functional Test
+
+1. Click Download on the homepage.
+2. Complete bot check and submit name/email.
+3. Confirm thank-you message appears.
+4. Confirm PDF auto-download starts.
+5. Confirm lead receives the email containing the PDF link.
+6. Confirm your internal notification email is received.
+
+## Deploy
+
+Set the same environment variables in your hosting provider for each environment (Preview and Production), then run:
+
+```bash
+npm run build
+npm run start
+```
