@@ -42,12 +42,6 @@ export const LeadMagnetSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (turnstileSiteKey && !turnstileToken) {
-      setErrorMsg('Please complete the security check.');
-      setFormState('open');
-      return;
-    }
-
     setFormState('submitting');
     setErrorMsg('');
 
@@ -94,127 +88,129 @@ export const LeadMagnetSection = () => {
 
   return (
     <>
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        async
-        defer
-      />
+      {turnstileSiteKey && (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          async
+          defer
+        />
+      )}
 
       {/* Modal overlay */}
       {(formState === 'open' ||
         formState === 'submitting' ||
         formState === 'success') && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) closeModal();
-          }}
-        >
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8 relative">
-            {/* Close button */}
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-muted-ink hover:text-medical-navy transition-colors text-xl leading-none"
-              aria-label="Close"
-            >
-              ✕
-            </button>
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) closeModal();
+            }}
+          >
+            <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8 relative">
+              {/* Close button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 text-muted-ink hover:text-medical-navy transition-colors text-xl leading-none"
+                aria-label="Close"
+              >
+                ✕
+              </button>
 
-            {formState === 'success' ? (
-              <div className="text-center py-4">
-                <div className="text-4xl mb-4">🎉</div>
-                <h3 className="font-lora text-2xl font-bold text-medical-navy mb-3">
-                  Check your inbox!
-                </h3>
-                <p className="text-muted-ink text-[0.95rem] leading-relaxed">
-                  Your guide is on its way. Your download should also start
-                  automatically — if not,{' '}
-                  <a
-                    href={GUIDE_PDF_HREF}
-                    download="Small-Business-Owners-Guide-to-Employee-Benefits.pdf"
-                    className="text-medical-blue underline underline-offset-2 font-semibold"
-                  >
-                    click here
-                  </a>
-                  .
-                </p>
-              </div>
-            ) : (
-              <>
-                <h3 className="font-lora text-2xl font-bold text-medical-navy mb-2">
-                  Get instant access
-                </h3>
-                <p className="text-muted-ink text-[0.9rem] mb-6">
-                  Enter your name and email to download the free guide. No spam.
-                </p>
-
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                  <div className="flex flex-col gap-1">
-                    <label
-                      htmlFor="lm-name"
-                      className="text-sm font-semibold text-medical-navy"
+              {formState === 'success' ? (
+                <div className="text-center py-4">
+                  <div className="text-4xl mb-4">🎉</div>
+                  <h3 className="font-lora text-2xl font-bold text-medical-navy mb-3">
+                    Check your inbox!
+                  </h3>
+                  <p className="text-muted-ink text-[0.95rem] leading-relaxed">
+                    Your guide is on its way. Your download should also start
+                    automatically — if not,{' '}
+                    <a
+                      href={GUIDE_PDF_HREF}
+                      download="Small-Business-Owners-Guide-to-Employee-Benefits.pdf"
+                      className="text-medical-blue underline underline-offset-2 font-semibold"
                     >
-                      Name
-                    </label>
-                    <input
-                      id="lm-name"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Your name"
-                      className="border border-clinical-border rounded-lg px-4 py-3 text-[0.95rem] text-medical-navy focus:outline-none focus:ring-2 focus:ring-medical-blue/40"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <label
-                      htmlFor="lm-email"
-                      className="text-sm font-semibold text-medical-navy"
+                      click here
+                    </a>
+                    .
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <h3 className="font-lora text-2xl font-bold text-medical-navy mb-2">
+                    Get instant access
+                  </h3>
+                  <p className="text-muted-ink text-[0.9rem] mb-6">
+                    Enter your name and email to download the free guide. No spam.
+                  </p>
+
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-1">
+                      <label
+                        htmlFor="lm-name"
+                        className="text-sm font-semibold text-medical-navy"
+                      >
+                        Name
+                      </label>
+                      <input
+                        id="lm-name"
+                        type="text"
+                        required
+                        autoComplete="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Your name"
+                        className="border border-clinical-border rounded-lg px-4 py-3 text-[0.95rem] text-medical-navy focus:outline-none focus:ring-2 focus:ring-medical-blue/40"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <label
+                        htmlFor="lm-email"
+                        className="text-sm font-semibold text-medical-navy"
+                      >
+                        Email
+                      </label>
+                      <input
+                        id="lm-email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                        className="border border-clinical-border rounded-lg px-4 py-3 text-[0.95rem] text-medical-navy focus:outline-none focus:ring-2 focus:ring-medical-blue/40"
+                      />
+                    </div>
+
+                    {turnstileSiteKey && (
+                      <div
+                        className="cf-turnstile"
+                        data-sitekey={turnstileSiteKey}
+                        data-callback="onLeadMagnetTurnstileSuccess"
+                        data-expired-callback="onLeadMagnetTurnstileExpired"
+                        data-error-callback="onLeadMagnetTurnstileExpired"
+                      />
+                    )}
+
+                    {errorMsg && (
+                      <p className="text-red-600 text-[0.875rem]">{errorMsg}</p>
+                    )}
+
+                    <Button
+                      type="submit"
+                      disabled={formState === 'submitting'}
+                      className="w-full min-h-12 text-[1rem] mt-1"
                     >
-                      Email
-                    </label>
-                    <input
-                      id="lm-email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="you@example.com"
-                      className="border border-clinical-border rounded-lg px-4 py-3 text-[0.95rem] text-medical-navy focus:outline-none focus:ring-2 focus:ring-medical-blue/40"
-                    />
-                  </div>
-
-                  {turnstileSiteKey && (
-                    <div
-                      className="cf-turnstile"
-                      data-sitekey={turnstileSiteKey}
-                      data-callback="onLeadMagnetTurnstileSuccess"
-                      data-expired-callback="onLeadMagnetTurnstileExpired"
-                      data-error-callback="onLeadMagnetTurnstileExpired"
-                    />
-                  )}
-
-                  {errorMsg && (
-                    <p className="text-red-600 text-[0.875rem]">{errorMsg}</p>
-                  )}
-
-                  <Button
-                    type="submit"
-                    disabled={formState === 'submitting'}
-                    className="w-full min-h-12 text-[1rem] mt-1"
-                  >
-                    {formState === 'submitting'
-                      ? 'Sending…'
-                      : 'Send Me the Guide'}
-                  </Button>
-                </form>
-              </>
-            )}
+                      {formState === 'submitting'
+                        ? 'Sending…'
+                        : 'Send Me the Guide'}
+                    </Button>
+                  </form>
+                </>
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
       {/* Section */}
       <div className="bg-gradient-to-r from-navy via-medical-navy to-royal-purple py-20 sm:py-28 px-6">
