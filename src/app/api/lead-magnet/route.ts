@@ -117,7 +117,9 @@ export async function POST(req: NextRequest) {
   const apiKey = process.env.SENDGRID_API_KEY;
   const fromEmail =
     process.env.SENDGRID_FROM_EMAIL ?? 'hello@imagodeinsuranceadvisors.com';
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+  const shouldEnforceTurnstile = Boolean(turnstileSecret && turnstileSiteKey);
   const clientIp = getClientIp(req);
 
   pruneRateLimitBuckets();
@@ -129,8 +131,18 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  if (!turnstileSecret && process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' && !turnstileSecret) {
     const errMsg = 'TURNSTILE_SECRET_KEY is not set';
+    console.error(errMsg);
+    await sendAlert(errMsg, { clientIp });
+    return NextResponse.json(
+      { error: 'Security service not configured.' },
+      { status: 500 }
+    );
+  }
+
+  if (process.env.NODE_ENV === 'production' && !turnstileSiteKey) {
+    const errMsg = 'NEXT_PUBLIC_TURNSTILE_SITE_KEY is not set';
     console.error(errMsg);
     await sendAlert(errMsg, { clientIp });
     return NextResponse.json(
@@ -175,7 +187,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  if (turnstileSecret) {
+  if (shouldEnforceTurnstile) {
     if (!turnstileToken || typeof turnstileToken !== 'string') {
       return NextResponse.json(
         { error: 'Security check is required.' },

@@ -1,7 +1,7 @@
 'use client';
 
 import Script from 'next/script';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { getCopy } from '@/getCopy';
 import { Button } from '@/components/button';
 
@@ -11,8 +11,18 @@ const GUIDE_PDF_HREF =
   '/The%20Small%20Business%20Owner%E2%80%99s%20Guide%20to%20Employee%20Benefits.pdf';
 
 type TurnstileWindow = Window & {
-  onLeadMagnetTurnstileSuccess?: (token: string) => void;
-  onLeadMagnetTurnstileExpired?: () => void;
+  turnstile?: {
+    render: (
+      container: string | HTMLElement,
+      options: {
+        sitekey: string;
+        callback?: (token: string) => void;
+        'expired-callback'?: () => void;
+        'error-callback'?: () => void;
+      }
+    ) => string;
+    remove: (widgetId: string) => void;
+  };
 };
 
 export const LeadMagnetSection = () => {
@@ -22,25 +32,54 @@ export const LeadMagnetSection = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const [turnstileToken, setTurnstileToken] = useState('');
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
+  const turnstileContainerRef = useRef<HTMLDivElement | null>(null);
+  const turnstileWidgetIdRef = useRef<string | null>(null);
+
+  const renderTurnstileWidget = useCallback(() => {
+    if (!turnstileSiteKey) {
+      return;
+    }
+
+    if (formState !== 'open' && formState !== 'submitting') {
+      return;
+    }
+
+    const turnstileWindow = window as TurnstileWindow;
+    const turnstileApi = turnstileWindow.turnstile;
+    const container = turnstileContainerRef.current;
+
+    if (!turnstileApi || !container || turnstileWidgetIdRef.current) {
+      return;
+    }
+
+    turnstileWidgetIdRef.current = turnstileApi.render(container, {
+      sitekey: turnstileSiteKey,
+      callback: (token: string) => {
+        setTurnstileToken(token);
+        setErrorMsg('');
+      },
+      'expired-callback': () => {
+        setTurnstileToken('');
+      },
+      'error-callback': () => {
+        setTurnstileToken('');
+        setErrorMsg('Security check could not load. Refresh and try again.');
+      },
+    });
+  }, [formState, turnstileSiteKey]);
 
   useEffect(() => {
-    const turnstileWindow = window as TurnstileWindow;
-    turnstileWindow.onLeadMagnetTurnstileSuccess = (token: string) => {
-      setTurnstileToken(token);
-      setErrorMsg('');
-    };
-    turnstileWindow.onLeadMagnetTurnstileExpired = () => {
-      setTurnstileToken('');
-    };
-
-    return () => {
-      delete turnstileWindow.onLeadMagnetTurnstileSuccess;
-      delete turnstileWindow.onLeadMagnetTurnstileExpired;
-    };
-  }, []);
+    renderTurnstileWidget();
+  }, [renderTurnstileWidget]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (turnstileSiteKey && !turnstileToken) {
+      setErrorMsg('Please complete the security check.');
+      setFormState('open');
+      return;
+    }
 
     setFormState('submitting');
     setErrorMsg('');
@@ -79,6 +118,12 @@ export const LeadMagnetSection = () => {
   };
 
   const closeModal = () => {
+    const turnstileApi = (window as TurnstileWindow).turnstile;
+    if (turnstileApi && turnstileWidgetIdRef.current) {
+      turnstileApi.remove(turnstileWidgetIdRef.current);
+      turnstileWidgetIdRef.current = null;
+    }
+
     setFormState('idle');
     setName('');
     setEmail('');
@@ -93,6 +138,7 @@ export const LeadMagnetSection = () => {
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
           async
           defer
+          onReady={renderTurnstileWidget}
         />
       )}
 
@@ -183,13 +229,7 @@ export const LeadMagnetSection = () => {
                     </div>
 
                     {turnstileSiteKey && (
-                      <div
-                        className="cf-turnstile"
-                        data-sitekey={turnstileSiteKey}
-                        data-callback="onLeadMagnetTurnstileSuccess"
-                        data-expired-callback="onLeadMagnetTurnstileExpired"
-                        data-error-callback="onLeadMagnetTurnstileExpired"
-                      />
+                      <div ref={turnstileContainerRef} className="min-h-16" />
                     )}
 
                     {errorMsg && (
