@@ -51,18 +51,18 @@ const WHO_WE_WORK_WITH = [
 const LEADERS = [
   {
     name: 'David Hemm',
-    title: 'Chief Insurance & Product Officer',
+    title: 'Partner, Benefits & Insurance Advisor',
     image: '/david-hemm-headshot.png',
     bio: [
       'David is a dynamic problem solver who specializes in identifying creative benefits solutions for small to mid-sized organizations.',
       'He focuses on self-funded strategies, flexible group coverage options, and alternative plan structures—helping organizations navigate challenges that traditional approaches often fail to address.',
-      'As the licensed broker, David works directly with clients to evaluate options, design plan strategies, and implement solutions that balance cost, flexibility, and long-term sustainability. His strength lies in his ability to find practical paths forward regardless of an organization\'s size or complexity.',
+      "As the licensed broker, David works directly with clients to evaluate options, design plan strategies, and implement solutions that balance cost, flexibility, and long-term sustainability. His strength lies in his ability to find practical paths forward regardless of an organization's size or complexity.",
       'David also serves in leadership roles within his church community, including family discipleship—reflecting his commitment to mentorship, service, and biblical leadership.',
     ],
   },
   {
     name: 'Adam Cravens',
-    title: 'Chief HR & Client Services',
+    title: 'Partner, HR & Benefits Advisory',
     image: '/adam-cravens-headshot.png',
     bio: [
       'Adam is a strategic HR leader with over 16 years of experience supporting organizations ranging from small businesses to Fortune 100 companies.',
@@ -103,7 +103,6 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
       />
       <div className="mt-20">
-
         {/* Hero Section */}
         <div className="w-full relative overflow-clip">
           <div className="py-16 md:py-28 px-6 bg-gradient-to-br from-navy via-medical-navy to-dark-blue border-b border-clinical-border/60">
@@ -136,24 +135,32 @@ export default function AboutPage() {
                 </h2>
                 <div className="flex flex-col gap-5">
                   <p className="text-[1.1rem] sm:text-[1.15rem] text-muted-ink leading-relaxed">
-                    The name <span className="font-semibold text-medical-navy">Imago Dei</span> means &ldquo;Image of God.&rdquo;
+                    The name{' '}
+                    <span className="font-semibold text-medical-navy">
+                      Imago Dei
+                    </span>{' '}
+                    means &ldquo;Image of God.&rdquo;
                   </p>
                   <p className="text-[1.1rem] sm:text-[1.15rem] text-muted-ink leading-relaxed">
-                    We chose this name thoughtfully. It reflects our core belief that every person has inherent worth
-                    and value because they are created in God&apos;s image.
+                    We chose this name thoughtfully. It reflects our core belief
+                    that every person has inherent worth and value because they
+                    are created in God&apos;s image.
                   </p>
                   <p className="text-[1.1rem] sm:text-[1.15rem] text-muted-ink leading-relaxed">
-                    Genesis tells us that God created mankind in His image—male and female He created them.
+                    Genesis tells us that God created mankind in His image—male
+                    and female He created them.
                   </p>
                   <p className="text-[1.1rem] sm:text-[1.15rem] text-muted-ink leading-relaxed">
-                    This truth shapes how we view employee benefits. Benefits are more than a business expense.
-                    They are a practical way leaders can care for the people entrusted to them—their employees
-                    and the families who depend on them.
+                    This truth shapes how we view employee benefits. Benefits
+                    are more than a business expense. They are a practical way
+                    leaders can care for the people entrusted to them—their
+                    employees and the families who depend on them.
                   </p>
                   <p className="text-[1.1rem] sm:text-[1.15rem] font-semibold text-medical-navy leading-relaxed">
-                    By helping organizations provide thoughtful, sustainable benefits, we come alongside leaders
-                    who want to reflect that care and live out Christ&apos;s call to love their neighbors—including
-                    those they work alongside every day.
+                    By helping organizations provide thoughtful, sustainable
+                    benefits, we come alongside leaders who want to reflect that
+                    care and live out Christ&apos;s call to love their
+                    neighbors—including those they work alongside every day.
                   </p>
                 </div>
               </div>
@@ -183,8 +190,9 @@ export default function AboutPage() {
               {VALUES.map((value, i) => (
                 <div
                   key={value.title}
-                  className={`bg-white rounded-2xl p-8 border border-clinical-border shadow-sm lg:col-span-2${i === 3 ? ' lg:col-start-2' : ''
-                    }`}
+                  className={`bg-white rounded-2xl p-8 border border-clinical-border shadow-sm lg:col-span-2${
+                    i === 3 ? ' lg:col-start-2' : ''
+                  }`}
                 >
                   <h3 className="font-semibold text-medical-navy text-[1.15rem] mb-3">
                     {value.title}
@@ -215,8 +223,13 @@ export default function AboutPage() {
                 <ul className="flex flex-col gap-4 mb-8">
                   {WHO_WE_WORK_WITH.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <FaCheckCircle className="text-medical-blue flex-shrink-0 mt-1" size={18} />
-                      <span className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink">{item}</span>
+                      <FaCheckCircle
+                        className="text-medical-blue flex-shrink-0 mt-1"
+                        size={18}
+                      />
+                      <span className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -244,8 +257,9 @@ export default function AboutPage() {
               Meet Our Leadership Team
             </h2>
             <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed mb-14 max-w-2xl">
-              Our leadership combines expertise in insurance strategy, HR advisory, and business
-              operations—allowing us to provide holistic support.
+              Our leadership combines expertise in insurance strategy, HR
+              advisory, and business operations—allowing us to provide holistic
+              support.
             </p>
             <div className="flex flex-col gap-10">
               {LEADERS.map((leader) => (
@@ -272,7 +286,10 @@ export default function AboutPage() {
                       </p>
                       <div className="flex flex-col gap-4">
                         {leader.bio.map((paragraph, i) => (
-                          <p key={i} className="text-[1rem] text-muted-ink leading-relaxed">
+                          <p
+                            key={i}
+                            className="text-[1rem] text-muted-ink leading-relaxed"
+                          >
                             {paragraph}
                           </p>
                         ))}
@@ -295,12 +312,14 @@ export default function AboutPage() {
               A Partner, Not Just a Provider
             </h2>
             <p className="text-[1.1rem] sm:text-[1.2rem] text-muted-ink leading-relaxed mb-6">
-              We believe benefits decisions should not be transactional. We work as an extension of
-              your team—providing strategic guidance, ongoing support, and thoughtful recommendations
-              as your organization grows.
+              We believe benefits decisions should not be transactional. We work
+              as an extension of your team—providing strategic guidance, ongoing
+              support, and thoughtful recommendations as your organization
+              grows.
             </p>
             <p className="text-[1.1rem] sm:text-[1.2rem] font-semibold text-medical-navy leading-relaxed">
-              Our goal is to help you care well for your people while stewarding resources wisely.
+              Our goal is to help you care well for your people while stewarding
+              resources wisely.
             </p>
           </div>
         </div>
@@ -312,8 +331,9 @@ export default function AboutPage() {
               Let&apos;s Start the Conversation
             </h2>
             <p className="text-white/75 text-[1.1rem] sm:text-[1.2rem] leading-relaxed mb-10 max-w-2xl">
-              If you&apos;re exploring employee benefits for the first time—or looking for a more thoughtful
-              and flexible approach—we&apos;d love to learn more about your organization.
+              If you&apos;re exploring employee benefits for the first time—or
+              looking for a more thoughtful and flexible approach—we&apos;d love
+              to learn more about your organization.
             </p>
             <div className="flex flex-col items-start gap-5">
               <Link
@@ -337,7 +357,6 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-
       </div>
     </>
   );
