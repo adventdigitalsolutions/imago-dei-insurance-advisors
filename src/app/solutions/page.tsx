@@ -41,23 +41,23 @@ function BulletList({ items }: { items: string[] }) {
 const implementationCards = [
   {
     title: 'Dedicated Support Team',
-    body: 'Direct access to experienced advisors who understand your organization.',
+    body: 'Direct access to a real advisor who knows your account.',
   },
   {
     title: 'Enrollment Technology',
-    body: 'Modern enrollment tools that connect with most payroll providers.',
+    body: 'Simple tools that integrate with your payroll—without extra lift from your team.',
   },
   {
     title: 'Ongoing HR Advisory',
-    body: 'Guidance to support leadership, compliance, and employee questions.',
+    body: 'We help answer employee questions and support leadership—so you’re not fielding everything yourself.',
   },
   {
     title: 'Quarterly Strategy Reviews',
-    body: 'Proactive evaluation to keep your benefits aligned with your goals.',
+    body: 'We proactively evaluate and guide next steps—no need to chase it down.',
   },
   {
     title: 'Strategic Renewals',
-    body: 'We evaluate alternatives and adjust strategy.',
+    body: 'We bring options and recommendations—rather than just presenting increases.',
   },
 ];
 
@@ -101,6 +101,10 @@ export default function SolutionsPage() {
               Whether you&apos;re offering benefits for the first time or
               seeking a more strategic approach, we tailor solutions to your
               organization&apos;s size, goals, and values.
+            </p>
+            <p className="text-[1.1rem] sm:text-[1.15rem] text-muted-ink leading-relaxed">
+              We also help carry the day-to-day responsibility&mdash;so
+              you&apos;re not navigating benefits alone.
             </p>
             <p className="text-[1.1rem] sm:text-[1.15rem] font-semibold text-medical-navy leading-relaxed">
               Caring for your people through wise benefits decisions directly
@@ -174,7 +178,8 @@ export default function SolutionsPage() {
                 <p className="text-[0.97rem] text-muted-ink leading-relaxed">
                   Many small organizations want to offer benefits but run into
                   participation requirements, contribution rules, and rising costs.
-                  We remove those barriers.
+                  We remove those barriers&mdash;so offering benefits doesn&apos;t
+                  become another thing you have to manage.
                 </p>
                 <ul className="flex flex-col gap-2 mt-1">
                   {[
@@ -213,7 +218,8 @@ export default function SolutionsPage() {
                 <p className="text-[0.97rem] text-muted-ink leading-relaxed">
                   Growing organizations often have benefits in place but lack
                   strategic support. We provide expanded options and hands-on
-                  support to reduce administrative load.
+                  support&mdash;so benefits aren&apos;t another thing
+                  your team has to manage.
                 </p>
                 <ul className="flex flex-col gap-2 mt-1">
                   {[
@@ -246,96 +252,31 @@ export default function SolutionsPage() {
       <div className="bg-medical-sky/70 py-20 sm:py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-medical-blue mb-4">
-            Our Offerings
+            What You Get
           </p>
-          <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-12 max-w-xl">
-            Strategic Benefits Support for Every Organization
+          <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-medical-navy leading-tight mb-4 max-w-2xl">
+            Everything you need to offer and manage benefits&mdash;without added
+            complexity
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white rounded-2xl p-8 border border-clinical-border shadow-sm">
-              <h3 className="font-semibold text-medical-navy text-[1.15rem] mb-3">
-                Strategic Benefits Support
-              </h3>
-              <p className="text-muted-ink text-[0.95rem] mb-4">
-                No matter your size, we provide:
-              </p>
-              <ul className="flex flex-col gap-3">
-                {[
-                  'Multiple plan design options (PPO, HDHP, and alternative structures)',
-                  'Ancillary benefits including dental, vision, life, and disability insurance',
-                  'Quarterly strategy discussions',
-                  'Renewal planning with real alternatives',
-                  'Proactive claims and cost management guidance',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <FaCheckCircle
-                      className="text-medical-blue flex-shrink-0 mt-0.5"
-                      size={15}
-                    />
-                    <span className="text-muted-ink text-[0.9rem]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-white rounded-2xl p-8 border border-clinical-border shadow-sm">
-              <h3 className="font-semibold text-medical-navy text-[1.15rem] mb-3">
-                Comprehensive Major Medical Options
-              </h3>
-              <p className="text-muted-ink text-[0.95rem] mb-4">
-                We offer flexible plan structures designed to fit your
-                organization&apos;s needs and values, including:
-              </p>
-              <ul className="flex flex-col gap-3">
-                {[
-                  'PPO Plans for broad provider access',
-                  'High Deductible Health Plans (HDHPs)',
-                  'HSA-compatible plans',
-                  'FSA options',
-                  'Alternative health coverage structures',
-                  'Faith-aligned plan customization where appropriate',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <FaCheckCircle
-                      className="text-medical-blue flex-shrink-0 mt-0.5"
-                      size={15}
-                    />
-                    <span className="text-muted-ink text-[0.9rem]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-white rounded-2xl p-8 border border-clinical-border shadow-sm">
-              <h3 className="font-semibold text-medical-navy text-[1.15rem] mb-3">
-                Complete Employee Benefits Offering
-              </h3>
-              <p className="text-muted-ink text-[0.95rem] mb-4">
-                In addition to major medical coverage, we provide a full suite
-                of employee benefits including:
-              </p>
-              <ul className="flex flex-col gap-3">
-                {[
-                  'Dental Insurance',
-                  'Vision Insurance',
-                  'Life Insurance',
-                  'Disability Insurance',
-                  'Supplemental health benefits',
-                  'Voluntary employee-paid options',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <FaCheckCircle
-                      className="text-medical-blue flex-shrink-0 mt-0.5"
-                      size={15}
-                    />
-                    <span className="text-muted-ink text-[0.9rem]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed mt-8 max-w-3xl">
-            We help you build a benefits strategy that evolves with your
-            organization and supports your mission.
+          <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed mb-10 max-w-2xl">
+            Whatever your organization&apos;s size, we provide:
           </p>
+          <ul className="flex flex-col gap-4 max-w-2xl">
+            {[
+              'Flexible plan designs (PPO, HDHP, and alternative structures)',
+              'Full suite of benefits including medical, dental, vision, life, and disability',
+              'Renewal strategy with real alternatives—not just rate increases',
+              'Ongoing guidance to manage costs and claims effectively',
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <FaCheckCircle
+                  className="text-medical-blue flex-shrink-0 mt-1"
+                  size={18}
+                />
+                <span className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
@@ -346,14 +287,11 @@ export default function SolutionsPage() {
             Implementation &amp; Support
           </p>
           <h2 className="font-lora text-4xl sm:text-5xl font-bold tracking-[-0.04em] text-white leading-tight mb-4 max-w-2xl">
-            Implementation &amp; Ongoing Support
+            We Handle the Details
           </h2>
-          <p className="text-white/80 text-[1.1rem] sm:text-[1.2rem] font-semibold mb-4">
-            We Simplify Benefits Management
-          </p>
           <p className="text-white/70 text-[1.05rem] sm:text-[1.1rem] leading-relaxed mb-12 max-w-2xl">
-            Providing benefits shouldn&apos;t create additional administrative
-            work. We streamline the entire process with:
+            Providing benefits shouldn&apos;t add more to your plate. We
+            handle the process so your team doesn&apos;t have to.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
             {implementationCards.map((card, i) => (
@@ -382,19 +320,18 @@ export default function SolutionsPage() {
             An Extension of Your Team
           </h2>
           <p className="text-[1.1rem] sm:text-[1.2rem] text-muted-ink leading-relaxed mb-6">
-            We don&apos;t just provide insurance—we partner with you as a
-            thoughtful advisor.
+            We help take benefits off your plate so you can focus on leading
+            your organization.
           </p>
           <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink mb-6">
-            We help:
+            We:
           </p>
           <ul className="inline-flex flex-col items-start gap-4 mb-8">
             {[
-              'Simplify decisions',
-              'Reduce administrative burden',
-              'Provide strategic guidance',
-              'Support leadership teams',
-              'Improve employee experience',
+              'Handle the details and day-to-day questions',
+              'Guide decisions with clarity',
+              'Support your team and leadership',
+              'Keep your benefits aligned as you grow',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <FaCheckCircle
@@ -408,8 +345,8 @@ export default function SolutionsPage() {
             ))}
           </ul>
           <p className="text-[1.1rem] sm:text-[1.2rem] font-semibold text-medical-navy leading-relaxed">
-            So you can focus on the higher-purpose work you&apos;re called to
-            lead.
+            So you can stay focused on the higher-purpose work you&apos;ve been
+            called to lead.
           </p>
         </div>
       </div>

@@ -56,7 +56,7 @@ const LEADERS = [
     bio: [
       'David is a dynamic problem solver who specializes in identifying creative benefits solutions for small to mid-sized organizations.',
       'He focuses on self-funded strategies, flexible group coverage options, and alternative plan structures—helping organizations navigate challenges that traditional approaches often fail to address.',
-      "As the licensed broker, David works directly with clients to evaluate options, design plan strategies, and implement solutions that balance cost, flexibility, and long-term sustainability. His strength lies in his ability to find practical paths forward regardless of an organization's size or complexity.",
+      'As the licensed broker, David works directly with clients to evaluate options, design plan strategies, and implement solutions that balance cost, flexibility, and long-term sustainability. His strength lies in his ability to find practical paths forward regardless of an organization\'s size or complexity. He helps growing organizations implement benefits strategies that remain flexible and sustainable as they scale.',
       'David also serves in leadership roles within his church community, including family discipleship—reflecting his commitment to mentorship, service, and biblical leadership.',
     ],
   },
@@ -67,7 +67,7 @@ const LEADERS = [
     bio: [
       'Adam is a strategic HR leader with over 16 years of experience supporting organizations ranging from small businesses to Fortune 100 companies.',
       'He has also owned and operated his own service business for six years and served as a fractional HR and Operations executive—giving him firsthand experience in balancing people, operations, and financial considerations.',
-      'Adam partners closely with clients as a relationship lead, HR advisor, and holistic strategist. He helps leaders evaluate not just the cost of benefits, but their impact on culture, employee care, and long-term sustainability.',
+      'Adam partners closely with clients as a relationship lead, HR advisor, and holistic strategist. He helps leaders evaluate not just the cost of benefits, but their impact on culture, employee care, and long-term sustainability. He also supports organizations in managing the ongoing complexity of benefits—so leaders and operations teams aren\'t carrying that burden alone.',
       'His approach emphasizes education, clarity, and alignment—ensuring benefits decisions support both organizational goals and employee well-being.',
       'Adam has also served in various leadership roles within his church, including leading welcome teams for several years, reflecting his passion for hospitality, service, and practical leadership.',
     ],
@@ -115,7 +115,9 @@ export default function AboutPage() {
                   About Imago Dei Insurance Advisors
                 </h1>
                 <p className="text-white/75 text-xl lg:text-2xl leading-relaxed max-w-2xl">
-                  We help organizations care well for their people.
+                  We serve growing Christian organizations with benefits strategy
+                  and ongoing support&mdash;helping leaders care for their teams
+                  without taking on the full administrative burden themselves.
                 </p>
               </div>
             </div>
@@ -153,7 +155,7 @@ export default function AboutPage() {
                   <p className="text-[1.1rem] sm:text-[1.15rem] text-muted-ink leading-relaxed">
                     This truth shapes how we view employee benefits. Benefits
                     are more than a business expense. They are a practical way
-                    leaders can care for the people entrusted to them—their
+                    leaders care for the people entrusted to them—their
                     employees and the families who depend on them.
                   </p>
                   <p className="text-[1.1rem] sm:text-[1.15rem] font-semibold text-medical-navy leading-relaxed">
@@ -190,9 +192,8 @@ export default function AboutPage() {
               {VALUES.map((value, i) => (
                 <div
                   key={value.title}
-                  className={`bg-white rounded-2xl p-8 border border-clinical-border shadow-sm lg:col-span-2${
-                    i === 3 ? ' lg:col-start-2' : ''
-                  }`}
+                  className={`bg-white rounded-2xl p-8 border border-clinical-border shadow-sm lg:col-span-2${i === 3 ? ' lg:col-start-2' : ''
+                    }`}
                 >
                   <h3 className="font-semibold text-medical-navy text-[1.15rem] mb-3">
                     {value.title}
@@ -218,7 +219,13 @@ export default function AboutPage() {
                   Who We Work Best With
                 </h2>
                 <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed mb-8">
-                  We partner best with organizations that:
+                  Many of these organizations are growing and need both
+                  strategic guidance and day-to-day support as their team and
+                  responsibilities expand. This often includes{' '}
+                  <span className="font-semibold text-medical-navy">
+                    Christian businesses, churches, ministries, nonprofits,
+                  </span>{' '}
+                  and faith-minded organizations across the U.S.
                 </p>
                 <ul className="flex flex-col gap-4 mb-8">
                   {WHO_WE_WORK_WITH.map((item) => (
@@ -236,11 +243,8 @@ export default function AboutPage() {
               </div>
               <div className="bg-medical-sky/60 rounded-2xl p-8 border border-clinical-border">
                 <p className="text-[1.05rem] sm:text-[1.1rem] text-muted-ink leading-relaxed">
-                  This often includes{' '}
-                  <span className="font-semibold text-medical-navy">
-                    Christian businesses, churches, ministries, nonprofits,
-                  </span>{' '}
-                  and faith-minded organizations across the U.S.
+                  We help organizations that are growing and need both strategic
+                  guidance and day-to-day benefits support.
                 </p>
               </div>
             </div>
@@ -318,8 +322,9 @@ export default function AboutPage() {
               grows.
             </p>
             <p className="text-[1.1rem] sm:text-[1.2rem] font-semibold text-medical-navy leading-relaxed">
-              Our goal is to help you care well for your people while stewarding
-              resources wisely.
+              Our goal is to help you care well for your people while
+              stewarding resources wisely—without benefits becoming another
+              responsibility you have to manage on your own.
             </p>
           </div>
         </div>
@@ -330,10 +335,14 @@ export default function AboutPage() {
             <h2 className="font-lora text-4xl sm:text-6xl font-bold tracking-[-0.04em] text-white leading-tight mb-6">
               Let&apos;s Start the Conversation
             </h2>
-            <p className="text-white/75 text-[1.1rem] sm:text-[1.2rem] leading-relaxed mb-10 max-w-2xl">
+            <p className="text-white/75 text-[1.1rem] sm:text-[1.2rem] leading-relaxed mb-6 max-w-2xl">
               If you&apos;re exploring employee benefits for the first time—or
               looking for a more thoughtful and flexible approach—we&apos;d love
               to learn more about your organization.
+            </p>
+            <p className="text-white/75 text-[1.1rem] sm:text-[1.2rem] leading-relaxed mb-10 max-w-2xl">
+              We&apos;ll help you think through your options and what makes the
+              most sense for your team—without pressure.
             </p>
             <div className="flex flex-col items-start gap-5">
               <Link

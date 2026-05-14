@@ -10,12 +10,12 @@ export const allSiteCopy = {
   hero: {
     headline: 'Care for Your Team with Affordable, Flexible Health Benefits',
     subheadline:
-      'Flexible, affordable group health insurance for Christian-led businesses, churches, and nonprofits—reflecting wise stewardship and genuine care for your people.',
+      'Flexible, affordable group health insurance for Christian-led businesses, churches, and nonprofits—built on wise stewardship and genuine care for your people.',
     description:
       'Many organizations want to care well for their teams—but traditional insurance creates unnecessary barriers. We help you find a better way forward.',
-    check1: 'Flexible options tailored to your organization',
-    check2: 'No minimum enrollment requirements',
-    check3: 'No required employer contributions',
+    check1: "Flexible options tailored to your organization's size and budget",
+    check2: 'No minimum enrollment or required employer contributions',
+    check3: 'A dedicated partner you can actually reach',
     callToAction:
       "When your team is cared for, they can better serve the mission you've been called to lead.",
     buttonText: 'Book Your Free Benefits Consultation',
@@ -41,12 +41,12 @@ export const allSiteCopy = {
       'Health insurance options designed for organizations of all sizes—from small businesses to growing nonprofits.',
     feature2Title: 'Lower Barriers',
     feature2Body:
-      'No minimum participation or required employer contributions.',
-    feature3Title: 'Guided Support',
+      'No minimum participation requirements and no required employer contributions — so you can offer meaningful benefits on your terms.',
+    feature3Title: 'Dedicated Support',
     feature3Body:
-      'Hands-on support, plus complimentary HR advisory for organizations with 5+ enrolled employees.',
+      'Direct access to a real partner who knows your account—not a 1-800 number.',
     resultText:
-      'The result is the ability to care for your people with confidence—while stewarding your resources wisely and activating the purpose God has given you.',
+      'The result is confidence in how you care for your people—while stewarding your resources wisely and staying focused on your mission.',
     buttonText: 'Book Your Free Benefits Consultation',
     secondaryText: 'Or explore solutions first',
   },
@@ -64,7 +64,7 @@ export const allSiteCopy = {
     item1: 'Christian business owners and leadership teams',
     item2: 'Churches and ministry organizations',
     item3: 'Nonprofits and faith-based organizations',
-    body: 'Whether you are offering benefits for the first time or seeking a more sustainable approach to group health insurance, we help you find a path that fits your organization and your values. Most of our clients are small to mid-sized organizations across the U.S. seeking flexible health benefits.',
+    body: "Whether you are offering benefits for the first time or seeking a more sustainable approach to group health insurance, we help you find a path that fits your organization and your values.\n\nMany of our clients have one person wearing multiple hats—an office manager, operations lead, or the owner themselves managing benefits alongside everything else. We're built for exactly that.",
   },
   partnerSection: {
     header: 'More Than a Provider — A Partner in Faithful Stewardship',

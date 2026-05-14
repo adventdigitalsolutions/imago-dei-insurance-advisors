@@ -14,7 +14,7 @@ export const WhoWeServeSection = () => (
 					{getCopy('whoWeServeSection.header')}
 				</h2>
 				<p className="text-sm font-semibold tracking-[0.2em] uppercase text-medical-blue mb-5">
-					We serve organizations like:
+					We serve scaling organizations like:
 				</p>
 				<ul className="flex flex-col gap-3 mb-8">
 					{WHO_WE_SERVE_ITEMS.map((key) => (

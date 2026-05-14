@@ -10,18 +10,18 @@ import {
 import Image from 'next/image';
 
 export const Footer = () => (
-  <footer className="bg-gradient-to-br from-navy via-medical-navy to-dark-blue text-white py-16 px-8">
+  <footer className="text-white py-16 px-8" style={{ backgroundColor: '#2b4c9d' }}>
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Logo Section */}
         <div className="flex flex-col">
           <div className="mb-8">
             <Image
-              src="/imago-dei-logo.png"
+              src="/logo_for_blue_bg.svg"
               alt="Imago Dei Insurance Advisors"
-              width={120}
-              height={80}
-              className="h-auto brightness-0 invert"
+              width={200}
+              height={134}
+              className="h-auto"
             />
           </div>
         </div>
