@@ -6,6 +6,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Resource } from '@/types/resource';
 import { notFound } from 'next/navigation';
+import {
+  SITE_URL,
+  organizationRef,
+  buildBreadcrumbJsonLd,
+} from '@/lib/organization';
 
 const RESOURCE_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 const ALL_RESOURCES_QUERY = `*[_type == "post" && defined(slug.current)]{slug}`;
@@ -78,8 +83,41 @@ export default async function ResourcePage({
     ? urlFor(resource.image)?.width(550).height(310).url()
     : null;
 
+  const articleImageUrl = resource.image
+    ? urlFor(resource.image)?.width(1200).height(630).url()
+    : undefined;
+
+  const pageUrl = `${SITE_URL}/resources/${resource.slug.current}`;
+
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: resource.title,
+    url: pageUrl,
+    mainEntityOfPage: pageUrl,
+    datePublished: resource.publishedAt,
+    dateModified: resource.publishedAt,
+    ...(articleImageUrl && { image: [articleImageUrl] }),
+    author: organizationRef,
+    publisher: organizationRef,
+  };
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: 'Home', url: SITE_URL },
+    { name: 'Resources', url: `${SITE_URL}/resources` },
+    { name: resource.title, url: pageUrl },
+  ]);
+
   return (
     <main className="bg-medical-sky/45 mt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <div className="container mx-auto min-h-screen max-w-6xl p-8 md:py-12 flex flex-col gap-4">
         <Link
           href="/resources"

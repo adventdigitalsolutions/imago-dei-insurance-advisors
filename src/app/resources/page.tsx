@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa';
 import { client } from '@/sanity/client';
 import ResourceGrid from '@/components/page-components/resources/resource-grid';
 import type { Resource } from '@/types/resource';
@@ -42,6 +44,15 @@ export default async function ResourcesPage() {
       <PageHeader title={getCopy('resourcesPage.title')} />
       <div className="bg-medical-sky/70 py-20 sm:py-28 px-6">
         <div className="max-w-6xl mx-auto">
+          <div className="flex justify-end mb-8">
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center gap-2 text-medical-blue font-semibold hover:text-dark-blue transition-colors duration-150"
+            >
+              Browse the Case Studies Hub
+              <FaArrowRight size={13} />
+            </Link>
+          </div>
           <ResourceGrid resources={resources} />
         </div>
       </div>

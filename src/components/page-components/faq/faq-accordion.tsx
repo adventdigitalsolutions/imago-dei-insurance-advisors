@@ -34,11 +34,17 @@ function FAQItem({
           className={`flex-shrink-0 text-medical-blue transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
         />
       </button>
-      {isOpen && (
-        <p className="pb-5 text-[0.975rem] sm:text-[1rem] text-muted-ink leading-relaxed">
-          {answer}
-        </p>
-      )}
+      {/* Answer stays in the HTML source at all times; only its visibility is toggled. */}
+      <div
+        aria-hidden={!isOpen}
+        className={`grid transition-all duration-200 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+      >
+        <div className="overflow-hidden">
+          <p className="pb-5 text-[0.975rem] sm:text-[1rem] text-muted-ink leading-relaxed">
+            {answer}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

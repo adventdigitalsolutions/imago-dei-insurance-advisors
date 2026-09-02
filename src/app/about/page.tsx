@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/button';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
+import { SITE_URL, organizationRef } from '@/lib/organization';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -77,20 +78,15 @@ const LEADERS = [
 const aboutJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
-  url: 'https://imagodeinsuranceadvisors.com/about',
+  url: `${SITE_URL}/about`,
   mainEntity: {
-    '@type': 'Organization',
-    name: 'Imago Dei Insurance Advisors',
-    url: 'https://imagodeinsuranceadvisors.com',
+    ...organizationRef,
     member: LEADERS.map((leader) => ({
       '@type': 'Person',
       name: leader.name,
       jobTitle: leader.title,
-      image: `https://imagodeinsuranceadvisors.com${leader.image}`,
-      worksFor: {
-        '@type': 'Organization',
-        name: 'Imago Dei Insurance Advisors',
-      },
+      image: `${SITE_URL}${leader.image}`,
+      worksFor: organizationRef,
     })),
   },
 };

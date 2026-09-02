@@ -2,6 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { Button } from '@/components/button';
+import {
+  SITE_URL,
+  organizationRef,
+  buildBreadcrumbJsonLd,
+} from '@/lib/organization';
 
 export const metadata: Metadata = {
   title: 'Health Benefit Solutions',
@@ -15,6 +20,26 @@ export const metadata: Metadata = {
     url: 'https://imagodeinsuranceadvisors.com/solutions',
   },
 };
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Group Health Insurance Brokerage',
+  name: 'Health Benefit Solutions',
+  url: `${SITE_URL}/solutions`,
+  description:
+    'Flexible group health insurance solutions for businesses, churches, and nonprofits, with no minimum enrollment requirements and no required employer contributions.',
+  provider: organizationRef,
+  areaServed: {
+    '@type': 'Country',
+    name: 'United States',
+  },
+};
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', url: SITE_URL },
+  { name: 'Solutions', url: `${SITE_URL}/solutions` },
+]);
 
 const CALENDLY_URL = 'https://calendly.com/david-sog0/30min?month=2025-07';
 const FILLOUT_URL = 'https://imagodei.fillout.com/id-interest';
@@ -64,6 +89,14 @@ const implementationCards = [
 export default function SolutionsPage() {
   return (
     <div className="mt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero Section */}
       <div className="w-full relative overflow-clip">
         <div className="py-16 md:py-28 px-6 bg-gradient-to-br from-navy via-medical-navy to-dark-blue border-b border-clinical-border/60">

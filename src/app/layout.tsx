@@ -3,6 +3,7 @@ import { League_Spartan } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { organizationJsonLd } from '@/lib/organization';
 
 const leagueSpartan = League_Spartan({
   variable: '--font-brand',
@@ -78,28 +79,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'InsuranceAgency',
-  name: SITE_NAME,
-  url: SITE_URL,
-  logo: `${SITE_URL}/imago-dei-logo.png`,
-  description: DEFAULT_DESCRIPTION,
-  telephone: '+18322633552',
-  email: 'info@imagodeinsurance.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'US',
-  },
-  sameAs: [
-    'https://www.linkedin.com/company/imago-dei-insurance-advisors/',
-    'https://www.instagram.com/imagodeinsuranceadvisors/',
-    'https://www.facebook.com/people/Imago-Dei-Insurance-Advisors/61557799479420',
-    'https://youtube.com/@imagodeinsurance',
-  ],
-  priceRange: 'Free consultation',
-  areaServed: {
-    '@type': 'Country',
-    name: 'United States',
-  },
+  ...organizationJsonLd,
 };
 
 export default function RootLayout({

@@ -14,32 +14,33 @@ export default function ResourceGrid({ resources }: ResourceGridProps) {
     'all' | 'case-studies' | 'blog-posts'
   >('blog-posts');
 
-  const { filteredResources, caseStudyCount, blogPostCount } = useMemo(() => {
-    const caseStudies = resources.filter(
-      (resource) => resource.caseStudy === true
-    );
-    const blogPosts = resources.filter(
-      (resource) => resource.caseStudy !== true
-    );
+  const { caseStudyCount, blogPostCount, visibleCount, isVisible } =
+    useMemo(() => {
+      const caseStudies = resources.filter(
+        (resource) => resource.caseStudy === true
+      );
+      const blogPosts = resources.filter(
+        (resource) => resource.caseStudy !== true
+      );
 
-    let filtered: Resource[];
-    switch (activeTab) {
-      case 'case-studies':
-        filtered = caseStudies;
-        break;
-      case 'blog-posts':
-        filtered = blogPosts;
-        break;
-      default:
-        filtered = resources;
-    }
+      const isVisible = (resource: Resource) => {
+        switch (activeTab) {
+          case 'case-studies':
+            return resource.caseStudy === true;
+          case 'blog-posts':
+            return resource.caseStudy !== true;
+          default:
+            return true;
+        }
+      };
 
-    return {
-      filteredResources: filtered,
-      caseStudyCount: caseStudies.length,
-      blogPostCount: blogPosts.length,
-    };
-  }, [resources, activeTab]);
+      return {
+        caseStudyCount: caseStudies.length,
+        blogPostCount: blogPosts.length,
+        visibleCount: resources.filter(isVisible).length,
+        isVisible,
+      };
+    }, [resources, activeTab]);
 
   return (
     <>
@@ -50,12 +51,19 @@ export default function ResourceGrid({ resources }: ResourceGridProps) {
         blogPostCount={blogPostCount}
         totalCount={resources.length}
       />
+      {/* Every resource (including case studies) always renders in the HTML;
+          only its visibility is toggled per the active tab. */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {filteredResources.map((resource) => (
-          <ResourceCard key={resource._id} resource={resource} />
+        {resources.map((resource) => (
+          <div
+            key={resource._id}
+            className={isVisible(resource) ? undefined : 'hidden'}
+          >
+            <ResourceCard resource={resource} />
+          </div>
         ))}
       </div>
-      {filteredResources.length === 0 && (
+      {visibleCount === 0 && (
         <div className="text-center py-12">
           <p className="text-muted-ink text-xl">
             No{' '}
