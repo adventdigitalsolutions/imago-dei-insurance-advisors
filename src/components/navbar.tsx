@@ -20,7 +20,7 @@ export const Navbar = () => {
 
   const formatLink = (label: string) => {
     const slug = label.toLowerCase().replace(/\s+/g, '-');
-    return slug === 'home' ? '/' : slug;
+    return slug === 'home' ? '/' : `/${slug}`;
   };
 
   const getMobileNavIcon = (label: string) => {
