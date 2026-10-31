@@ -3,6 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import {
+  getZiteOrigin,
+  listenForZiteEvents,
+  trackLandingEvent,
+} from '@/lib/landing-analytics';
 import styles from './self-employed-health-landing.module.css';
 
 const householdOptions = [
@@ -23,14 +28,6 @@ const applicationUrl = (() => {
     return undefined;
   }
 })();
-
-function trackLandingEvent(eventName: string) {
-  window.dispatchEvent(
-    new CustomEvent('imago:landing-event', {
-      detail: { eventName, page: 'self-employed-health-insurance' },
-    })
-  );
-}
 
 const faqs = [
   {
@@ -78,13 +75,14 @@ const faqs = [
 export function SelfEmployedHealthLanding() {
   const [selectedHousehold, setSelectedHousehold] = useState(0);
   const pageViewTracked = useRef(false);
-  const privacyPolicyUrl = process.env.NEXT_PUBLIC_PRIVACY_POLICY_URL;
 
   useEffect(() => {
     if (pageViewTracked.current) return;
     pageViewTracked.current = true;
     trackLandingEvent('page_view');
   }, []);
+
+  useEffect(() => listenForZiteEvents(getZiteOrigin(applicationUrl)), []);
 
   const beginApplication = () => {
     trackLandingEvent('application_start');
@@ -404,9 +402,14 @@ export function SelfEmployedHealthLanding() {
             </div>
             <div className={styles.footerLinks}>
               <Link href="/about">About Us</Link>
-              {privacyPolicyUrl && (
-                <a href={privacyPolicyUrl}>Privacy Policy</a>
-              )}
+              <Link href="/privacy-policy">Privacy Policy</Link>
+              <a
+                href="https://imagodei.fillout.com/t/4F1vNHJmbdus"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact Us
+              </a>
               <a href="mailto:info@imagodeinsurance.com">
                 info@imagodeinsurance.com
               </a>

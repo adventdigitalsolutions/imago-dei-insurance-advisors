@@ -10,7 +10,10 @@ import {
 import Image from 'next/image';
 
 export const Footer = () => (
-  <footer className="text-white py-16 px-8" style={{ backgroundColor: '#2b4c9d' }}>
+  <footer
+    className="text-white py-16 px-8"
+    style={{ backgroundColor: '#2b4c9d' }}
+  >
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Logo Section */}
@@ -76,21 +79,9 @@ export const Footer = () => (
             Have a question? Our team is happy to help.
           </p>
           <a
-            href={
-              process.env.NEXT_PUBLIC_FILLOUT_CONTACT_FORM_ID
-                ? `https://form.fillout.com/t/${process.env.NEXT_PUBLIC_FILLOUT_CONTACT_FORM_ID}`
-                : `mailto:${getCopy('footer.email')}`
-            }
-            target={
-              process.env.NEXT_PUBLIC_FILLOUT_CONTACT_FORM_ID
-                ? '_blank'
-                : undefined
-            }
-            rel={
-              process.env.NEXT_PUBLIC_FILLOUT_CONTACT_FORM_ID
-                ? 'noopener noreferrer'
-                : undefined
-            }
+            href="https://imagodei.fillout.com/t/4F1vNHJmbdus"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#29418f] transition-colors hover:bg-white/90"
           >
             Contact Us
@@ -117,6 +108,14 @@ export const Footer = () => (
               className="hover:text-white transition-colors"
             >
               {getCopy('footer.phone')}
+            </a>
+          </div>
+          <div className="flex items-center text-white/72 text-[1rem]">
+            <a
+              href="/privacy-policy"
+              className="hover:text-white transition-colors"
+            >
+              Privacy Policy
             </a>
           </div>
           <div className="flex items-center text-white/72 text-[1rem]">
