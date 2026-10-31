@@ -37,8 +37,7 @@
 .heroGrid,
 .reassuranceInner,
 .faqInner,
-.finalCtaInner,
-.footerInner {
+.finalCtaInner {
   width: min(1120px, calc(100% - 48px));
   margin-inline: auto;
 }
@@ -642,71 +641,6 @@
   font-size: 0.83rem;
 }
 
-.footer {
-  padding: 48px 0 24px;
-  background: #2b4c9d;
-  color: #fff;
-}
-
-.footerTop {
-  display: flex;
-  justify-content: space-between;
-  gap: 36px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.footerLogo {
-  display: block;
-  width: 180px;
-  height: auto;
-}
-
-.footerTop p {
-  margin: 13px 0 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.87rem;
-}
-
-.footerLinks {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-content: center;
-  gap: 12px 24px;
-  font-size: 0.9rem;
-}
-
-.footerLinks a,
-.footerBottom a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footerLinks a:hover,
-.footerBottom a:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.legal {
-  max-width: 980px;
-  margin: 22px 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.8rem;
-  line-height: 1.65;
-}
-
-.footerBottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.82rem;
-}
-
 @media (max-width: 900px) {
   .heroGrid {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
@@ -729,8 +663,7 @@
   .heroGrid,
   .reassuranceInner,
   .faqInner,
-  .finalCtaInner,
-  .footerInner {
+  .finalCtaInner {
     width: min(100% - 36px, 520px);
   }
 
@@ -877,20 +810,5 @@
 
   .finalCta {
     padding: 60px 18px;
-  }
-
-  .footer {
-    padding: 38px 0 22px;
-  }
-
-  .footerTop,
-  .footerBottom {
-    flex-direction: column;
-  }
-
-  .footerLinks {
-    justify-content: flex-start;
-    flex-direction: column;
-    gap: 11px;
   }
 }

@@ -8,6 +8,7 @@ import {
   listenForZiteEvents,
   trackLandingEvent,
 } from '@/lib/landing-analytics';
+import { Footer } from '@/components/footer';
 import styles from './self-employed-health-landing.module.css';
 
 const householdOptions = [
@@ -408,59 +409,10 @@ export function SelfEmployedHealthLanding() {
         </div>
       </section>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerInner}>
-          <div className={styles.footerTop}>
-            <div>
-              <Link href="/" aria-label="Imago Dei Insurance Advisors home">
-                <Image
-                  src="/logo_for_blue_bg.svg"
-                  alt="Imago Dei Insurance Advisors"
-                  width={200}
-                  height={134}
-                  className={styles.footerLogo}
-                />
-              </Link>
-              <p>Independent Insurance Agency</p>
-            </div>
-            <div className={styles.footerLinks}>
-              <Link href="/about">About Us</Link>
-              <Link href="/privacy-policy">Privacy Policy</Link>
-              <a
-                href="https://imagodei.fillout.com/t/4F1vNHJmbdus"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Contact Us
-              </a>
-              <a href="mailto:info@imagodeinsurance.com">
-                info@imagodeinsurance.com
-              </a>
-              <a href="tel:+18322633552">(832) 263-3552</a>
-            </div>
-          </div>
-          <p className={styles.legal}>
-            Medical benefits are offered through a medically underwritten
-            self-funded group arrangement with a Cigna PPO network option.
-            Cigna provides network access and does not insure the benefits.
-            Coverage and financial responsibilities are subject to the
-            applicable plan documents.
-          </p>
-          <div className={styles.footerBottom}>
-            <span>© Imago Dei Insurance Advisors</span>
-            <span>
-              Powered by{' '}
-              <a
-                href="https://adventds.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                adventds.org
-              </a>
-            </span>
-          </div>
-        </div>
-      </footer>
+      <Footer
+        minimal
+        disclaimer="Medical benefits are offered through a medically underwritten self-funded group arrangement with a Cigna PPO network option. Cigna provides network access and does not insure the benefits. Coverage and financial responsibilities are subject to the applicable plan documents."
+      />
     </main>
   );
 }

@@ -9,29 +9,34 @@ import {
 } from 'react-icons/fa';
 import Image from 'next/image';
 
-export const Footer = () => (
+type FooterProps = {
+  minimal?: boolean;
+  disclaimer?: string;
+};
+
+export const Footer = ({ minimal = false, disclaimer }: FooterProps) => (
   <footer
-    className="text-white py-16 px-8"
+    className="text-white py-10 px-8"
     style={{ backgroundColor: '#2b4c9d' }}
   >
     <div className="max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-[200px_auto_auto] md:justify-between gap-x-12 gap-y-8 items-start">
         {/* Logo Section */}
-        <div className="flex flex-col">
-          <div className="mb-8">
-            <Image
-              src="/logo_for_blue_bg.svg"
-              alt="Imago Dei Insurance Advisors"
-              width={200}
-              height={134}
-              className="h-auto"
-            />
-          </div>
+        <div className="h-[130px] w-[200px] overflow-hidden md:self-center">
+          <Image
+            src="/logo_for_blue_bg.svg"
+            alt="Imago Dei Insurance Advisors"
+            width={200}
+            height={200}
+            className="-mt-[34px] h-[200px] w-[200px] max-w-none"
+          />
         </div>
 
+        {!minimal && (
+          <>
         {/* Find us on social media */}
         <div>
-          <h3 className="text-[0.82rem] font-semibold tracking-[0.18em] text-white/55 uppercase mb-6">
+          <h3 className="text-[0.82rem] font-semibold tracking-[0.18em] text-white/55 uppercase mb-4">
             {getCopy('footer.socialMediaHeader')}
           </h3>
           <div className="flex gap-4">
@@ -71,11 +76,11 @@ export const Footer = () => (
         </div>
 
         {/* Contact Form */}
-        <div className="md:col-span-2">
-          <h3 className="text-[0.82rem] font-semibold tracking-[0.18em] text-white/55 uppercase mb-6">
+        <div>
+          <h3 className="text-[0.82rem] font-semibold tracking-[0.18em] text-white/55 uppercase mb-4">
             Get in Touch
           </h3>
-          <p className="text-white/75 text-sm mb-5">
+          <p className="text-white/75 text-sm mb-4">
             Have a question? Our team is happy to help.
           </p>
           <a
@@ -94,10 +99,17 @@ export const Footer = () => (
             .
           </p>
         </div>
+          </>
+        )}
+        {minimal && disclaimer && (
+          <p className="md:col-span-2 text-white/70 text-sm leading-relaxed self-center">
+            {disclaimer}
+          </p>
+        )}
       </div>
 
       {/* Contact Information */}
-      <div className="mt-16 pt-8 border-t border-white/15">
+      <div className={`${minimal ? 'mt-6' : 'mt-8'} pt-6 border-t border-white/15`}>
         <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
           <div className="flex items-center text-white/72 text-[1rem]">
             <FaEnvelope className="mr-3 text-white/80" />
