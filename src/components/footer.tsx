@@ -86,6 +86,13 @@ export const Footer = () => (
           >
             Contact Us
           </a>
+          <p className="mt-3 text-white/70 text-sm">
+            Read our{' '}
+            <a href="/privacy-policy" className="underline underline-offset-2">
+              Privacy Policy
+            </a>
+            .
+          </p>
         </div>
       </div>
 

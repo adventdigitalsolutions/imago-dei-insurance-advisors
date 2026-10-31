@@ -152,13 +152,21 @@
 }
 
 .householdOptions {
+  min-width: 0;
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 9px;
-  margin-bottom: 18px;
 }
 
 .householdOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
   min-height: 46px;
   padding: 9px 10px;
   border: 1px solid var(--border);
@@ -174,6 +182,43 @@
     border-color 150ms ease,
     background-color 150ms ease,
     color 150ms ease;
+}
+
+.householdOption input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.householdOption:focus-within {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.applicationFrame {
+  display: block;
+  width: 100%;
+  height: 760px;
+  border: 0;
+  border-radius: 12px;
+}
+
+.applicationNote {
+  margin-bottom: 12px;
+  color: #59678f;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 .householdOption:hover {
@@ -234,8 +279,7 @@
 }
 
 .applicationCard {
-  position: sticky;
-  top: 24px;
+  align-self: start;
   padding: 38px;
   border: 1px solid rgba(217, 224, 255, 0.9);
   border-radius: 24px;
@@ -738,8 +782,19 @@
 
   .applicationCard {
     position: static;
-    padding: 25px;
+    padding: 20px 14px;
     border-radius: 18px;
+  }
+
+  .applicationCard > h2,
+  .applicationCard > p,
+  .applicationCard > .cardKicker {
+    padding-inline: 6px;
+  }
+
+  .applicationFrame {
+    height: min(820px, 85vh);
+    min-height: 600px;
   }
 
   .applicationCard h2 {

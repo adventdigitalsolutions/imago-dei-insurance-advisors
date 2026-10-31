@@ -17,17 +17,7 @@ const householdOptions = [
   { label: 'Me + Spouse + Children', rate: '$1,441.08' },
 ] as const;
 
-const applicationUrl = (() => {
-  const value = process.env.NEXT_PUBLIC_ZITE_APPLICATION_URL;
-  if (!value) return undefined;
-
-  try {
-    const url = new URL(value);
-    return url.protocol === 'https:' ? url.toString() : undefined;
-  } catch {
-    return undefined;
-  }
-})();
+const applicationUrl = 'https://imagodei.fillout.com/t/tktJRjLeLKus';
 
 const faqs = [
   {
@@ -74,6 +64,7 @@ const faqs = [
 
 export function SelfEmployedHealthLanding() {
   const [selectedHousehold, setSelectedHousehold] = useState(0);
+  const [applicationSrc, setApplicationSrc] = useState<string>();
   const pageViewTracked = useRef(false);
 
   useEffect(() => {
@@ -84,9 +75,20 @@ export function SelfEmployedHealthLanding() {
 
   useEffect(() => listenForZiteEvents(getZiteOrigin(applicationUrl)), []);
 
+  // The form loads once, carrying the current household selection, so later
+  // selector changes never reload the form and discard entered answers.
   const beginApplication = () => {
+    if (applicationSrc) return;
+    const url = new URL(applicationUrl);
+    url.searchParams.set('household', householdOptions[selectedHousehold].label);
+    setApplicationSrc(url.toString());
     trackLandingEvent('application_start');
   };
+
+  const selectedLabel = householdOptions[selectedHousehold].label;
+  const appliedHousehold = applicationSrc
+    ? new URL(applicationSrc).searchParams.get('household')
+    : null;
 
   return (
     <main className={styles.landing}>
@@ -102,7 +104,11 @@ export function SelfEmployedHealthLanding() {
               className={styles.logo}
             />
           </Link>
-          <a className={styles.headerCta} href="#get-my-rates">
+          <a
+            className={styles.headerCta}
+            href="#get-my-rates"
+            onClick={beginApplication}
+          >
             Get My Rates
           </a>
         </div>
@@ -127,28 +133,28 @@ export function SelfEmployedHealthLanding() {
             <div className={styles.rateSelector}>
               <h2>Explore Example Monthly Rates</h2>
               <p>Select who needs coverage.</p>
-              <div
-                className={styles.householdOptions}
-                role="group"
-                aria-label="Choose who needs coverage"
-              >
+              <fieldset className={styles.householdOptions}>
+                <legend className={styles.visuallyHidden}>
+                  Choose who needs coverage
+                </legend>
                 {householdOptions.map((option, index) => (
-                  <button
+                  <label
                     className={`${styles.householdOption} ${
                       selectedHousehold === index ? styles.selected : ''
                     }`}
                     key={option.label}
-                    type="button"
-                    aria-pressed={selectedHousehold === index}
-                    onClick={() => {
-                      setSelectedHousehold(index);
-                      trackLandingEvent('household_selector_use');
-                    }}
                   >
-                    {option.label}
-                  </button>
+                    <input
+                      type="radio"
+                      name="household"
+                      value={option.label}
+                      checked={selectedHousehold === index}
+                      onChange={() => setSelectedHousehold(index)}
+                    />
+                    <span>{option.label}</span>
+                  </label>
                 ))}
-              </div>
+              </fieldset>
               <div className={styles.priceCard}>
                 <p className={styles.priceLabel}>Example monthly rate</p>
                 <p className={styles.price} aria-live="polite">
@@ -156,13 +162,15 @@ export function SelfEmployedHealthLanding() {
                   <span> / month</span>
                 </p>
                 <p className={styles.planLabel}>
-                  Cigna PPO network option <span>·</span> $7,350 Value plan
+                  Value plan <span>·</span> $7,350 deductible <span>·</span> Cigna PPO
+                  network access
                 </p>
               </div>
               <p className={styles.disclaimer}>
-                Example Tier 1 rates from the October 1, 2026 quote schedule
-                (60-day quote-validity window; confirm before launch). Actual
-                premiums depend on medical underwriting and may be higher.
+                Illustrative Tier 1 monthly rates for the selected coverage
+                tier. Eligibility and pricing are subject to medical
+                underwriting; actual rates may be higher. Plan terms and
+                exclusions apply.
               </p>
             </div>
           </div>
@@ -171,25 +179,36 @@ export function SelfEmployedHealthLanding() {
             <span className={styles.cardKicker}>A simple place to begin</span>
             <h2>Get My Personalized Rates</h2>
             <p>
-              Start your application and see what medical coverage may be
-              available for you and your family.
+              Complete the application to request your personalized quote.
+              We’ll email your available options when your quote is ready.
             </p>
-            {applicationUrl ? (
-              <a
+            {applicationSrc ? (
+              <>
+                {appliedHousehold && appliedHousehold !== selectedLabel && (
+                  <p className={styles.applicationNote} role="status">
+                    Your application was opened for “{appliedHousehold}.”
+                    Update the coverage selection in the form if needed.
+                  </p>
+                )}
+                <iframe
+                  className={styles.applicationFrame}
+                  src={applicationSrc}
+                  title="Personalized quote application"
+                  allow="clipboard-write"
+                />
+              </>
+            ) : (
+              <button
                 className={styles.primaryButton}
-                href={applicationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                type="button"
                 onClick={beginApplication}
               >
                 Start My Application
-              </a>
-            ) : (
-              <div className={styles.applicationPending} role="status">
-                The secure application link will be added when access is
-                available.
-              </div>
+              </button>
             )}
+            <p className={styles.questions}>
+              Review our <Link href="/privacy-policy">Privacy Policy</Link>.
+            </p>
             <p className={styles.noObligation}>
               No required sales call. No obligation to enroll.
             </p>
@@ -266,7 +285,7 @@ export function SelfEmployedHealthLanding() {
               pre-existing conditions without medical underwriting. This
               program follows different eligibility and plan rules.
             </p>
-            <a className={styles.secondaryButton} href="#get-my-rates">
+            <a className={styles.secondaryButton} href="#get-my-rates" onClick={beginApplication}>
               Get My Rates
             </a>
           </div>
@@ -335,7 +354,7 @@ export function SelfEmployedHealthLanding() {
             </article>
           </div>
           <div className={styles.simpleCta}>
-            <a className={styles.secondaryButton} href="#get-my-rates">
+            <a className={styles.secondaryButton} href="#get-my-rates" onClick={beginApplication}>
               Get My Rates
             </a>
             <span>No required sales call. No obligation to enroll.</span>
@@ -378,7 +397,11 @@ export function SelfEmployedHealthLanding() {
             See what medical plans and personalized rates may be available for
             your business.
           </p>
-          <a className={styles.primaryButton} href="#get-my-rates">
+          <a
+            className={styles.primaryButton}
+            href="#get-my-rates"
+            onClick={beginApplication}
+          >
             Get My Personalized Rates <span aria-hidden="true">→</span>
           </a>
           <span>No obligation to enroll.</span>

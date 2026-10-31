@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Script from 'next/script';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getCopy } from '@/getCopy';
@@ -245,6 +246,10 @@ export const LeadMagnetSection = () => {
                         ? 'Sending…'
                         : 'Send Me the Guide'}
                     </Button>
+                    <p className="text-muted-ink text-xs leading-relaxed">
+                      See our <Link href="/privacy-policy">Privacy Policy</Link>
+                      .
+                    </p>
                   </form>
                 </>
               )}

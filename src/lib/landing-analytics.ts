@@ -2,7 +2,6 @@ export const LANDING_PAGE_ID = 'self-employed-health-insurance';
 
 const LANDING_EVENTS = [
   'page_view',
-  'household_selector_use',
   'application_start',
   'application_complete',
 ] as const;
@@ -47,7 +46,7 @@ export function getZiteOrigin(applicationUrl?: string) {
 export function listenForZiteEvents(ziteOrigin?: string) {
   const sent = new Set<LandingEvent>();
   const send = (eventName: LandingEvent) => {
-    if (eventName === 'page_view' || eventName === 'household_selector_use') return;
+    if (eventName === 'page_view') return;
     if (eventName === 'application_complete' && sent.has(eventName)) return;
     sent.add(eventName);
     trackLandingEvent(eventName);
