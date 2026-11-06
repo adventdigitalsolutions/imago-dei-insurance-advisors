@@ -101,7 +101,7 @@ export const allSiteCopy = {
     buttonText: 'Book Your Free Benefits Consultation',
     secondaryText: 'Prefer to start with numbers? Request a quote.',
     phoneInfo: '(832) 263-3552',
-    emailInfo: 'info@imagodeinsurance.com',
+    emailInfo: 'support@imagodeinsurance.com',
   },
   footer: {
     socialMediaHeader: 'Find us on social media',
@@ -110,7 +110,7 @@ export const allSiteCopy = {
     businessSolutions: 'Business Solutions',
     about: 'About',
     faq: 'FAQ',
-    email: 'info@imagodeinsurance.com',
+    email: 'support@imagodeinsurance.com',
     phone: '(832) 263-3552',
     linkedinUrl:
       'https://www.linkedin.com/company/imago-dei-insurance-advisors/',

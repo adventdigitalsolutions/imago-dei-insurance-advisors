@@ -17,7 +17,7 @@ export const organizationJsonLd = {
   description:
     'Flexible, affordable group health insurance for Christian-led businesses, churches, and nonprofits. No minimum enrollment or required employer contributions. Serving organizations across the U.S.',
   telephone: '+18322633552',
-  email: 'info@imagodeinsurance.com',
+  email: 'support@imagodeinsurance.com',
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'US',
