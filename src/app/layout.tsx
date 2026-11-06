@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { League_Spartan } from 'next/font/google';
 import './globals.css';
-import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
+import { SiteChrome } from '@/components/site-chrome';
 import { organizationJsonLd } from '@/lib/organization';
 
 const leagueSpartan = League_Spartan({
@@ -98,9 +97,9 @@ export default function RootLayout({
       <body
         className={`${leagueSpartan.variable} font-montserrat antialiased w-full`}
       >
-        <Navbar />
-        <div>{children}</div>
-        <Footer />
+        <SiteChrome>
+          <div>{children}</div>
+        </SiteChrome>
       </body>
     </html>
   );
