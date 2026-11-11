@@ -152,6 +152,9 @@ export const Footer = ({ minimal = false, disclaimer }: FooterProps) => (
           </div>
         </div>
       </div>
+      <p className="mt-6 text-white/70 text-sm">
+        Insurance services provided by David Hemm, Licensed Insurance Agent.
+      </p>
     </div>
   </footer>
 );
