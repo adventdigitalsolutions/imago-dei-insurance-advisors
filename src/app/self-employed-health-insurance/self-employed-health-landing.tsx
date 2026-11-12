@@ -216,7 +216,7 @@ export function SelfEmployedHealthLanding() {
             <p className={styles.questions}>
               Questions? Our licensed insurance advisors are available to help.
               <br />
-              <a href="mailto:info@imagodeinsurance.com">
+              <a href="mailto:support@imagodeinsurance.com">
                 Email our advisors
               </a>
             </p>
