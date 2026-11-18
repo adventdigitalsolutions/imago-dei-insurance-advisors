@@ -1,28 +1,25 @@
 export const LANDING_PAGE_ID = 'self-employed-health-insurance';
+export const GOOGLE_ADS_ID = 'AW-18565734127';
+export const GOOGLE_ADS_CONVERSION_LABEL = 'XLVnCLPQnbUdEO-96pRF';
 
-const LANDING_EVENTS = [
-  'page_view',
-  'application_start',
-  'application_complete',
+export type LandingEvent = 'page_view' | 'application_start' | 'application_complete';
+
+const attributionKeys = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'gclid',
 ] as const;
-
-export type LandingEvent = (typeof LANDING_EVENTS)[number];
+const attributionStorageKey = 'self-employed-application-attribution';
 
 declare global {
   interface Window {
-    dataLayer?: Record<string, unknown>[];
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
-export function isLandingEvent(value: unknown): value is LandingEvent {
-  return (
-    typeof value === 'string' &&
-    (LANDING_EVENTS as readonly string[]).includes(value)
-  );
-}
-
-// Only the event name and page ID are ever sent. Never add household,
-// application answers, or any medical/underwriting data here.
 export function trackLandingEvent(eventName: LandingEvent) {
   const payload = { eventName, page: LANDING_PAGE_ID };
 
@@ -31,46 +28,78 @@ export function trackLandingEvent(eventName: LandingEvent) {
   window.dataLayer.push({ event: `landing_${eventName}`, landing_page: LANDING_PAGE_ID });
 }
 
-export function getZiteOrigin(applicationUrl?: string) {
-  if (!applicationUrl) return undefined;
+export function applicationAttribution(
+  search: string,
+  storage: Pick<Storage, 'getItem' | 'setItem'>
+) {
+  const params = new URLSearchParams(search);
+  const current = new URLSearchParams();
+  for (const key of attributionKeys) {
+    const value = params.get(key);
+    if (value) current.set(key, value);
+  }
+
+  if (current.size) {
+    storage.setItem(attributionStorageKey, current.toString());
+    return current;
+  }
+
+  const stored = new URLSearchParams(storage.getItem(attributionStorageKey) ?? '');
+  const attribution = new URLSearchParams();
+  for (const key of attributionKeys) {
+    const value = stored.get(key);
+    if (value) attribution.set(key, value);
+  }
+  return attribution;
+}
+
+export function getApplicationAttribution() {
   try {
-    return new URL(applicationUrl).origin;
-  } catch {
-    return undefined;
+    return applicationAttribution(window.location.search, window.sessionStorage);
+  } catch (error) {
+    console.warn('Could not access application attribution storage:', error);
+    return applicationAttribution(window.location.search, {
+      getItem: () => null,
+      setItem: () => {},
+    });
   }
 }
 
-// Zite can signal progress in two ways; both are accepted and de-duplicated:
-// 1. postMessage from an embedded app: { source: 'zite', event: 'application_complete' }
-// 2. a redirect back to this page with ?application=complete
-export function listenForZiteEvents(ziteOrigin?: string) {
-  const sent = new Set<LandingEvent>();
-  const send = (eventName: LandingEvent) => {
-    if (eventName === 'page_view') return;
-    if (eventName === 'application_complete' && sent.has(eventName)) return;
-    sent.add(eventName);
-    trackLandingEvent(eventName);
-  };
-
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('application') === 'complete') {
-    send('application_complete');
-    params.delete('application');
-    const query = params.toString();
-    window.history.replaceState(
-      null,
-      '',
-      `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`
-    );
-  }
-
+export function listenForFilloutSubmissions(
+  iframe: HTMLIFrameElement,
+  embedId: string,
+  onSubmit: () => void
+) {
+  // Match Fillout's React embed protocol without forwarding its submission data.
+  const submitted = new Set<string>();
+  const origin = new URL(iframe.src).origin;
   const onMessage = (event: MessageEvent) => {
-    if (!ziteOrigin || event.origin !== ziteOrigin) return;
+    if (event.origin !== origin || event.source !== iframe.contentWindow) return;
     const data = event.data;
-    if (!data || typeof data !== 'object' || data.source !== 'zite') return;
-    if (isLandingEvent(data.event)) send(data.event);
+    if (
+      !data ||
+      typeof data !== 'object' ||
+      data.type !== 'form_submit' ||
+      data.embedId !== embedId ||
+      typeof data.submissionUuid !== 'string' ||
+      !data.submissionUuid ||
+      submitted.has(data.submissionUuid)
+    ) return;
+    submitted.add(data.submissionUuid);
+    onSubmit();
   };
-
   window.addEventListener('message', onMessage);
   return () => window.removeEventListener('message', onMessage);
+}
+
+export function trackApplicationConversion() {
+  trackLandingEvent('application_complete');
+  if (!window.gtag) {
+    console.warn('Google Ads tag is unavailable; application conversion was not sent.');
+    return;
+  }
+  window.gtag('event', 'conversion', {
+    send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_CONVERSION_LABEL}`,
+    user_data: {},
+  });
 }

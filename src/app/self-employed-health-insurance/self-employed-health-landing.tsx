@@ -2,10 +2,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script';
 import { useEffect, useRef, useState } from 'react';
 import {
-  getZiteOrigin,
-  listenForZiteEvents,
+  getApplicationAttribution,
+  GOOGLE_ADS_ID,
+  listenForFilloutSubmissions,
+  trackApplicationConversion,
   trackLandingEvent,
 } from '@/lib/landing-analytics';
 import { Footer } from '@/components/footer';
@@ -65,7 +68,8 @@ const faqs = [
 
 export function SelfEmployedHealthLanding() {
   const [selectedHousehold, setSelectedHousehold] = useState(0);
-  const [applicationSrc, setApplicationSrc] = useState<string>();
+  const [application, setApplication] = useState<{ src: string; embedId: string }>();
+  const applicationFrame = useRef<HTMLIFrameElement>(null);
   const pageViewTracked = useRef(false);
 
   useEffect(() => {
@@ -74,25 +78,57 @@ export function SelfEmployedHealthLanding() {
     trackLandingEvent('page_view');
   }, []);
 
-  useEffect(() => listenForZiteEvents(getZiteOrigin(applicationUrl)), []);
+  useEffect(() => {
+    getApplicationAttribution();
+  }, []);
+
+  useEffect(() => {
+    if (!application || !applicationFrame.current) return;
+    return listenForFilloutSubmissions(
+      applicationFrame.current,
+      application.embedId,
+      trackApplicationConversion
+    );
+  }, [application]);
 
   // The form loads once, carrying the current household selection, so later
   // selector changes never reload the form and discard entered answers.
   const beginApplication = () => {
-    if (applicationSrc) return;
+    if (application) return;
     const url = new URL(applicationUrl);
+    const embedId = String(Math.floor(Math.random() * 90000000000000) + 10000000000000);
     url.searchParams.set('household', householdOptions[selectedHousehold].label);
-    setApplicationSrc(url.toString());
+    url.searchParams.set('fillout-embed-id', embedId);
+    getApplicationAttribution().forEach((value, key) => url.searchParams.set(key, value));
+    setApplication({ src: url.toString(), embedId });
     trackLandingEvent('application_start');
   };
 
   const selectedLabel = householdOptions[selectedHousehold].label;
-  const appliedHousehold = applicationSrc
-    ? new URL(applicationSrc).searchParams.get('household')
+  const appliedHousehold = application
+    ? new URL(application.src).searchParams.get('household')
     : null;
 
   return (
     <main className={styles.landing}>
+      <Script id="google-ads-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+          window.gtag('js', new Date());
+          window.gtag('config', '${GOOGLE_ADS_ID}', {
+            send_page_view: false,
+            page_location: 'https://imagodeinsuranceadvisors.com/self-employed-health-insurance',
+            page_referrer: '',
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false
+          });
+        `}
+      </Script>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+        strategy="afterInteractive"
+      />
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link href="/" aria-label="Imago Dei Insurance Advisors home">
@@ -183,7 +219,7 @@ export function SelfEmployedHealthLanding() {
               Complete the application to request your personalized quote.
               We’ll email your available options when your quote is ready.
             </p>
-            {applicationSrc ? (
+            {application ? (
               <>
                 {appliedHousehold && appliedHousehold !== selectedLabel && (
                   <p className={styles.applicationNote} role="status">
@@ -192,8 +228,9 @@ export function SelfEmployedHealthLanding() {
                   </p>
                 )}
                 <iframe
+                  ref={applicationFrame}
                   className={styles.applicationFrame}
-                  src={applicationSrc}
+                  src={application.src}
                   title="Personalized quote application"
                   allow="clipboard-write"
                 />

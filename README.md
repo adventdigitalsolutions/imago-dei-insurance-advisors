@@ -59,6 +59,7 @@ http://localhost:3000
 - `yarn build` creates production build
 - `yarn start` runs the production server
 - `yarn lint` runs ESLint
+- `node --experimental-strip-types --test src/lib/landing-analytics.test.mjs` runs attribution tests (Node.js 22.6+)
 
 ## Environment Variables
 
@@ -78,6 +79,33 @@ Notes:
 - `SENDGRID_FROM_EMAIL` must be a verified sender/domain in SendGrid.
 - In production, Turnstile keys are enforced by the API route.
 - `ALERT_WEBHOOK_URL` can be left empty.
+
+## Self-employed application attribution
+
+The landing page embeds Fillout form `tktJRjLeLKus` on `imagodei.fillout.com`.
+It loads Google Ads tag `AW-18565734127` only on this landing page and sends
+conversion `AW-18565734127/XLVnCLPQnbUdEO-96pRF` only on Fillout's
+`form_submit` message, not on application start.
+
+The page passes `utm_source`, `utm_medium`, `utm_campaign`, `utm_content` and
+`gclid` to the form. It retains the latest incoming set in session storage for
+the current browser tab. In Fillout, register these exact URL parameter names,
+configure hidden fields or integration mappings as needed, and publish the
+form. Verify the values in a submitted test response.
+
+Before deploying, review applicable privacy/consent requirements and the Google
+Ads and Fillout configurations. Disable enhanced conversions, automatic
+user-provided data collection, form interactions, and any separate conversion
+integration or tag that could send applicant data or duplicate this conversion.
+The website's event does not include form answers, contact details, or the
+Fillout submission ID; external account settings are not controlled by this
+repository.
+
+After deployment, use Google Tag Assistant to check the tag on the landing
+page and confirm the conversion appears only after a successful test submission.
+Inspect the test submission in Fillout for all campaign values, and inspect
+network requests and account settings to confirm no personal or health data is
+sent to Google. Do not use real applicant information in verification.
 
 ## Required Public Asset
 
