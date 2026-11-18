@@ -157,10 +157,7 @@ export function SelfEmployedHealthLanding() {
             <p className={styles.eyebrow}>Health insurance for the self-employed</p>
             <h1>Medical Coverage for Your Business of One—and Your Family.</h1>
             <p className={styles.intro}>
-              Explore medical coverage with access to the nationwide Cigna PPO
-              network—even if you’re the only employee of your business.
-              Coverage options are available for you, your spouse, and your
-              eligible children.
+              Explore eight medical plan options for eligible self-employed business owners and their families, with access to the nationwide Cigna PPO network. Coverage is medically underwritten, so eligibility and personalized rates depend on your health information.
             </p>
             <p className={styles.networkNote}>
               Cigna provides PPO network access; it does not insure this
@@ -213,11 +210,10 @@ export function SelfEmployedHealthLanding() {
           </div>
 
           <aside className={styles.applicationCard} id="get-my-rates">
-            <span className={styles.cardKicker}>A simple place to begin</span>
-            <h2>Get My Personalized Rates</h2>
+            <span className={styles.cardKicker}>Get your personalized rates</span>
+            <h2>Start My Quote Request</h2>
             <p>
-              Complete the application to request your personalized quote.
-              We’ll email your available options when your quote is ready.
+              Complete the application to request your personalized quote. We'll email your available options when your quote is ready.
             </p>
             {application ? (
               <>
@@ -241,7 +237,7 @@ export function SelfEmployedHealthLanding() {
                 type="button"
                 onClick={beginApplication}
               >
-                Start My Application
+                Start My Quote Request
               </button>
             )}
             <p className={styles.questions}>
@@ -397,6 +393,40 @@ export function SelfEmployedHealthLanding() {
             </a>
             <span>No required sales call. No obligation to enroll.</span>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.beforeYouBegin}>
+        <div className={styles.sectionInner}>
+          <h2>Get Your Personalized Coverage Options</h2>
+          <p className={styles.beforeIntro}>
+            Because these plans are medically underwritten, we need medical-history information for everyone requesting coverage to determine eligibility and personalized rates.
+          </p>
+          <p className={styles.beforeLabel}>Here's what to expect:</p>
+          <ul className={styles.beforeList}>
+            <li>
+              <strong>About 10–15 minutes:</strong> Complete your business information and medical-history questions for everyone seeking coverage.
+            </li>
+            <li>
+              <strong>No EIN needed to start:</strong> You can request a quote without providing your EIN immediately. A valid business EIN will be required before coverage can be bound.
+            </li>
+            <li>
+              <strong>Personalized rates after review:</strong> Once your information is submitted and reviewed, we'll email your available coverage options and rates.
+            </li>
+            <li>
+              <strong>No obligation to enroll:</strong> Requesting a quote doesn't bind coverage, and there's no required sales call.
+            </li>
+          </ul>
+          <p className={styles.beforeNote}>
+            The application also includes the necessary medical-records authorization and signature as part of the underwriting process.
+          </p>
+          <a
+            className={styles.primaryButton}
+            href="#get-my-rates"
+            onClick={beginApplication}
+          >
+            Start My Quote Request
+          </a>
         </div>
       </section>
 

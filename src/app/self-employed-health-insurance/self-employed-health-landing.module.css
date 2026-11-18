@@ -353,6 +353,68 @@
   scroll-margin-top: 24px;
 }
 
+.beforeYouBegin {
+  padding: 86px 0;
+  background: #fff;
+  scroll-margin-top: 24px;
+}
+
+.beforeYouBegin h2 {
+  max-width: 720px;
+  margin-bottom: 20px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--navy);
+}
+
+.beforeIntro {
+  max-width: 720px;
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.beforeLabel {
+  margin-bottom: 16px;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.beforeList {
+  max-width: 720px;
+  margin: 0 0 28px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.beforeList li {
+  margin-bottom: 16px;
+  padding-left: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.beforeList strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.beforeNote {
+  max-width: 720px;
+  margin-bottom: 28px;
+  color: #6a7390;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.beforeYouBegin .primaryButton {
+  display: inline-flex;
+}
+
 .sectionInner > h2,
 .faqInner > h2 {
   max-width: 720px;
@@ -737,6 +799,23 @@
   .section,
   .marketplace {
     padding: 60px 0;
+  }
+
+  .beforeYouBegin {
+    padding: 60px 0;
+  }
+
+  .beforeYouBegin h2 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .beforeList li {
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+  }
+
+  .beforeNote {
+    font-size: 0.85rem;
   }
 
   .benefitGrid,
